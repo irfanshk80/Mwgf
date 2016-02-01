@@ -128,7 +128,11 @@
 			<field name="model">maw.claim</field>
 			<field name="arch" type="xml">
 				<search string="Search Claims">
-					<field name="name" string="Claims" />
+					<field name="description" string="Customer Concern" />
+					<field name="number" string="Ticket #" />
+					<field name="customer_first_name" string="Customer First Name" />
+					<field name="mobile" string="Mobile" />
+					<field name="customer_email" string="Email" />
 					<separator />
 					<filter string="Unassigned" icon="terp-personal-"
 						domain="[('user_id','=', False)]" help="Unassigned" />
@@ -139,11 +143,17 @@
 							help="Support Type" context="{'group_by':'claimcateg'}" />
 						<filter string="Status" icon="terp-personal" domain="[]"
 							help="Status" context="{'group_by':'state'}" />
-						<filter string="Responsible" icon="terp-personal" domain="[]"
+						<filter string="Assigned To" icon="terp-personal" domain="[]"
 							help="Responsible User" context="{'group_by':'user_id'}" />
-						<filter string="Month" icon="terp-go-month" domain="[]"
+						<filter string="City" icon="terp-personal" domain="[]"
+							help="City" context="{'group_by':'city_id'}" />
+						<filter string="Operations" icon="terp-personal" domain="[]"
+							help="City" context="{'group_by':'district'}" />
+						<filter string="Occurance Date" icon="terp-go-month" domain="[]"
 							help="By Month" context="{'group_by':'date'}" />
-						<filter string="Closure" icon="terp-go-month" domain="[]"
+						<filter string="Creation Date" icon="terp-go-month" domain="[]"
+							help="By Month" context="{'group_by':'create_date_n'}" />
+						<filter string="Closed Date" icon="terp-go-month" domain="[]"
 							help="Date Closed" context="{'group_by':'date_closed'}" groups="base.group_no_one"
 							invisible="1" />
 					</group>
@@ -157,13 +167,17 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string=" Details">
+					<field name="customer_first_name" string="Customer First Name" />
+					<field name="mobile" />
+					<field name="city_id" string="City"/>
+					<field name="district" />
+					<field name="date" string="Occurance Date"/>
 					<field name="create_date_n" />
-					<field name="date" />
-					<field name="date_closed" />
-					<field name="write_date" />
-					<field name="assigned_date" />
-					<field name="solved_date" />
 					<field name="first_assigned_date" />
+					<field name="assigned_date" string="Reassigned Date" />
+					<field name="solved_date" />
+					<field name="date_closed" />
+					<field name="number" />
 					<field name="claimcateg" />
 					<field name="state" />
 				</tree>
