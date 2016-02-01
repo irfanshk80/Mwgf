@@ -135,8 +135,8 @@
 						            </div>
 						            
 									
-									<div t-attf-class="form-group #{error and 'city_id' in error and 'has-error' or ''}">
-				                  		<label class="col-xs-3 control-label" for="city_id">Location</label>
+									<div t-attf-class="form-group required #{error and 'city_id' in error and 'has-error' or ''}">
+				                  		<label class="col-xs-3 control-label req_eng" for="city_id">Location</label>
 				                        <div class="col-xs-7">
 					                        <select class="form-control" id="city" name='city_id' >
 				                             	<option value=''>City - المدينة</option>
@@ -155,7 +155,7 @@
 					                            </t>
 					                        </select>
 				                        </div>
-				                        <label class="col-xs-2 control-label ar_label" for="customer_first_name">موقع الحدث</label>
+				                        <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">موقع الحدث</label>
 				                    </div>
 				                    
 									
@@ -180,22 +180,22 @@
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الوصف</label>
 						            </div>
 						            
-						       		<div t-attf-class="form-group required #{error and 'attachment' in error and 'has-error' or ''}">
+						       		<div t-attf-class="form-group #{error and 'attachment' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 control-label" for="attachment">Attachment</label>
 						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
 						                <div class="col-xs-7">
 						                    <input type="file" class="form-control" name="attachment" id="attachment"/>
 						                </div>
-						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">مرفقات</label>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">مرفقات</label>
 						            </div>
 						            
-						       		<div t-attf-class="form-group required #{error and 'attachment2' in error and 'has-error' or ''}">
+						       		<div t-attf-class="form-group #{error and 'attachment2' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 control-label" for="attachment2">Additional File</label>
 						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
 						               	<div class="col-xs-7">
 						                    <input type="file" placeholder="your attachment" class="form-control" name="attachment2" id="attachment2"/>
 						                </div>
-						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">ملف إضافي</label>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">ملف إضافي</label>
 						            </div>
 						            
 						            <t t-foreach="kwargs" t-as="kwarg">
