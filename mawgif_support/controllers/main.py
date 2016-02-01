@@ -94,7 +94,6 @@ class support(http.Controller):
         # Values field is initialized with defaults
         values = {
                     'user_id': SUPERUSER_ID,
-                    'date': str(datetime.utcnow()),
                     'create_date_n': str(datetime.utcnow()),
                     'state':'new',
                     'claimcateg': 'comment',
@@ -115,18 +114,22 @@ class support(http.Controller):
                     values["attachment2_fname"]= field_value.filename
             elif field_name in request.registry['maw.claim']._fields and field_name not in _BLACKLIST:
                 if field_name=="date":
-                    sys_tz = detect_server_timezone()
-                    utc_tz = pytz.timezone(sys_tz)
-                    ar_timezone = pytz.timezone('Asia/Riyadh')
-                    fmt = '%Y-%m-%dT%H:%M'
-                    naive = datetime.strptime(field_value, fmt)
-                    #utc_dt = utc_tz.localize(naive, is_dst=None)
-                    local_dt = ar_timezone.localize(naive, is_dst=None)
-                    utc_dt = local_dt.astimezone (utc_tz)
-                    if utc_dt:
-                        values[field_name]=str(utc_dt)
-                    else:
-                        values[field_name] = field_value
+                    try:
+                        sys_tz = detect_server_timezone()
+                        utc_tz = pytz.timezone(sys_tz)
+                        ar_timezone = pytz.timezone('Asia/Riyadh')
+                        fmt = '%Y-%m-%dT%H:%M'
+                        naive = datetime.strptime(field_value, fmt)
+                        #utc_dt = utc_tz.localize(naive, is_dst=None)
+                        local_dt = ar_timezone.localize(naive, is_dst=None)
+                        utc_dt = local_dt.astimezone (utc_tz)
+                        if utc_dt:
+                            values[field_name]=str(utc_dt)
+                        else:
+                            values[field_name] = field_value
+                    except Exception as e:
+                        #values.pop(field_name)
+                        print e
                 else:
                     values[field_name] = field_value
             elif field_name not in _TECHNICAL:  # allow to add some free fields or blacklisted field like ID
