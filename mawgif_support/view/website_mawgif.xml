@@ -97,7 +97,7 @@
 						      		<div name="email_from_container" t-attf-class="form-group #{error and 'customer_email' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 control-label" for="customer_email">Email</label>
 						                <div class="col-xs-7">
-						                    <input type="email" class="form-control" name="customer_email" t-attf-value="#{customer_email or ''}"/>
+						                    <input type="email" class="form-control" name="customer_email" t-attf-value="#{customer_email or ''}" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" placeholder="Email بريد الالكتروني" />
 						                </div>
 						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">البريد الإلكتروني</label>
 						            </div>
@@ -131,7 +131,7 @@
 									<div t-attf-class="form-group required #{error and 'city_id' in error and 'has-error' or ''}">
 				                  		<label class="col-xs-3 control-label req_eng" for="city_id">Location</label>
 				                        <div class="col-xs-7">
-					                        <select class="form-control" id="city" name='city_id' >
+					                        <select class="form-control" id="city" name='city_id' required="true" title="من فضلك لا يمكن ترك هذا الحقل فارغا" >
 				                             	<option value=''>City - المدينة</option>
 					                            <t t-foreach='cities' t-as='city'>
 					                                <option t-att-value='city.id' >
@@ -139,7 +139,7 @@
 					                                </option>
 					                            </t>
 					                        </select>
-					                        <input type="text" class="form-control" name="location" id="location" placeholder="Mawgif Location" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{date or ''}"/>
+					                        <input type="text" class="form-control" name="location" id="location" placeholder="Address" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{date or ''}"/>
 				                        </div>
 				                        <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">موقع الحدث</label>
 				                    </div>

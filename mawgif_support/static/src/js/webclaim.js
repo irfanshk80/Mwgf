@@ -39,14 +39,25 @@ $(document).ready(function() {
 });
 
 function InvalidMsg(textbox) {
-     if(textbox.validity.patternMismatch){
-        textbox.setCustomValidity('Enter mobile without leading 0  من فضلك ادخل رقم الموبايل بدون صفر في البداية');
-    } 
-    else if(textbox.value == '') {
-                textbox.setCustomValidity('Please fill the required field من فضلك لا يمكن ترك هذا الحقل فارغا');
+    if(textbox.name == 'customer_email') {
+        if(textbox.validity.typeMismatch) {
+                console.log('in email');
+            textbox.setCustomValidity('Please enter the valid email من فضلك اضف الجزء بعد @ للبريد الالكتروني');
+        } else {
+            textbox.setCustomValidity('');
+        }
     } 
     else {
-        textbox.setCustomValidity('');
+        if(textbox.validity.patternMismatch){
+            textbox.setCustomValidity('Enter mobile without leading 0  من فضلك ادخل رقم الموبايل بدون صفر في البداية');
+        } 
+        else if(textbox.value == '') {
+            console.log(textbox.name);
+                    textbox.setCustomValidity('Please fill the required field من فضلك لا يمكن ترك هذا الحقل فارغا');
+        } 
+        else {
+            textbox.setCustomValidity('');
+        }
     }
     return true;
 }
