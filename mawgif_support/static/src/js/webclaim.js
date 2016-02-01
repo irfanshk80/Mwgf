@@ -39,12 +39,10 @@ $(document).ready(function() {
 });
 
 function InvalidMsg(textbox) {
-                console.log('invalid method');
      if(textbox.validity.patternMismatch){
         textbox.setCustomValidity('Enter mobile without leading 0  من فضلك ادخل رقم الموبايل بدون صفر في البداية');
     } 
     else if(textbox.value == '') {
-                console.log('in empty');
                 textbox.setCustomValidity('Please fill the required field من فضلك لا يمكن ترك هذا الحقل فارغا');
     } 
     else {
