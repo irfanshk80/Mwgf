@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>################################ maw.city  Views ################################################
+    <record id="city_form_view" model="ir.ui.view">
+            <field name="name">maw.city.form.view</field>
+            <field name="model">maw.city</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+           		<form string=" Details"> 
+
+                                        <group> 
+                                        <group>         			
+	           		   
+	           			<field name="name"/>
+	           			
+	           			          			
+	         		
+	        		
+	        			
+	        			
+	        			 </group> 
+                         <group> 
+	        			
+	        			
+	          			
+		           			
+                                          
+                                       </group> 
+                                    
+                                     </group> 
+   			                  			
+				</form>
+           	</field>
+      		</record>
+
+
+
+      		<record id="city_tree_view" model="ir.ui.view">
+            <field name="name">maw.city.tree.view</field>
+            <field name="model">maw.city</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+           		<tree string=" Details">           			
+	           			
+		           		
+	           			<field name="name"/>
+	           		
+		                   		
+				</tree>
+           	</field>
+      		</record>
+
+
+
+
+<record id="city_search" model="ir.ui.view">
+   <field name="name">citysearch</field>
+    <field name="model">maw.city</field>
+    <field name="type">search</field>
+   <field name="arch" type="xml">
+   <search string="Search ">
+
+ 	<field name="name"/>
+  
+     </search>
+   </field>
+   </record>
+
+################################ course window action ################################################
+	 
+ <record id="city_win_act" model="ir.actions.act_window">
+ <field name="name">City</field>
+ <field name="res_model">maw.city</field>
+  <field name="view_type">form</field>
+ <field name="view_mode">tree,form</field>
+</record>################################ menuitem  course ################################################
+
+ 		  
+ <menuitem action="city_win_act" id="city_side_active_mi" name="City" sequence="33" parent="configuration_side_mi" />
+
+</data>
+</openerp>	
+
+
+
+
+
+
+
+
+
+
+
+

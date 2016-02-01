@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<template id="report_ondemand_claim_document">
+
+			<t t-extend="report.external_layout_footer">
+				<t t-jquery=".footer" t-operation="replace">
+					<div class="footer">
+						<div class="row">
+							<div class="text-right">
+								<hr color="black" />
+								<strong>Prepared By: </strong>
+								<span t-esc="user.name"></span>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+			<t t-call="report.external_layout">
+				<div class="page">
+					<div class="oe_structure" />
+					<div class="text-center">
+						<h2>
+							On Demand Report
+						</h2>
+					</div>
+					
+					<t t-set="data" t-value="o.get_datas_ondemand(o)" />
+		           
+		            <table class="table">
+		                <thead>
+	                         <tr style="border: 1px solid black;">
+                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle" >Days</th>
+                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle" >Not Closed</th>
+                                <th colspan="4"  style="border: 1px solid black;text-align: center;">Closed</th>
+                            </tr>
+                           	<tr style="border: 1px solid black;">
+                                <th style="border: 1px solid black;text-align: center;">Complaints</th>
+                                <th style="border: 1px solid black;text-align: center;">Comments</th>
+                                <th style="border: 1px solid black;text-align: center;">Questions</th>
+                                <th style="border: 1px solid black;text-align: center;">Total</th>
+                            </tr>
+		               </thead>
+		               <tbody class="sale_tbody">
+		                  <tr t-foreach="data" t-as="l">
+                              	<td style="font-weight: bold;text-align: center;" t-esc="l[0]"></td>
+                              	<td style="text-align: center;" t-esc="l[1].get('not_closed',0)"></td>
+                              	<td style="text-align: center;" t-esc="l[1].get('claim',0)"></td>
+                              	<td style="text-align: center;" t-esc="l[1].get('comment',0)"></td>
+                               	<td style="text-align: center;" t-esc="l[1].get('question',0)"></td>
+                               	<td style="text-align: center;" t-esc="l[1].get('total',0)"></td>
+                          </tr>
+		               </tbody>
+		            </table>
+					
+				</div>
+			</t>
+		</template>
+
+		<template id="report_ondemand_claim">
+			<t t-call="report.html_container">
+				<t t-foreach="doc_ids" t-as="doc_id">
+					<t
+						t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'mawgif_support.report_ondemand_claim_document')" />
+				</t>
+			</t>
+		</template>
+
+	</data>
+</openerp>

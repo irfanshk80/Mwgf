@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>################################ maw.district  Views ################################################
+    <record id="district_form_view" model="ir.ui.view">
+            <field name="name">maw.district.form.view</field>
+            <field name="model">maw.district</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+           		<form string=" Details"> 
+
+                                        <group> 
+                                        <group>         			
+	           		   
+	           			<field name="city_id"/>
+	           			<field name="name"/>	           			
+	         		
+	        		<field name="description"/>	 
+	        			
+	        			
+	        			 </group> 
+                         <group> 
+	        			
+	        			
+	          			
+		           			
+                                          
+                                       </group> 
+                                    
+                                     </group> 
+   			                  			
+				</form>
+           	</field>
+      		</record>
+
+
+
+      		<record id="district_tree_view" model="ir.ui.view">
+            <field name="name">maw.district.tree.view</field>
+            <field name="model">maw.district</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+           		<tree string=" Details">           			
+	           			
+		           		
+	           			<field name="name"/>
+	           		 <field name="city_id"/>
+	           		<field name="description"/>	 
+		                  			
+				</tree>
+           	</field>
+      		</record>
+
+
+
+
+<record id="district_search" model="ir.ui.view">
+   <field name="name">districtsearch</field>
+    <field name="model">maw.district</field>
+    <field name="type">search</field>
+   <field name="arch" type="xml">
+   <search string="Search ">
+
+ 	<field name="name"/>
+ <field name="description"/>	 
+     </search>
+   </field>
+   </record>
+
+################################ course window action ################################################
+	 
+ <record id="district_win_act" model="ir.actions.act_window">
+ <field name="name">District</field>
+ <field name="res_model">maw.district</field>
+  <field name="view_type">form</field>
+ <field name="view_mode">tree,form</field>
+</record>################################ menuitem  course ################################################
+
+ 		  
+ <menuitem action="district_win_act" id="district_side_active_mi" name="District" sequence="33" parent="configuration_side_mi" />
+
+</data>
+</openerp>	
+
+
+
+
+
+
+
+
+
+
+
+

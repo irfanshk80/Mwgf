@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>################################ mawgif_claim Views ################################################
+	<record id="mawgif_claim_form_view" model="ir.ui.view">
+			<field name="name">mawgif_claim.form.view</field>
+			<field name="model">maw.claim</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string=" Details">
+					<header>
+						<button name="action_confirm" type="object" string="Confirm"
+							states="new" groups="mawgif_support.group_call_center,mawgif_support.group_manager" class="oe_highlight" />
+
+						<button name="action_assign" type="object" string="Assign" attrs="{'invisible':['|',('claimcateg', '!=', 'claim'),('state','!=','opened')]}" 
+							 groups="mawgif_support.group_call_center,mawgif_support.group_manager" class="oe_highlight" />
+
+						<button name="action_re_assign" type="object" string="Reassign"
+							states="solved" groups="mawgif_support.group_call_center,mawgif_support.group_manager" class="oe_highlight" />
+
+						<button name="action_solve" type="object" string="Solve"
+							states="assigned" groups="mawgif_support.group_customer_service,mawgif_support.group_manager"
+							class="oe_highlight" />
+
+						<button name="action_close" type="object" string="Close"
+							states="opened,solved" groups="mawgif_support.group_call_center,mawgif_support.group_manager" class="oe_highlight" />
+							
+						<button name="send_delay_notifications" type="object" string="Run Scheduler"
+							class="oe_highlight" />
+
+						<field name="state" widget="statusbar" statusbar_visible="new,opened,closed"/>
+					</header>
+					<sheet string="Claims">
+						<group>
+							<field name="number" attrs="{'invisible':[('claimcateg', '!=', 'claim')]}" readonly="1"/>
+							<field name="name" invisible="True" />
+						</group>
+						<group string="Customer Info">
+							<group>
+								<field name="customer_first_name"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+							</group>
+							<group>
+								<field name="customer_second_name" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+							</group>
+						</group>
+						<group string="Contact Info">
+							<group>
+								<label for="mobile" string="Mobile" />
+								<div class="address_format">
+									<field name="country_key" nolabel="1" placeholder="Country" required="1" 
+										options='{"no_open": True, "no_create": True}' style="width: 40%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+									<field name="mobile" nolabel="1"
+										placeholder="without leading zero" style="width: 60%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								</div>
+							</group>
+
+							<group groups="base.group_user">
+								<label for="customer_email" string="Email" />
+								<div class="address_format">
+									<field name="customer_email"  attrs="{'readonly':[('state', '=', 'closed')]}" />
+									<button name="action_contact_customer" type="object"
+								string="Email Customer" class="oe_highlight" />
+								</div>
+							</group>
+						</group>
+
+						<group string="Other Info">
+							<group>
+								<field name="date"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+							</group>
+							<group>
+								<field name="city_id"  attrs="{'readonly':[('state', '=', 'closed')]}" on_change="onchange_city(city_id)" options='{"no_open": True, "no_create": True}'/>
+								<field name="district"  attrs="{'readonly':[('state', '=', 'closed')]}" domain="[('city_id', '=', city_id)]" context="{'default_city_id':city_id}" options='{"no_open": True, "no_create": True}'/>
+							</group>
+
+							<group>
+								<field name="attachment" filename="attachment_fname" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+                            	<field name="attachment_fname" invisible="1" />
+							</group>
+							<group>
+								<field name="attachment2" filename="attachment2_fname" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<field name="attachment2_fname" invisible="1" />
+							</group>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Support Details">
+								<group>
+									<field name="claimcateg" attrs="{'readonly':[('state', '!=', 'new')]}" required="1"/>
+									<field name="complaint_type"
+										attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', '!=', 'new')]}" widget="selection" />
+									<field name="description" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}" string="Customer Concern" required="1"/>
+									<field name="user_id" attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', 'not in', ('new','opened','solved'))],'required':[('state', 'in', ('opened','solved'))]}" 
+									options='{"no_open": True, "no_create": True}'/>
+								</group>
+
+								<group>
+									<field name="service_emp_comment" colspan="4" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								</group>
+
+							</page>
+							<page string="Extra Info">
+								<group>
+									<group string="Dates" >
+										<field name="create_date_n" />
+										<field name="date_closed" />
+										<field name="write_date" />
+										<field name="assigned_date" />
+										<field name="solved_date" />
+										<field name="first_assigned_date" />
+									</group>
+								</group>
+
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Maw claim Search view -->
+		<record id="view_crm_case_claims_filter" model="ir.ui.view">
+			<field name="name">CRM - Claims Search</field>
+			<field name="model">maw.claim</field>
+			<field name="arch" type="xml">
+				<search string="Search Claims">
+					<field name="name" string="Claims" />
+					<separator />
+					<filter string="Unassigned" icon="terp-personal-"
+						domain="[('user_id','=', False)]" help="Unassigned" />
+
+					<field name="user_id" />
+					<group expand="0" string="Group By">
+						<filter string="Support Type" icon="terp-personal" domain="[]"
+							help="Support Type" context="{'group_by':'claimcateg'}" />
+						<filter string="Status" icon="terp-personal" domain="[]"
+							help="Status" context="{'group_by':'state'}" />
+						<filter string="Responsible" icon="terp-personal" domain="[]"
+							help="Responsible User" context="{'group_by':'user_id'}" />
+						<filter string="Month" icon="terp-go-month" domain="[]"
+							help="By Month" context="{'group_by':'date'}" />
+						<filter string="Closure" icon="terp-go-month" domain="[]"
+							help="Date Closed" context="{'group_by':'date_closed'}" groups="base.group_no_one"
+							invisible="1" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="mawgif_claim_tree_view" model="ir.ui.view">
+			<field name="name">mawgif_claim.tree.view</field>
+			<field name="model">maw.claim</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string=" Details">
+					<field name="create_date_n" />
+					<field name="date" />
+					<field name="date_closed" />
+					<field name="write_date" />
+					<field name="assigned_date" />
+					<field name="solved_date" />
+					<field name="first_assigned_date" />
+					<field name="claimcateg" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="maw_claim_graph_view">
+			<field name="name">maw.claim.graph</field>
+			<field name="model">maw.claim</field>
+			<field name="arch" type="xml">
+				<graph string="xyz">
+					<field name="state" />
+					<field name="claimcateg" />
+				</graph>
+			</field>
+		</record>
+
+		################################ course window action ################################################
+
+		<record id="mawgif_claim_win_act" model="ir.actions.act_window">
+			<field name="name">Support Ticket</field>
+			<field name="res_model">maw.claim</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		################################ menuitem course ################################################
+
+		<menuitem action="mawgif_claim_win_act" id="mawgif_claim_side_active_mi"
+			name="Support Ticket" sequence="444" parent="basic_information_file_side_mi" />
+
+
+	</data>
+</openerp>	
+
+
+
+
+
+
+
+
+
+
+
+

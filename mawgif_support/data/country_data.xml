@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+    	<record id="ae" model="maw.country">
+            <field name="name">United Arab Emirates</field>
+            <field name="iso_code">ae</field>
+             <field name="active" eval="False"/>
+        </record>
+        <record id="af" model="maw.country">
+            <field name="name">Afghanistan, Islamic State of</field>
+            <field name="iso_code">af</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ad" model="maw.country">
+            <field name="name">Andorra, Principality of</field>
+            <field name="iso_code">ad</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ag" model="maw.country">
+            <field name="name">Antigua and Barbuda</field>
+            <field name="iso_code">ag</field>
+             <field name="active" eval="False"/>
+        </record>
+        <record id="ai" model="maw.country">
+            <field name="name">Anguilla</field>
+            <field name="iso_code">ai</field>
+             <field name="active" eval="False"/>
+        </record>
+        <record id="al" model="maw.country">
+            <field name="name">Albania</field>
+            <field name="iso_code">al</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="am" model="maw.country">
+            <field name="name">Armenia</field>
+            <field name="iso_code">am</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="an" model="maw.country">
+            <field name="name">Netherlands Antilles</field>
+            <field name="iso_code">an</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ao" model="maw.country">
+            <field name="name">Angola</field>
+            <field name="iso_code">ao</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="aq" model="maw.country">
+            <field name="name">Antarctica</field>
+            <field name="iso_code">aq</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ar" model="maw.country">
+            <field name="name">Argentina</field>
+            <field name="iso_code">ar</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="as" model="maw.country">
+            <field name="name">American Samoa</field>
+            <field name="iso_code">as</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="at" model="maw.country">
+            <field name="name">Austria</field>
+            <field name="iso_code">at</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="au" model="maw.country">
+            <field name="name">Australia</field>
+            <field name="iso_code">au</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="aw" model="maw.country">
+            <field name="name">Aruba</field>
+            <field name="iso_code">aw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ax" model="maw.country">
+            <field name="name">Åland Islands</field>
+            <field name="iso_code">ax</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="az" model="maw.country">
+            <field name="name">Azerbaijan</field>
+            <field name="iso_code">az</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ba" model="maw.country">
+            <field name="name">Bosnia-Herzegovina</field>
+            <field name="iso_code">ba</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bb" model="maw.country">
+            <field name="name">Barbados</field>
+            <field name="iso_code">bb</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bd" model="maw.country">
+            <field name="name">Bangladesh</field>
+            <field name="iso_code">bd</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="be" model="maw.country">
+            <field name="name">Belgium</field>
+            <field name="iso_code">be</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bf" model="maw.country">
+            <field name="name">Burkina Faso</field>
+            <field name="iso_code">bf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bg" model="maw.country">
+            <field name="name">Bulgaria</field>
+            <field name="iso_code">bg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bh" model="maw.country">
+            <field name="name">Bahrain</field>
+            <field name="iso_code">bh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bi" model="maw.country">
+            <field name="name">Burundi</field>
+            <field name="iso_code">bi</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bj" model="maw.country">
+            <field name="name">Benin</field>
+            <field name="iso_code">bj</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bl" model="maw.country">
+            <field name="name">Saint Barthélémy</field>
+            <field name="iso_code">bl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bm" model="maw.country">
+            <field name="name">Bermuda</field>
+            <field name="iso_code">bm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bn" model="maw.country">
+            <field name="name">Brunei Darussalam</field>
+            <field name="iso_code">bn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bo" model="maw.country">
+            <field name="name">Bolivia</field>
+            <field name="iso_code">bo</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bq" model="maw.country">
+            <field name="name">Bonaire, Sint Eustatius and Saba</field>
+            <field name="iso_code">bq</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="br" model="maw.country">
+            <field name="name">Brazil</field>
+            <field name="iso_code">br</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bs" model="maw.country">
+            <field name="name">Bahamas</field>
+            <field name="iso_code">bs</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bt" model="maw.country">
+            <field name="name">Bhutan</field>
+            <field name="iso_code">bt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bv" model="maw.country">
+            <field name="name">Bouvet Island</field>
+            <field name="iso_code">bv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bw" model="maw.country">
+            <field name="name">Botswana</field>
+            <field name="iso_code">bw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="by" model="maw.country">
+            <field name="name">Belarus</field>
+            <field name="iso_code">by</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="bz" model="maw.country">
+            <field name="name">Belize</field>
+            <field name="iso_code">bz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ca" model="maw.country">
+            <field name="name">Canada</field>
+            <field name="iso_code">ca</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cc" model="maw.country">
+            <field name="name">Cocos (Keeling) Islands</field>
+            <field name="iso_code">cc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cf" model="maw.country">
+            <field name="name">Central African Republic</field>
+            <field name="iso_code">cf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cd" model="maw.country">
+            <field name="name">Congo, Democratic Republic of the</field>
+            <field name="iso_code">cd</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cg" model="maw.country">
+            <field name="name">Congo</field>
+            <field name="iso_code">cg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ch" model="maw.country">
+            <field name="name">Switzerland</field>
+            <field name="iso_code">ch</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ci" model="maw.country">
+            <field name="name">Ivory Coast (Cote D'Ivoire)</field>
+            <field name="iso_code">ci</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ck" model="maw.country">
+            <field name="name">Cook Islands</field>
+            <field name="iso_code">ck</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cl" model="maw.country">
+            <field name="name">Chile</field>
+            <field name="iso_code">cl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cm" model="maw.country">
+            <field name="name">Cameroon</field>
+            <field name="iso_code">cm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cn" model="maw.country">
+            <field name="name">China</field>
+            <field name="iso_code">cn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="co" model="maw.country">
+            <field name="name">Colombia</field>
+            <field name="iso_code">co</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cr" model="maw.country">
+            <field name="name">Costa Rica</field>
+            <field name="iso_code">cr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cu" model="maw.country">
+            <field name="name">Cuba</field>
+            <field name="iso_code">cu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cv" model="maw.country">
+            <field name="name">Cape Verde</field>
+            <field name="iso_code">cv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cw" model="maw.country">
+            <field name="name">Curaçao</field>
+            <field name="iso_code">cw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cx" model="maw.country">
+            <field name="name">Christmas Island</field>
+            <field name="iso_code">cx</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cy" model="maw.country">
+            <field name="name">Cyprus</field>
+            <field name="iso_code">cy</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="cz" model="maw.country">
+            <field name="name">Czech Republic</field>
+            <field name="iso_code">cz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="de" model="maw.country">
+            <field name="name">Germany</field>
+            <field name="iso_code">de</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="dj" model="maw.country">
+            <field name="name">Djibouti</field>
+            <field name="iso_code">dj</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="dk" model="maw.country">
+            <field name="name">Denmark</field>
+            <field name="iso_code">dk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="dm" model="maw.country">
+            <field name="name">Dominica</field>
+            <field name="iso_code">dm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="do" model="maw.country">
+            <field name="name">Dominican Republic</field>
+            <field name="iso_code">do</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="dz" model="maw.country">
+            <field name="name">Algeria</field>
+            <field name="iso_code">dz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ec" model="maw.country">
+            <field name="name">Ecuador</field>
+            <field name="iso_code">ec</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ee" model="maw.country">
+            <field name="name">Estonia</field>
+            <field name="iso_code">ee</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="eg" model="maw.country">
+            <field name="name">Egypt</field>
+            <field name="iso_code">eg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="eh" model="maw.country">
+            <field name="name">Western Sahara</field>
+            <field name="iso_code">eh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="er" model="maw.country">
+            <field name="name">Eritrea</field>
+            <field name="iso_code">er</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="es" model="maw.country">
+            <field name="name">Spain</field>
+            <field name="iso_code">es</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="et" model="maw.country">
+            <field name="name">Ethiopia</field>
+            <field name="iso_code">et</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fi" model="maw.country">
+            <field name="name">Finland</field>
+            <field name="iso_code">fi</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fj" model="maw.country">
+            <field name="name">Fiji</field>
+            <field name="iso_code">fj</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fk" model="maw.country">
+            <field name="name">Falkland Islands</field>
+            <field name="iso_code">fk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fm" model="maw.country">
+            <field name="name">Micronesia</field>
+            <field name="iso_code">fm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fo" model="maw.country">
+            <field name="name">Faroe Islands</field>
+            <field name="iso_code">fo</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="fr" model="maw.country">
+            <field name="name">France</field>
+            <field name="iso_code">fr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ga" model="maw.country">
+            <field name="name">Gabon</field>
+            <field name="iso_code">ga</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gd" model="maw.country">
+            <field name="name">Grenada</field>
+            <field name="iso_code">gd</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ge" model="maw.country">
+            <field name="name">Georgia</field>
+            <field name="iso_code">ge</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gf" model="maw.country">
+            <field name="name">French Guyana</field>
+            <field name="iso_code">gf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gh" model="maw.country">
+            <field name="name">Ghana</field>
+            <field name="iso_code">gh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gi" model="maw.country">
+            <field name="name">Gibraltar</field>
+            <field name="iso_code">gi</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gg" model="maw.country">
+            <field name="name">Guernsey</field>
+            <field name="iso_code">gg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gl" model="maw.country">
+            <field name="name">Greenland</field>
+            <field name="iso_code">gl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gm" model="maw.country">
+            <field name="name">Gambia</field>
+            <field name="iso_code">gm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gn" model="maw.country">
+            <field name="name">Guinea</field>
+            <field name="iso_code">gn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gp" model="maw.country">
+            <field name="name">Guadeloupe (French)</field>
+            <field name="iso_code">gp</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gq" model="maw.country">
+            <field name="name">Equatorial Guinea</field>
+            <field name="iso_code">gq</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gr" model="maw.country">
+            <field name="name">Greece</field>
+            <field name="iso_code">gr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gs" model="maw.country">
+            <field name="name">South Georgia and the South Sandwich Islands</field>
+            <field name="iso_code">gs</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gt" model="maw.country">
+            <field name="name">Guatemala</field>
+            <field name="iso_code">gt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gu" model="maw.country">
+            <field name="name">Guam (USA)</field>
+            <field name="iso_code">gu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gw" model="maw.country">
+            <field name="name">Guinea Bissau</field>
+            <field name="iso_code">gw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="gy" model="maw.country">
+            <field name="name">Guyana</field>
+            <field name="iso_code">gy</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="hk" model="maw.country">
+            <field name="name">Hong Kong</field>
+            <field name="iso_code">hk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="hm" model="maw.country">
+            <field name="name">Heard and McDonald Islands</field>
+            <field name="iso_code">hm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="hn" model="maw.country">
+            <field name="name">Honduras</field>
+            <field name="iso_code">hn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="hr" model="maw.country">
+            <field name="name">Croatia</field>
+            <field name="iso_code">hr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ht" model="maw.country">
+            <field name="name">Haiti</field>
+            <field name="iso_code">ht</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="hu" model="maw.country">
+            <field name="name">Hungary</field>
+            <field name="iso_code">hu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="id" model="maw.country">
+            <field name="name">Indonesia</field>
+            <field name="iso_code">id</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ie" model="maw.country">
+            <field name="name">Ireland</field>
+            <field name="iso_code">ie</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="il" model="maw.country">
+            <field name="name">Israel</field>
+            <field name="iso_code">il</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="im" model="maw.country">
+            <field name="name">Isle of Man</field>
+            <field name="iso_code">im</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="in" model="maw.country">
+            <field name="name">India</field>
+            <field name="iso_code">in</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="io" model="maw.country">
+            <field name="name">British Indian Ocean Territory</field>
+            <field name="iso_code">io</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="iq" model="maw.country">
+            <field name="name">Iraq</field>
+            <field name="iso_code">iq</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ir" model="maw.country">
+            <field name="name">Iran</field>
+            <field name="iso_code">ir</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="is" model="maw.country">
+            <field name="name">Iceland</field>
+            <field name="iso_code">is</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="it" model="maw.country">
+            <field name="name">Italy</field>
+            <field name="iso_code">it</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="je" model="maw.country">
+            <field name="name">Jersey</field>
+            <field name="iso_code">je</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="jm" model="maw.country">
+            <field name="name">Jamaica</field>
+            <field name="iso_code">jm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="jo" model="maw.country">
+            <field name="name">Jordan</field>
+            <field name="iso_code">jo</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="jp" model="maw.country">
+            <field name="name">Japan</field>
+            <field name="iso_code">jp</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ke" model="maw.country">
+            <field name="name">Kenya</field>
+            <field name="iso_code">ke</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kg" model="maw.country">
+            <field name="name">Kyrgyz Republic (Kyrgyzstan)</field>
+            <field name="iso_code">kg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kh" model="maw.country">
+            <field name="name">Cambodia, Kingdom of</field>
+            <field name="iso_code">kh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ki" model="maw.country">
+            <field name="name">Kiribati</field>
+            <field name="iso_code">ki</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="km" model="maw.country">
+            <field name="name">Comoros</field>
+            <field name="iso_code">km</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kn" model="maw.country">
+            <field name="name">Saint Kitts &amp; Nevis Anguilla</field>
+            <field name="iso_code">kn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kp" model="maw.country">
+            <field name="name">North Korea</field>
+            <field name="iso_code">kp</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kr" model="maw.country">
+            <field name="name">South Korea</field>
+            <field name="iso_code">kr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kw" model="maw.country">
+            <field name="name">Kuwait</field>
+            <field name="iso_code">kw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ky" model="maw.country">
+            <field name="name">Cayman Islands</field>
+            <field name="iso_code">ky</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="kz" model="maw.country">
+            <field name="name">Kazakhstan</field>
+            <field name="iso_code">kz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="la" model="maw.country">
+            <field name="name">Laos</field>
+            <field name="iso_code">la</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lb" model="maw.country">
+            <field name="name">Lebanon</field>
+            <field name="iso_code">lb</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lc" model="maw.country">
+            <field name="name">Saint Lucia</field>
+            <field name="iso_code">lc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="li" model="maw.country">
+            <field name="name">Liechtenstein</field>
+            <field name="iso_code">li</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lk" model="maw.country">
+            <field name="name">Sri Lanka</field>
+            <field name="iso_code">lk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lr" model="maw.country">
+            <field name="name">Liberia</field>
+            <field name="iso_code">lr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ls" model="maw.country">
+            <field name="name">Lesotho</field>
+            <field name="iso_code">ls</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lt" model="maw.country">
+            <field name="name">Lithuania</field>
+            <field name="iso_code">lt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lu" model="maw.country">
+            <field name="name">Luxembourg</field>
+            <field name="iso_code">lu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="lv" model="maw.country">
+            <field name="name">Latvia</field>
+            <field name="iso_code">lv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ly" model="maw.country">
+            <field name="name">Libya</field>
+            <field name="iso_code">ly</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ma" model="maw.country">
+            <field name="name">Morocco</field>
+            <field name="iso_code">ma</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mc" model="maw.country">
+            <field name="name">Monaco</field>
+            <field name="iso_code">mc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="md" model="maw.country">
+            <field name="name">Moldavia</field>
+            <field name="iso_code">md</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="me" model="maw.country">
+            <field name="name">Montenegro</field>
+            <field name="iso_code">me</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mf" model="maw.country">
+            <field name="name">Saint Martin (French part)</field>
+            <field name="iso_code">mf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mg" model="maw.country">
+            <field name="name">Madagascar</field>
+            <field name="iso_code">mg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mh" model="maw.country">
+            <field name="name">Marshall Islands</field>
+            <field name="iso_code">mh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mk" model="maw.country">
+            <field name="name">Macedonia, the former Yugoslav Republic of</field>
+            <field name="iso_code">mk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ml" model="maw.country">
+            <field name="name">Mali</field>
+            <field name="iso_code">ml</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mm" model="maw.country">
+            <field name="name">Myanmar</field>
+            <field name="iso_code">mm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mn" model="maw.country">
+            <field name="name">Mongolia</field>
+            <field name="iso_code">mn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mo" model="maw.country">
+            <field name="name">Macau</field>
+            <field name="iso_code">mo</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mp" model="maw.country">
+            <field name="name">Northern Mariana Islands</field>
+            <field name="iso_code">mp</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mq" model="maw.country">
+            <field name="name">Martinique (French)</field>
+            <field name="iso_code">mq</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mr" model="maw.country">
+            <field name="name">Mauritania</field>
+            <field name="iso_code">mr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ms" model="maw.country">
+            <field name="name">Montserrat</field>
+            <field name="iso_code">ms</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mt" model="maw.country">
+            <field name="name">Malta</field>
+            <field name="iso_code">mt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mu" model="maw.country">
+            <field name="name">Mauritius</field>
+            <field name="iso_code">mu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mv" model="maw.country">
+            <field name="name">Maldives</field>
+            <field name="iso_code">mv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mw" model="maw.country">
+            <field name="name">Malawi</field>
+            <field name="iso_code">mw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mx" model="maw.country">
+            <field name="name">Mexico</field>
+            <field name="iso_code">mx</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="my" model="maw.country">
+            <field name="name">Malaysia</field>
+            <field name="iso_code">my</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="mz" model="maw.country">
+            <field name="name">Mozambique</field>
+            <field name="iso_code">mz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="na" model="maw.country">
+            <field name="name">Namibia</field>
+            <field name="iso_code">na</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nc" model="maw.country">
+            <field name="name">New Caledonia (French)</field>
+            <field name="iso_code">nc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ne" model="maw.country">
+            <field name="name">Niger</field>
+            <field name="iso_code">ne</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nf" model="maw.country">
+            <field name="name">Norfolk Island</field>
+            <field name="iso_code">nf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ng" model="maw.country">
+            <field name="name">Nigeria</field>
+            <field name="iso_code">ng</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ni" model="maw.country">
+            <field name="name">Nicaragua</field>
+            <field name="iso_code">ni</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nl" model="maw.country">
+            <field name="name">Netherlands</field>
+            <field name="iso_code">nl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="no" model="maw.country">
+            <field name="name">Norway</field>
+            <field name="iso_code">no</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="np" model="maw.country">
+            <field name="name">Nepal</field>
+            <field name="iso_code">np</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nr" model="maw.country">
+            <field name="name">Nauru</field>
+            <field name="iso_code">nr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nt" model="maw.country">
+            <field name="name">Neutral Zone</field>
+            <field name="iso_code">nt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nu" model="maw.country">
+            <field name="name">Niue</field>
+            <field name="iso_code">nu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="nz" model="maw.country">
+            <field name="name">New Zealand</field>
+            <field name="iso_code">nz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="om" model="maw.country">
+            <field name="name">Oman</field>
+            <field name="iso_code">om</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pa" model="maw.country">
+            <field name="name">Panama</field>
+            <field name="iso_code">pa</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pe" model="maw.country">
+            <field name="name">Peru</field>
+            <field name="iso_code">pe</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pf" model="maw.country">
+            <field name="name">Polynesia (French)</field>
+            <field name="iso_code">pf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pg" model="maw.country">
+            <field name="name">Papua New Guinea</field>
+            <field name="iso_code">pg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ph" model="maw.country">
+            <field name="name">Philippines</field>
+            <field name="iso_code">ph</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pk" model="maw.country">
+            <field name="name">Pakistan</field>
+            <field name="iso_code">pk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pl" model="maw.country">
+            <field name="name">Poland</field>
+            <field name="iso_code">pl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pm" model="maw.country">
+            <field name="name">Saint Pierre and Miquelon</field>
+            <field name="iso_code">pm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pn" model="maw.country">
+            <field name="name">Pitcairn Island</field>
+            <field name="iso_code">pn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pr" model="maw.country">
+            <field name="name">Puerto Rico</field>
+            <field name="iso_code">pr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ps" model="maw.country">
+            <field name="name">Palestinian Territory, Occupied</field>
+            <field name="iso_code">ps</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pt" model="maw.country">
+            <field name="name">Portugal</field>
+            <field name="iso_code">pt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="pw" model="maw.country">
+            <field name="name">Palau</field>
+            <field name="iso_code">pw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="py" model="maw.country">
+            <field name="name">Paraguay</field>
+            <field name="iso_code">py</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="qa" model="maw.country">
+            <field name="name">Qatar</field>
+            <field name="iso_code">qa</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="re" model="maw.country">
+            <field name="name">Reunion (French)</field>
+            <field name="iso_code">re</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ro" model="maw.country">
+            <field name="name">Romania</field>
+            <field name="iso_code">ro</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="rs" model="maw.country">
+            <field name="name">Serbia</field>
+            <field name="iso_code">rs</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ru" model="maw.country">
+            <field name="name">Russian Federation</field>
+            <field name="iso_code">ru</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="rw" model="maw.country">
+            <field name="name">Rwanda</field>
+            <field name="iso_code">rw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sa" model="maw.country">
+            <field name="name">Saudi Arabia</field>
+            <field name="mob_code">966</field>
+            <field name="iso_code">sa</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="sb" model="maw.country">
+            <field name="name">Solomon Islands</field>
+            <field name="iso_code">sb</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sc" model="maw.country">
+            <field name="name">Seychelles</field>
+            <field name="iso_code">sc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sd" model="maw.country">
+            <field name="name">Sudan</field>
+            <field name="iso_code">sd</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="se" model="maw.country">
+            <field name="name">Sweden</field>
+            <field name="iso_code">se</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sg" model="maw.country">
+            <field name="name">Singapore</field>
+            <field name="iso_code">sg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sh" model="maw.country">
+            <field name="name">Saint Helena</field>
+            <field name="iso_code">sh</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="si" model="maw.country">
+            <field name="name">Slovenia</field>
+            <field name="iso_code">si</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sj" model="maw.country">
+            <field name="name">Svalbard and Jan Mayen Islands</field>
+            <field name="iso_code">sj</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sk" model="maw.country">
+            <field name="name">Slovakia</field>
+            <field name="iso_code">sk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sl" model="maw.country">
+            <field name="name">Sierra Leone</field>
+            <field name="iso_code">sl</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sm" model="maw.country">
+            <field name="name">San Marino</field>
+            <field name="iso_code">sm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sn" model="maw.country">
+            <field name="name">Senegal</field>
+            <field name="iso_code">sn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="so" model="maw.country">
+            <field name="name">Somalia</field>
+            <field name="iso_code">so</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sr" model="maw.country">
+            <field name="name">Suriname</field>
+            <field name="iso_code">sr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ss" model="maw.country">
+            <field name="name">South Sudan</field>
+            <field name="iso_code">ss</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="st" model="maw.country">
+            <field name="name">Saint Tome (Sao Tome) and Principe</field>
+            <field name="iso_code">st</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sv" model="maw.country">
+            <field name="name">El Salvador</field>
+            <field name="iso_code">sv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sx" model="maw.country">
+            <field name="name">Sint Maarten (Dutch part)</field>
+            <field name="iso_code">sx</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sy" model="maw.country">
+            <field name="name">Syria</field>
+            <field name="iso_code">sy</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="sz" model="maw.country">
+            <field name="name">Swaziland</field>
+            <field name="iso_code">sz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tc" model="maw.country">
+            <field name="name">Turks and Caicos Islands</field>
+            <field name="iso_code">tc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="td" model="maw.country">
+            <field name="name">Chad</field>
+            <field name="iso_code">td</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tf" model="maw.country">
+            <field name="name">French Southern Territories</field>
+            <field name="iso_code">tf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tg" model="maw.country">
+            <field name="name">Togo</field>
+            <field name="iso_code">tg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="th" model="maw.country">
+            <field name="name">Thailand</field>
+            <field name="iso_code">th</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tj" model="maw.country">
+            <field name="name">Tajikistan</field>
+            <field name="iso_code">tj</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tk" model="maw.country">
+            <field name="name">Tokelau</field>
+            <field name="iso_code">tk</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tm" model="maw.country">
+            <field name="name">Turkmenistan</field>
+            <field name="iso_code">tm</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tn" model="maw.country">
+            <field name="name">Tunisia</field>
+            <field name="iso_code">tn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="to" model="maw.country">
+            <field name="name">Tonga</field>
+            <field name="iso_code">to</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tp" model="maw.country">
+            <field name="name">East Timor</field>
+            <field name="iso_code">tp</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tr" model="maw.country">
+            <field name="name">Turkey</field>
+            <field name="iso_code">tr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tt" model="maw.country">
+            <field name="name">Trinidad and Tobago</field>
+            <field name="iso_code">tt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tv" model="maw.country">
+            <field name="name">Tuvalu</field>
+            <field name="iso_code">tv</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tw" model="maw.country">
+            <field name="name">Taiwan</field>
+            <field name="iso_code">tw</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="tz" model="maw.country">
+            <field name="name">Tanzania</field>
+            <field name="iso_code">tz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ua" model="maw.country">
+            <field name="name">Ukraine</field>
+            <field name="iso_code">ua</field>
+            <field name="active" eval="False"/>
+        </record>
+        <!-- DEPRECATED, New currency iso_code of Uganda is UGX ! -->
+        <record id="ug" model="maw.country">
+            <field name="name">Uganda</field>
+            <field name="iso_code">ug</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="uk" model="maw.country">
+            <field name="name">United Kingdom</field>
+            <field name="iso_code">gb</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="um" model="maw.country">
+            <field name="name">USA Minor Outlying Islands</field>
+            <field name="iso_code">um</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="us" model="maw.country">
+            <field name="name">United States</field>
+            <field name="iso_code">us</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="uy" model="maw.country">
+            <field name="name">Uruguay</field>
+            <field name="iso_code">uy</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="uz" model="maw.country">
+            <field name="name">Uzbekistan</field>
+            <field name="iso_code">uz</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="va" model="maw.country">
+            <field name="name">Holy See (Vatican City State)</field>
+            <field name="iso_code">va</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="vc" model="maw.country">
+            <field name="name">Saint Vincent &amp; Grenadines</field>
+            <field name="iso_code">vc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ve" model="maw.country">
+            <field name="name">Venezuela</field>
+            <field name="iso_code">ve</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="vg" model="maw.country">
+            <field name="name">Virgin Islands (British)</field>
+            <field name="iso_code">vg</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="vi" model="maw.country">
+            <field name="name">Virgin Islands (USA)</field>
+            <field name="iso_code">vi</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="vn" model="maw.country">
+            <field name="name">Vietnam</field>
+            <field name="iso_code">vn</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="vu" model="maw.country">
+            <field name="name">Vanuatu</field>
+            <field name="iso_code">vu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="wf" model="maw.country">
+            <field name="name">Wallis and Futuna Islands</field>
+            <field name="iso_code">wf</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ws" model="maw.country">
+            <field name="name">Samoa</field>
+            <field name="iso_code">ws</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="ye" model="maw.country">
+            <field name="name">Yemen</field>
+            <field name="iso_code">ye</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="yt" model="maw.country">
+            <field name="name">Mayotte</field>
+            <field name="iso_code">yt</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="yu" model="maw.country">
+            <field name="name">Yugoslavia</field>
+            <field name="iso_code">yu</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="za" model="maw.country">
+            <field name="name">South Africa</field>
+            <field name="iso_code">za</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="zm" model="maw.country">
+            <field name="name">Zambia</field>
+            <field name="iso_code">zm</field>
+            <field name="active" eval="False"/>
+        </record>
+
+        <!-- DEPRECATED, New name of Zaire is Democratic Republic of the Congo ! -->
+        <record id="zr" model="maw.country">
+            <field name="name">Zaire</field>
+            <field name="iso_code">zr</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="zw" model="maw.country">
+            <field name="name">Zimbabwe</field>
+            <field name="iso_code">zw</field>
+            <field name="active" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<template id="report_monthly_claim_document">
+
+			<t t-extend="report.external_layout_footer">
+				<t t-jquery=".footer" t-operation="replace">
+					<div class="footer">
+						<div class="row">
+							<div class="text-right">
+								<hr color="black" />
+								<strong>Prepared By: </strong>
+								<span t-esc="user.name"></span>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+			<t t-call="report.external_layout">
+				<div class="page">
+					<div class="oe_structure" />
+					<div class="text-center">
+						<h2>
+							Monthly Report
+						</h2>
+					</div>
+					<t t-set="data" t-value="o.get_datas_monthly(o)" />
+		           
+		            <table class="table table-condensed">
+		                <thead>
+	                         <tr>
+                                <th></th>
+                                <th>Opened</th>
+                                <th>Assigned</th>
+                                <th>Solved</th>
+                                <th>Total</th>
+                                <th>Opened Average Time</th>
+                                <th>Assigned Average Time</th>
+                                <th>Solved Average Time</th>
+                                <th>Total Average Time</th>
+                            </tr>
+		               </thead>
+		               <tbody class="sale_tbody">
+		                  <tr t-foreach="data" t-as="l">
+		                      <td t-esc="l[0]"></td>
+		                      <td t-esc="l[1].get('opened',0)"></td>
+                              <td t-esc="l[1].get('assigned',0)"></td>
+                               <td t-esc="l[1].get('solved',0)"></td>
+                              <td t-esc="l[1].get('total',0)"></td>
+                              <td t-esc="l[1].get('open_average_time',0.0)"></td>
+                               <td t-esc="l[1].get('assigned_average_time',0.0)"></td>
+                               <td t-esc="l[1].get('solved_average_time',0.0)"></td>
+                               <td t-esc="l[1].get('total_average_time',0.0)"></td>
+                          </tr>
+		               </tbody>
+	
+		            </table>
+					
+				</div>
+			</t>
+		</template>
+
+		<template id="report_monthly_claim">
+			<t t-call="report.html_container">
+				<t t-foreach="doc_ids" t-as="doc_id">
+					<t
+						t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'mawgif_support.report_monthly_claim_document')" />
+				</t>
+			</t>
+		</template>
+
+	</data>
+</openerp>

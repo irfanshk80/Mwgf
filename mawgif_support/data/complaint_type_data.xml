@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<record id="complaint_type1" model="maw.complaint_type">
+			<field name="name">eWallet</field>
+		</record>
+		
+		<record id="complaint_type2" model="maw.complaint_type">
+			<field name="name">Charge Notice (CN)</field>
+		</record>
+		
+		<record id="complaint_type3" model="maw.complaint_type">
+			<field name="name">Towing</field>
+		</record>
+		
+		<record id="complaint_type4" model="maw.complaint_type">
+			<field name="name">Clamping</field>
+		</record>
+		
+		<record id="complaint_type5" model="maw.complaint_type">
+			<field name="name">Vehicle Damage</field>
+		</record>
+		
+		<record id="complaint_type6" model="maw.complaint_type">
+			<field name="name">Staff</field>
+		</record>
+		
+		<record id="complaint_type7" model="maw.complaint_type">
+			<field name="name">Signage</field>
+		</record>
+		
+		<record id="complaint_type8" model="maw.complaint_type">
+			<field name="name">Mobile Application</field>
+		</record>
+		
+		<record id="complaint_type9" model="maw.complaint_type">
+			<field name="name">Parking Machine</field>
+		</record>
+		
+		<record id="complaint_type10" model="maw.complaint_type">
+			<field name="name">Pay-N-Display (PND) Parking Machines</field>
+		</record>
+		
+		<record id="complaint_type11" model="maw.complaint_type">
+			<field name="name">Other</field>
+		</record>
+
+	</data>
+</openerp>

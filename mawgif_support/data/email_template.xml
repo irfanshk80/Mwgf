@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<openerp>
+ <data noupdate="1">
+
+        <!--Email template -->
+        <record id="email_template_contact_customer" model="email.template">
+            <field name="name">Mawgif - Contact Customer by Email</field>
+            <field name="email_from">${(object.user_id.email or '')|safe}</field>
+            <field name="subject">${('Mawgif Customer Support')|safe}</field>
+            <field name="email_to">${(object.customer_email or '')|safe}</field>
+            <field name="model_id" ref="mawgif_support.model_maw_claim"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang">${object.user_id.lang}</field>
+            <field name="body_html"></field>
+        </record>
+        
+        <record id="email_template_notify_customer" model="email.template">
+            <field name="name">Notification to Customer</field>
+            <field name="email_from">${(object.user_id.email or '')|safe}</field>
+             <field name="subject">${('Mawgif Customer Support')|safe}</field>
+            <field name="email_to">${(object.customer_email or '')|safe}</field>
+            <field name="model_id" ref="mawgif_support.model_maw_claim"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang">${object.user_id.lang}</field>
+        </record>
+        
+    </data>
+    </openerp>

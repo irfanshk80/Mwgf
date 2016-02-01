@@ -1,0 +1,608 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* maw21_12_6PM
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20151017\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-23 07:20+0000\n"
+"PO-Revision-Date: 2015-12-23 10:28+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 1.6.3\n"
+"Language: ar_SY\n"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,name:0 field:crm.wizard,to:0
+msgid " Subject"
+msgstr " Subject"
+
+#. module: maw21_12_6PM
+#: field:maw.claim.report,nbr:0
+msgid "# of Claims"
+msgstr "# الشكاوي"
+
+#. module: maw21_12_6PM
+#: code:addons/maw21_12_6PM/mawgif_claim.py:200
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copy)"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,active:0
+msgid "Active"
+msgstr "نشط"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,attachment2:0
+msgid "Additional file "
+msgstr "Additional file "
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.launch_assign_wizard2
+#: field:maw.claim,user_id:0
+msgid "Assign To"
+msgstr "إسناد إلي"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Assign/Reassign"
+msgstr "إسناد/إعادة إسناد"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,state:0
+msgid "Assigned"
+msgstr "مسند"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,assigned_date:0
+msgid "Assigned Date"
+msgstr "تاريخ الاسناد"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,attachment:0
+msgid "Attachment"
+msgstr "مرفق"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Category"
+msgstr "الدعم المطلوب"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.city_side_active_mi
+#: field:maw.district,city_id:0
+msgid "City"
+msgstr "المدينة"
+
+#. module: maw21_12_6PM
+#: model:ir.model,name:maw21_12_6PM.model_maw_claim
+msgid "Claim"
+msgstr "شكوى"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Claim Date by Month"
+msgstr "Claim Date by Month"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Claim Month"
+msgstr "شهر الشكوى"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,name:0 field:maw.claim.report,subject:0
+msgid "Claim Subject"
+msgstr "موضوع الشكوى"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.crm_case_claims_calendar_view
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+#: view:maw.claim.report:maw21_12_6PM.view_report_maw_claim_graph
+msgid "Claims"
+msgstr "الشكاوي"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.basic_information_file_side_mi
+msgid "Claims "
+msgstr "الشكاوي "
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.action_report_maw_claim
+#: model:ir.ui.menu,name:maw21_12_6PM.menu_report_maw_claim_tree
+msgid "Claims Analysis"
+msgstr "تحليل الشكاوي"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: maw21_12_6PM
+#: field:maw.claim.report,date_closed:0
+msgid "Close Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,state:0
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,date_closed:0
+msgid "Closed Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Closure"
+msgstr "إغلاق"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,service_emp_comment:0
+msgid "Comment"
+msgstr "التعليق"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,complaint_type:0 field:maw.complaint_type,name:0
+msgid "Complaint Type"
+msgstr "الشكوى نوع"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.configuration_side_mi
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.wizard_menu3
+msgid "Contact Customer"
+msgstr "راسل العميل"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Contact customer"
+msgstr "راسل العميل"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+#: field:maw.claim,country_key:0
+msgid "Country Key"
+msgstr "كود الدولة"
+
+#. module: maw21_12_6PM
+#: field:maw.claim.report,create_date:0
+msgid "Create Date"
+msgstr "تاريخ الإنشاء"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,create_uid:0 field:maw.city,create_uid:0
+#: field:maw.claim,create_uid:0 field:maw.complaint_type,create_uid:0
+#: field:maw.district,create_uid:0
+msgid "Created by"
+msgstr "الإنشاء بواسطة"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,create_date:0 field:maw.city,create_date:0
+#: field:maw.complaint_type,create_date:0 field:maw.district,create_date:0
+msgid "Created on"
+msgstr "الإنشاء في"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,create_date:0
+msgid "Creation Date"
+msgstr "تاريخ الإنشاء"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.mawgif_claim_daily_side_active_mi
+msgid "Daily Reports"
+msgstr "تقارير يومية"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Date Closed"
+msgstr "تاريخ الإغلاق"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view field:maw.claim,date:0
+msgid "Date Of Occurrence"
+msgstr "تاريخ الحدوث"
+
+#. module: maw21_12_6PM
+#: help:maw.claim,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Date of the last message posted on the record."
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Deadline"
+msgstr "آخر تاريخ ممكن"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,description:0
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+#: field:maw.claim,description:0 field:maw.complaint_type,description:0
+#: field:maw.district,description:0
+msgid "Description"
+msgstr "وصف"
+
+#. module: maw21_12_6PM
+#: help:maw.claim,email_from:0
+msgid "Destination email for email gateway."
+msgstr "Destination email for email gateway."
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_tree_view
+#: view:maw.complaint_type:maw21_12_6PM.city_form_view
+#: view:maw.complaint_type:maw21_12_6PM.city_tree_view
+#: view:maw.district:maw21_12_6PM.district_form_view
+#: view:maw.district:maw21_12_6PM.district_tree_view
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.district_side_active_mi
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+#: field:maw.claim,district:0
+msgid "District"
+msgstr "حي"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,email_from:0
+msgid "Email"
+msgstr "بريد الالكتروني"
+
+#. module: maw21_12_6PM
+#: view:maw.claim.report:maw21_12_6PM.view_report_maw_claim_filter
+msgid "Extended Filters..."
+msgstr "فلاتر أخرى"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Extra attachment"
+msgstr "Extra attachment"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,customer_first_name:0
+msgid "First Name"
+msgstr "الاسم الاول"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_follower_ids:0
+msgid "Followers"
+msgstr "المتابعين"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,claimcateg:0
+msgid "Form Classifications"
+msgstr "الدعم المطلوب"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+#: view:maw.claim.report:maw21_12_6PM.view_report_maw_claim_filter
+msgid "Group By"
+msgstr "تجميع بـ"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,priority:0
+msgid "High"
+msgstr "High"
+
+#. module: maw21_12_6PM
+#: help:maw.claim,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,id:0 field:maw.city,id:0 field:maw.claim,id:0
+#: field:maw.claim.report,id:0 field:maw.complaint_type,id:0
+#: field:maw.district,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: maw21_12_6PM
+#: help:maw.claim,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "If checked new messages require your attention."
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Is a Follower"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_last_post:0
+msgid "Last Message Date"
+msgstr "Last Message Date"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,customer_second_name:0
+msgid "Last Name"
+msgstr "الاسم الاخير"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,write_uid:0 field:maw.city,write_uid:0
+#: field:maw.claim,write_uid:0 field:maw.complaint_type,write_uid:0
+#: field:maw.district,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: maw21_12_6PM
+#: field:crm.wizard,write_date:0 field:maw.city,write_date:0
+#: field:maw.complaint_type,write_date:0 field:maw.district,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Last name"
+msgstr "الاسم الاخير"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Location"
+msgstr "موقع الحدث"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,city_id:0
+msgid "Location Of Occurrence"
+msgstr "موقع الحدث"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,priority:0
+msgid "Low"
+msgstr "Low"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.mawgif_mi
+msgid "Mawgif"
+msgstr "Mawgif"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_ids:0
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: maw21_12_6PM
+#: help:maw.claim,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messages and communication history"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,mobile:0
+msgid "Mobile"
+msgstr "جوال"
+
+#. module: maw21_12_6PM
+#: code:addons/maw21_12_6PM/mawgif_claim.py:217
+#, python-format
+msgid "No Subject"
+msgstr "No Subject"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+msgid "None Today"
+msgstr "None Today"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,state:0
+msgid "Opened"
+msgstr "مفتوح"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,priority:0
+msgid "Priority"
+msgstr "Priority"
+
+#. module: maw21_12_6PM
+#: model:ir.ui.menu,name:maw21_12_6PM.reports_side_mi
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Responsible"
+msgstr "Responsible"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Responsible User"
+msgstr "Responsible User"
+
+#. module: maw21_12_6PM
+#: view:maw.claim.report:maw21_12_6PM.view_report_maw_claim_filter
+msgid "Salesperson"
+msgstr "Salesperson"
+
+#. module: maw21_12_6PM
+#: view:maw.city:maw21_12_6PM.city_search
+#: view:maw.claim.report:maw21_12_6PM.view_report_maw_claim_filter
+#: view:maw.complaint_type:maw21_12_6PM.complaint_type_search
+#: view:maw.district:maw21_12_6PM.district_search
+msgid "Search"
+msgstr "Search"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+msgid "Search Claims"
+msgstr "البحث في الشكاوي"
+
+#. module: maw21_12_6PM
+#: view:crm.wizard:maw21_12_6PM.wizard_form_view
+msgid "Send"
+msgstr "Send"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Service employee comments"
+msgstr "ملاحظات موظف الخدمة"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "Solve"
+msgstr "حل"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,state:0
+msgid "Solved"
+msgstr "تم الحل"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,solved_date:0
+msgid "Solved Date"
+msgstr "تاريخ الحل"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+msgid "State"
+msgstr "الحالة"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_summary:0
+msgid "Summary"
+msgstr "Summary"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,time:0
+msgid "Time Of Occurrence"
+msgstr "تاريخ الحدوث"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter2
+msgid "Today"
+msgstr "Today"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.view_crm_case_claims_filter
+msgid "Unassigned Claims"
+msgstr "شكاوي غير مسنده"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,message_unread:0
+msgid "Unread Messages"
+msgstr "Unread Messages"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,write_date:0
+msgid "Update Date"
+msgstr "تاريخ التحديث"
+
+#. module: maw21_12_6PM
+#: field:maw.claim.report,user_id:0
+msgid "User"
+msgstr "User"
+
+#. module: maw21_12_6PM
+#: model:ir.filters,name:maw21_12_6PM.filter_report_maw_claim_workload
+msgid "Workload"
+msgstr "عبء العمل"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "attachment"
+msgstr "attachment"
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.city_win_act
+#: field:maw.city,name:0
+msgid "city"
+msgstr "المدينة"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,claimcateg:0
+msgid "claim"
+msgstr "شكوى"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,claimcateg:0
+msgid "comment"
+msgstr "ملاحظات"
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.complaint_type_win_act
+#: model:ir.ui.menu,name:maw21_12_6PM.complaint_type_side_active_mi
+msgid "complaint_type"
+msgstr "نوع الشكوى"
+
+#. module: maw21_12_6PM
+#: view:crm.wizard:maw21_12_6PM.wizard_form_view
+msgid "contact customer"
+msgstr "راسل العميل"
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.district_win_act
+#: field:maw.district,name:0
+msgid "district"
+msgstr "حي"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "email"
+msgstr "بريد الالكتروني"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "first name"
+msgstr "الاسم الاول"
+
+#. module: maw21_12_6PM
+#: model:ir.model,name:maw21_12_6PM.model_maw_claim_report
+msgid "mawgif Claim Report"
+msgstr "تقرير الشكاوي لشركة موقف"
+
+#. module: maw21_12_6PM
+#: model:ir.actions.act_window,name:maw21_12_6PM.launch_assign_wizard
+#: model:ir.actions.act_window,name:maw21_12_6PM.mawgif_claim_daily_win_act
+#: model:ir.actions.act_window,name:maw21_12_6PM.mawgif_claim_win_act
+#: model:ir.ui.menu,name:maw21_12_6PM.mawgif_claim_side_active_mi
+msgid "mawgif_claim"
+msgstr "دعم العملاء"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.mawgif_claim_form_view
+msgid "mobile no (enter mobile without leading zero )"
+msgstr "ادخل رقم الجوال بدون صفر في البداية"
+
+#. module: maw21_12_6PM
+#: selection:maw.claim,claimcateg:0
+msgid "question"
+msgstr "سؤال"
+
+#. module: maw21_12_6PM
+#: field:maw.claim,state:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: maw21_12_6PM
+#: view:maw.claim:maw21_12_6PM.maw_claim_graph_view
+msgid "xyz"
+msgstr "xyz"

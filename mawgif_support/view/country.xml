@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		################################ maw. Views
+		################################################
+		<record id="country_form_view" model="ir.ui.view">
+			<field name="name">maw.country.form.view</field>
+			<field name="model">maw.country</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string=" Details">
+					<group>
+						<group>
+
+							<field name="name" />
+							<field name="mob_code" />
+							<field name="iso_code" />
+							<field name="active" />
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="country_tree_view" model="ir.ui.view">
+			<field name="name">maw.country.tree.view</field>
+			<field name="model">maw.country</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string=" Details">
+
+					<field name="name" />
+					<field name="mob_code" />
+					<field name="iso_code" />
+					<field name="active" />
+
+				</tree>
+			</field>
+		</record>
+
+		<record id="country_search" model="ir.ui.view">
+			<field name="name">country search</field>
+			<field name="model">maw.country</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search ">
+					<field name="name" />
+					<field name="mob_code" />
+					<field name="iso_code" />
+				</search>
+			</field>
+		</record>
+
+		################################ window action
+		################################################
+
+		<record id="maw_country_win_act" model="ir.actions.act_window">
+			<field name="name">Country</field>
+			<field name="res_model">maw.country</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		################################ menuitem
+		################################################
+
+
+		<menuitem action="maw_country_win_act" id="maw_country_side_active_mi"
+			name="Country" sequence="55" parent="configuration_side_mi" />
+
+	</data>
+</openerp>	
+
+
+
+
+
+
+
+
+
+
+
+

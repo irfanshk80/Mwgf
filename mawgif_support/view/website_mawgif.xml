@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	<template id="mawgif_layout" name="Mawgif Main layout">&lt;!DOCTYPE html&gt;
+    <html t-att-lang="lang and lang.replace('_', '-')"
+          t-att-data-website-id="website.id if editable and website else None"
+          t-att-data-editable="'1' if editable else None"
+          t-att-data-translatable="'1' if translatable else None"
+          t-att-data-view-xmlid="xmlid if editable else None"
+          t-att-data-main-object="repr(main_object) if editable else None"
+          t-att-data-oe-company-name="res_company.name">
+        <head>
+            <meta charset="utf-8" />
+            <t t-if="main_object and 'website_meta_title' in main_object and not title">
+                <t t-set="title" t-value="main_object.website_meta_title"/>
+            </t>
+            <t t-if="main_object and 'name' in main_object and not title and not additional_title">
+                <t t-set="additional_title" t-value="main_object.name"/>
+            </t>
+            <t t-if="not title">
+                <t t-set="title"><t t-if="additional_title"><t t-raw="additional_title"/> | </t><t t-esc="(website or res_company).name"/></t>
+            </t>
+
+            <meta name="viewport" content="initial-scale=1"/>
+            <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object
+                and main_object.website_meta_description or website_meta_description"/>
+            <meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object
+                and main_object.website_meta_keywords or website_meta_keywords"/>
+            <meta name="generator" content="Odoo"/>
+            <title><t t-esc="title"/></title>
+
+            <t t-set="languages" t-value="website.get_languages() if website else None"/>
+            <t t-if="request and request.website_multilang and website">
+                <t t-foreach="website.get_alternate_languages(request.httprequest)" t-as="lg">
+                    <link rel="alternate" t-att-hreflang="lg['hreflang']" t-att-href="lg['href']"/>
+                </t>
+            </t>
+
+            <t t-call-assets="web.assets_common" t-js="false"/>
+            <t t-call-assets="website.assets_frontend" t-js="false"/>
+
+            <t t-raw="head or ''" name='layout_head'/>
+        </head>
+        <body>
+            <div id="wrapwrap">
+                <main>
+                    <t t-raw="0"/>
+                </main>
+            </div>
+            
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="website.assets_frontend" t-css="false"/>
+            <script t-if="website and website.google_analytics_key">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', _.str.trim('<t t-esc="website.google_analytics_key"/>'), 'auto');
+                ga('send','pageview');
+            </script>
+        </body>
+    </html>
+</template>
+
+<template id="webcrm_maw_temp" name="mymodule css assets" inherit_id="website.assets_frontend">
+
+		            <xpath expr="/t" position="inside">
+
+		                <link rel="stylesheet" href="/mawgif_support/static/src/css/style_web.css"/>
+		                <script type="text/javascript" src="/mawgif_support/static/src/js/webclaim.js"></script>
+		            </xpath>
+		        </template>
+	
+
+		<template id="mawgif_support" name="Customer Support - Home"
+			page="True">
+			<t t-call="mawgif_support.mawgif_layout">
+				<div id="wrap">
+					<div class="oe_structure" />
+					<div class="container">
+						<h1 class="cs_h1">Customer Support - دعم العملاء</h1>
+						<div class="row">
+							<div class="col-md-12">
+								<form action="/mawgif/support" method="post" class="form-horizontal mt32" enctype="multipart/form-data">
+						            <div t-attf-class="form-group required #{error and 'customer_first_name' in error and 'has-error' or ''}">
+						                
+						                <label class="col-xs-3 req_eng control-label" for="customer_first_name">Customer Name</label>
+						                <div class="col-xs-7">
+						                    <input type="text" class="form-control" name="customer_first_name" placeholder="First Name	 الاسم الاول" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_first_name or ''}"/>
+						                    <input type="text" class="form-control" name="customer_second_name" placeholder="Second Name      الاسم الاخير" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_second_name or ''}"/>
+						                </div>
+						                <label class="col-xs-2 ar_label control-label req_arb" for="customer_first_name">اسم العميل</label>
+						            </div>
+						      		
+						      		<div name="email_from_container" t-attf-class="form-group #{error and 'customer_email' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="customer_email">Email</label>
+						                <div class="col-xs-7">
+						                    <input type="email" class="form-control" name="customer_email" t-attf-value="#{customer_email or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">البريد الإلكتروني</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group required #{error and 'mobile' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 req_eng control-label" for="mobile">Mobile</label>
+						             	<div class="col-xs-2">
+					                        <select class="form-control" id="country_key" name='country_key' >
+					                            <t t-foreach='countries' t-as='country'>
+					                                <option t-att-value='country.id' t-att-selected="country.id == (int(country_id) if country_id else website.user_id.company_id.country_id.id)">
+					                                    <t t-esc='country.name'/>
+					                                </option>
+					                            </t>
+					                        </select>
+					                     </div>
+					                     <div class="col-xs-5">
+					                        <input type="text" class="form-control" name="mobile" placeholder="Enter mobile without leading 0 ادخل رقم الموبايل بدون صفر في البداية" required="True" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" t-attf-value="#{mobile or ''}" pattern="^[1-9][0-9]+" autofocus="True" />
+				                        </div>
+						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الجوال</label>
+						            </div>
+						            
+<!-- 						       		<div t-attf-class="form-group #{error and 'date' in error and 'has-error' or ''}">
+						                <label class="col-md-3 col-sm-4 control-label" for="date">Date</label>
+						                <div class="col-md-7 col-sm-8">
+						                    <input type="datetime" class="form-control" name="date" t-attf-value="#{date or ''}"/>
+						                </div>
+						            </div> -->
+						            
+						             <div t-attf-class="form-group #{error and 'date' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="date">Date of Occurance</label>
+						                <div class="col-xs-7">
+						                    <input type="datetime-local" class="form-control" name="date" id="date" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{date or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">تاريخ الحدوث</label>
+						            </div>
+						            
+									
+									<div t-attf-class="form-group #{error and 'city_id' in error and 'has-error' or ''}">
+				                  		<label class="col-xs-3 control-label" for="city_id">Location</label>
+				                        <div class="col-xs-7">
+					                        <select class="form-control" id="city" name='city_id' >
+				                             	<option value=''>City - المدينة</option>
+					                            <t t-foreach='cities' t-as='city'>
+					                                <option t-att-value='city.id' >
+					                                    <t t-esc='city.name'/>
+					                                </option>
+					                            </t>
+					                        </select>
+					                        <select id="dist" class="form-control" name='district' >
+				                             	<option value=''>District - المنطقة</option>
+					                            <t t-foreach='districts' t-as='district'>
+					                                <option t-att-value='district.id' >
+					                                    <t t-esc='district.name'/>
+					                                </option>
+					                            </t>
+					                        </select>
+				                        </div>
+				                        <label class="col-xs-2 control-label ar_label" for="customer_first_name">موقع الحدث</label>
+				                    </div>
+				                    
+									
+									<div t-attf-class="form-group #{error and 'claimcateg' in error and 'has-error' or ''}">
+				                        <label class="col-xs-3 control-label" for="claimcateg">Support Type</label>
+				                        <div class="col-xs-7">
+					                        <select class="form-control" name='claimcateg' >
+				                             	<option value='comment' selected='true'>Comment - تعليق</option>
+				                              	<option value='question'>Question - سؤال</option>
+				                               	<option value='claim'>Complaint - شكوى</option>
+					                        </select>
+				                        </div>
+				                        <label class="col-xs-2 control-label ar_label" for="customer_first_name">نوع الدعم</label>
+				                    </div>
+						            
+						            <div t-attf-class="form-group required #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 req_eng control-label" for="description">Description</label>
+						                <div class="col-xs-7">
+						                    <textarea  class="form-control" name="description" placeholder="Relevant details : location , plate number , CN number , eWallet number , machine number ,space number , atc)      تفاصيل اخرى : المكان,رقم لوحة السيارة ,رقم المخالفة,رقم الحافظة الالكترونية,رقم مكان الانتظار" style="min-height: 120px" required="True" 
+						                    title="من فضلك لا يمكن ترك هذا الحقل فارغا"><t t-esc="description or ''"/></textarea>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الوصف</label>
+						            </div>
+						            
+						       		<div t-attf-class="form-group required #{error and 'attachment' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="attachment">Attachment</label>
+						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
+						                <div class="col-xs-7">
+						                    <input type="file" class="form-control" name="attachment" id="attachment"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">مرفقات</label>
+						            </div>
+						            
+						       		<div t-attf-class="form-group required #{error and 'attachment2' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="attachment2">Additional File</label>
+						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
+						               	<div class="col-xs-7">
+						                    <input type="file" placeholder="your attachment" class="form-control" name="attachment2" id="attachment2"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">ملف إضافي</label>
+						            </div>
+						            
+						            <t t-foreach="kwargs" t-as="kwarg">
+						                <input type="hidden" t-att-name="kwarg[0]" t-att-value="kwarg[1]"/>
+						            </t>
+						
+						            <div class="form-group">
+						                <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+						                    <button class="btn btn-primary btn-lg">Send   إرسل</button>
+						                    <button type="reset" class="btn btn-primary btn-lg">Reset   تفريغ</button>
+						                </div>
+						            </div>
+						        </form>
+							</div>
+						</div>
+					</div>
+					<div class="oe_structure" />
+				</div>
+			</t>
+		</template>
+
+
+		<template id="mawgif_thanks" name="Customer Support - Thanks">
+			<t t-call="mawgif_support.mawgif_layout">
+		      <div id="wrap">
+		        <div class="oe_structure"/>
+		        <div class="container">
+		            <h1>Thanks!</h1>
+		            <div class="row">
+		                <div class="col-md-8">
+		                    <div class="alert alert-success">
+		                        Your message has been sent successfully.
+		                        <button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+		                    </div>
+		                    <p>
+		                        We will get back to you shortly.
+		                    </p><p class="mt64">
+		                        If you have an emergency, do not hesitate to contact us by phone:
+		                    </p>
+		                    <ul class="list-unstyled">
+		                        <li><i class="fa fa-phone"></i> : <span t-field="res_company.phone"/></li>
+		                        <li><i class="fa fa-envelope"></i> : <span t-field="res_company.email"/></li>
+		                    </ul>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="oe_structure"/>
+		      </div>
+		    </t>
+		</template>
+		
+		<record id="menu_contactus" model="website.menu">
+            <field name="name">Customer Support</field>
+            <field name="url">/page/support</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">60</field>
+        </record>
+
+	</data>
+</openerp>

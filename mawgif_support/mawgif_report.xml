@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- Monthly Mawgif Customer Support Report -->
+        <report
+	        id="report_mawgif_monthly_claim"
+	        string="Print"
+	        model="claim.report.print.wiz"
+	        report_type="qweb-pdf"
+	        file="mawgif_support.report_monthly_claim"
+	        name="mawgif_support.report_monthly_claim"
+	        menu="False"
+        />
+        
+        <!-- Daily Mawgif Customer Support Report -->
+        <report
+	        id="report_mawgif_daily_claim"
+	        string="Print"
+	        model="claim.report.print.wiz"
+	        report_type="qweb-pdf"
+	        file="mawgif_support.report_daily_claim"
+	        name="mawgif_support.report_daily_claim"
+	        menu="False"
+        />
+        
+        <!-- Ondemand Mawgif Customer Support Report -->
+        <report
+	        id="report_mawgif_ondemand_claim"
+	        string="Print"
+	        model="claim.report.print.wiz"
+	        report_type="qweb-pdf"
+	        file="mawgif_support.report_ondemand_claim"
+	        name="mawgif_support.report_ondemand_claim"
+	        menu="False"
+        />
+
+    </data>
+</openerp>

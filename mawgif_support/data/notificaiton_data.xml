@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<record id="notification1" model="maw.notification">
+			<field name="name">Question Confirmation</field>
+			<field name="trigger">confirm</field>
+			<field name="claimcateg">question</field>
+			<field name="recipient">customer</field>
+			<field name="msg_eng">We will get back to you soon</field>
+			<field name="msg_ar">سوف يتم التواصل معك قريبا</field>
+		</record>
+		
+		<record id="notification2" model="maw.notification">
+			<field name="name">Comment Closure</field>
+			<field name="trigger">close</field>
+			<field name="claimcateg">comment</field>
+			<field name="recipient">customer</field>
+			<field name="msg_eng">Thank you for your valuable comments</field>
+			<field name="msg_ar">نشكر لك تواصلك معنا وملاحظاتك القيمة</field>
+		</record>
+		
+		<record id="notification3" model="maw.notification">
+			<field name="name">Claim Confirmation</field>
+			<field name="trigger">confirm</field>
+			<field name="claimcateg">claim</field>
+			<field name="recipient">customer</field>
+			<field name="msg_eng">Ticket # %s was created. We will get back to you soon</field>
+			<field name="msg_ar">تم فتح المعاملة رقم # %s . سوف يتم التواصل معك قريبا</field>
+		</record>
+		
+		<record id="notification5" model="maw.notification">
+			<field name="name">Question Closure</field>
+			<field name="trigger">close</field>
+			<field name="claimcateg">question</field>
+			<field name="recipient">customer</field>
+			<field name="msg_eng">Thank you for contacting us</field>
+			<field name="msg_ar">نشكر لك تواصلك معنا</field>
+		</record>
+		
+		<record id="notification6" model="maw.notification">
+			<field name="name">Claim Closure</field>
+			<field name="trigger">close</field>
+			<field name="claimcateg">claim</field>
+			<field name="recipient">customer</field>
+			<field name="msg_eng">Ticket # %s was closed. Thank you for contacting us</field>
+			<field name="msg_ar">تم اغلاق المعاملة رقم # %s . نشكر لك تواصلك معنا</field>
+		</record>
+
+	</data>
+</openerp>

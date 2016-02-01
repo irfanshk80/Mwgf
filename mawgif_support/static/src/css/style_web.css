@@ -1,0 +1,23 @@
+body {
+	
+}
+
+.ar_label {
+	text-align: left !important
+}
+.cs_h1 {
+	text-align: center !important
+}
+
+span.filesizelbl {
+	padding-left: 15px
+}
+
+.form-group.required .control-label:not(.req_arb):after {
+	content: "*";
+	color:	red;
+}
+.form-group.required .control-label:not(.req_eng):before {
+	content: "*";
+	color: red;
+}

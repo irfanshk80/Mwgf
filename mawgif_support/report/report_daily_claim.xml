@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<template id="report_daily_claim_document">
+
+			<t t-extend="report.external_layout_footer">
+				<t t-jquery=".footer" t-operation="replace">
+					<div class="footer">
+						<div class="row">
+							<div class="text-right">
+								<hr color="black" />
+								<strong>Prepared By: </strong>
+								<span t-esc="user.name"></span>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+			<t t-call="report.external_layout">
+				<div class="page">
+					<div class="text-center">
+						<h2>
+							Daily Report
+						</h2>
+					</div>
+					<div class="oe_structure" />
+					<t t-set="data" t-value="o.get_datas_daily(o)" />
+		           
+		            <table class="table" >
+		                <thead>
+	                         <tr style="border: 1px solid black;">
+                                <th style="border: 1px solid black;" rowspan="2"></th>
+                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle" >Opened</th>
+                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle">Assigned</th>
+                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle">Solved</th>
+                                <th colspan="4"  style="border: 1px solid black;text-align: center;">Closed</th>
+                            </tr>
+                           	<tr style="border: 1px solid black;">
+                                <th style="border: 1px solid black;text-align: center;">On Time</th>
+                                <th style="border: 1px solid black;text-align: center;">Late</th>
+                                <th style="border: 1px solid black;text-align: center;">Total</th>
+                                <th style="border: 1px solid black;text-align: center;">% On Time</th>
+                            </tr>
+		               </thead>
+		               <tbody >
+		                  <tr t-foreach="data" t-as="l" >
+                              	<td >
+                                  	<span style="color: white;" t-esc="'..' * l[1].get('level',0)"/>
+                                	<t t-if="l[1].get('level',0) &gt; 0"><t t-set="style" t-value="'font-weight: normal;'"/></t>
+                             		<t t-if="not l[1].get('level',0) &gt; 0"><t t-set="style" t-value="'font-weight: bold;'"/></t>
+                                  	<span t-att-style="style" t-esc="l[0]"/>
+                              	</td >
+                  				<td style="text-align: center;" t-esc="l[1].get('opened','')"></td>
+                        		<td style="text-align: center;" t-esc="l[1].get('assigned','')"></td>
+                         		<td style="text-align: center;" t-esc="l[1].get('solved','')"></td>
+                        		<td style="text-align: center;" t-esc="l[1].get('ontime','')"></td>
+                        		<td style="text-align: center;" t-esc="l[1].get('late','')"></td>
+                         		<td style="text-align: center;" t-esc="l[1].get('total','')"></td>
+                         		<td style="text-align: center;" t-esc="l[1].get('percent','')"></td>
+                          	</tr>
+		               </tbody>
+		            </table>
+		            
+		            
+				</div>
+			</t>
+		</template>
+
+		<template id="report_daily_claim">
+			<t t-call="report.html_container">
+				<t t-foreach="doc_ids" t-as="doc_id">
+					<t
+						t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'mawgif_support.report_daily_claim_document')" />
+				</t>
+			</t>
+		</template>
+
+	</data>
+</openerp>

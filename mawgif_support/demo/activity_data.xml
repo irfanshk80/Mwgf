@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Here goes the Employees -->
+
+
+    <record id="team1" model="teams">
+            <field name="TeamName">Call Center</field>
+            <field name="TeamMandate">Provides CC service to internal and external clients</field>
+           
+        </record>
+
+        <record id="team2" model="teams">
+            <field name="TeamName">EMIS Development &amp; DBA</field>
+            <field name="TeamMandate">Develops and supports EMIS and DBMSs</field>
+           
+        </record>
+
+        <record id="team3" model="teams">
+            <field name="TeamName">IT Systems &amp; Support</field>
+            <field name="TeamMandate">Supports the ICT Infrastructure</field>
+          
+        </record>
+
+        <record id="team4" model="teams">
+            <field name="TeamName">Massimos team</field>
+            <field name="TeamMandate">Run the business</field>
+           
+        </record>
+
+        <record id="team5" model="teams">
+            <field name="TeamName">Odoo Development</field>
+            <field name="TeamMandate">Develops Odoo Apps and provides L2 support</field>
+            
+        </record>
+
+        <record id="team6" model="teams">
+            <field name="TeamName">PMO</field>
+            <field name="TeamMandate">Ensures analysis and delivery of projects and monitors services</field>
+           
+        </record>
+
+        <record id="team7" model="teams">
+            <field name="TeamName">Sales</field>
+            <field name="TeamMandate">Sells ICT services</field>
+          
+        </record>
+
+        <record id="team8" model="teams">
+            <field name="TeamName">Telephony &amp; Call Center</field>
+            <field name="TeamMandate">Designs and develops telephony systems and Call Centers</field>
+         
+        </record>
+
+        <record id="team9" model="teams">
+            <field name="TeamName">Web and Apps development</field>
+            <field name="TeamMandate">Develops Web Services and Mobile Apps</field>
+           
+        </record>
+
+        <record id="owner1" model="hr.employee">
+            <field name="name">Aamir Mirza</field>
+            <field name="EmployeeRole">Cloud Admin</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner2" model="hr.employee">
+            <field name="name">Adnan Almusbahi</field>
+            <field name="EmployeeRole">VB Net Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">ad.almusbahi@meeza.com.sa</field>
+        </record>
+        <record id="owner3" model="hr.employee">
+            <field name="name">Adnan Ansari</field>
+            <field name="EmployeeRole">BI Business Analyst &amp; PMO</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team6"></field>
+            <field name="EmployeeEmail">adnan@almusbah.com</field>
+        </record>
+        <record id="owner4" model="hr.employee">
+            <field name="name">Ahmed Bin Mulin</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">ahmed.moalim@almusbah.com</field>
+        </record>
+        <record id="owner5" model="hr.employee">
+            <field name="name">Ahmed Hegazy</field>
+            <field name="EmployeeRole">Odoo Development Team Lead</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">a.hegazy@almusbah.com</field>
+        </record>
+        <record id="owner6" model="hr.employee">
+            <field name="name">Ahmed Munsiff  Nashtar</field>
+            <field name="EmployeeRole">Sales Specialist</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team7"></field>
+            <field name="EmployeeEmail">a.munsiff@fore-vision.com</field>
+        </record>
+        <record id="owner7" model="hr.employee">
+            <field name="name">Ali Badany</field>
+            <field name="EmployeeRole">IT Infrastructure Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">a.badany@almusbah.com</field>
+        </record>
+        <record id="owner8" model="hr.employee">
+            <field name="name">Amani Alsurmi</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">a.alsurmi@almusbah.com</field>
+        </record>
+        <record id="owner9" model="hr.employee">
+            <field name="name">Ammar Aladimi</field>
+            <field name="EmployeeRole">IT Support Supervisor</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">a.aladimi@fore-vision.com</field>
+        </record>
+        <record id="owner10" model="hr.employee">
+            <field name="name">Anwar Binmoalim</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">anwar@almusbah.com</field>
+        </record>
+        <record id="owner11" model="hr.employee">
+            <field name="name">Aref Hamed</field>
+            <field name="EmployeeRole">Odoo Development Leader</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team5"></field>
+            <field name="EmployeeEmail">a.hamed@almusbah.com</field>
+        </record>
+        <record id="owner12" model="hr.employee">
+            <field name="name">Asmaa Alharti</field>
+            <field name="EmployeeRole">Call Center Supervisor</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">a.alharthi@almusbah.com</field>
+        </record>
+        <record id="owner13" model="hr.employee">
+            <field name="name">Azizah Alghamdi</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">a.Algahmdi@almusbah.com</field>
+        </record>
+        <record id="owner14" model="hr.employee">
+            <field name="name">Dalal Flemban</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner15" model="hr.employee">
+            <field name="name">Deena Azaia</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner16" model="hr.employee">
+            <field name="name">Durai Arjunan</field>
+            <field name="EmployeeRole">Telephony &amp; Call Center Team Lead</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">durai.arjunan@almusbah.com</field>
+        </record>
+        <record id="owner17" model="hr.employee">
+            <field name="name">Ehsan Ahmed</field>
+            <field name="EmployeeRole">L1 Monitoring Specialist</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner18" model="hr.employee">
+            <field name="name">Fahad Akhtar</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">f.akhtar@almusbah.com</field>
+        </record>
+        <record id="owner19" model="hr.employee">
+            <field name="name">Fazalul</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">fazalul@almusbah.com</field>
+        </record>
+        <record id="owner20" model="hr.employee">
+            <field name="name">Hasan Raza</field>
+            <field name="EmployeeRole">Service Delivery Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">h.raza@fore-vision.com</field>
+        </record>
+        <record id="owner21" model="hr.employee">
+            <field name="name">Heba Saeed</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">h.saeed@almusbah.com</field>
+        </record>
+        <record id="owner22" model="hr.employee">
+            <field name="name">Hesham Ammar</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">hesham.ammar@almusbah.com</field>
+        </record>
+        <record id="owner23" model="hr.employee">
+            <field name="name">Imran Aurangwale</field>
+            <field name="EmployeeRole">Telephony Systems &amp; CC Support</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team8"></field>
+            <field name="EmployeeEmail">a.imran@almusbah.com</field>
+        </record>
+        <record id="owner24" model="hr.employee">
+            <field name="name">Irfan Syed</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner25" model="hr.employee">
+            <field name="name">Ishaq Ali</field>
+            <field name="EmployeeRole">Android Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner26" model="hr.employee">
+            <field name="name">Jerin Jose</field>
+            <field name="EmployeeRole">Enterprise System Admin</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">j.jose@almusbah.com</field>
+        </record>
+        <record id="owner27" model="hr.employee">
+            <field name="name">Kashif Mehmoud</field>
+            <field name="EmployeeRole">Team Leader-Meeza IT</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">kashif.mehmood@meeza.com.sa</field>
+        </record>
+        <record id="owner28" model="hr.employee">
+            <field name="name">Khurshid Ahmed</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner29" model="hr.employee">
+            <field name="name">Mandy Malonzo</field>
+            <field name="EmployeeRole">Project Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team6"></field>
+            <field name="EmployeeEmail">m.malonzo@almusbah.com</field>
+        </record>
+        <record id="owner30" model="hr.employee">
+            <field name="name">Maram Abadel</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">m.abadel@almusbah.com</field>
+        </record>
+        <record id="owner31" model="hr.employee">
+            <field name="name">Maria Abobaker</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">m.abobaker@almusbah.com</field>
+        </record>
+        <record id="owner32" model="hr.employee">
+            <field name="name">Massimo Barboni</field>
+            <field name="EmployeeRole">General manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref=""></field>
+            <field name="EmployeeEmail">m.barboni@almusbah.com</field>
+        </record>
+        <record id="owner33" model="hr.employee">
+            <field name="name">Meaad Dawlat</field>
+            <field name="EmployeeRole">Call Center Agent QA</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">m.dawlat@almusbah.com</field>
+        </record>
+        <record id="owner34" model="hr.employee">
+            <field name="name">Mohamed Sherif</field>
+            <field name="EmployeeRole">Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">m.sherif@almusbah.com</field>
+        </record>
+        <record id="owner35" model="hr.employee">
+            <field name="name">Mohammad Altayeb</field>
+            <field name="EmployeeRole">Web Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">r.altayab@meeza.com.sa</field>
+        </record>
+        <record id="owner36" model="hr.employee">
+            <field name="name">Mohammad Ansari</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">m.ansari@almusbah.com</field>
+        </record>
+        <record id="owner37" model="hr.employee">
+            <field name="name">Mohammad Sharif</field>
+            <field name="EmployeeRole">Web Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">m.sherif@almusbah.com</field>
+        </record>
+        <record id="owner38" model="hr.employee">
+            <field name="name">Mohammed Abdul Azeez</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">Mohammed.Abdulazeez@almusbah.com</field>
+        </record>
+        <record id="owner39" model="hr.employee">
+            <field name="name">Mohammed Arifuddin</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner40" model="hr.employee">
+            <field name="name">Mohammed Awais</field>
+            <field name="EmployeeRole">Modern Foods IT Support</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">m.awais@almusbah.com</field>
+        </record>
+        <record id="owner41" model="hr.employee">
+            <field name="name">Mohammed Azeemudin</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner42" model="hr.employee">
+            <field name="name">Mohammed Irfan</field>
+            <field name="EmployeeRole">Telephony Systems &amp; CC Support</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team8"></field>
+            <field name="EmployeeEmail">sm.irfan@fore-vision.com</field>
+        </record>
+        <record id="owner43" model="hr.employee">
+            <field name="name">Mohammed Ismail</field>
+            <field name="EmployeeRole">Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">m.ismail@meeza.com.sa</field>
+        </record>
+        <record id="owner44" model="hr.employee">
+            <field name="name">Mohsin Khan</field>
+            <field name="EmployeeRole">Odoo Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team5"></field>
+            <field name="EmployeeEmail">mohsin@almusbah.com</field>
+        </record>
+        <record id="owner45" model="hr.employee">
+            <field name="name">Muhammad Tahir</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">tahir@almusbah.com</field>
+        </record>
+        <record id="owner46" model="hr.employee">
+            <field name="name">Nabeel Syed</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">nabeel@almusbah.com</field>
+        </record>
+        <record id="owner47" model="hr.employee">
+            <field name="name">Noman Soofi</field>
+            <field name="EmployeeRole">Senior Web Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">n.soofi@meeza.com.sa</field>
+        </record>
+        <record id="owner48" model="hr.employee">
+            <field name="name">Noura Hassan Alamri</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">n.hassan@almusbah.com</field>
+        </record>
+        <record id="owner49" model="hr.employee">
+            <field name="name">Reem Saleh ALGahtani</field>
+            <field name="EmployeeRole">Call Center Supervisor</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">r.algahtani@almusbah.com</field>
+        </record>
+        <record id="owner50" model="hr.employee">
+            <field name="name">Rehan Kashif</field>
+            <field name="EmployeeRole">IT Network Admin</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">rehank@almusbah.com</field>
+        </record>
+        <record id="owner51" model="hr.employee">
+            <field name="name">Riyas Ibrahimkutty</field>
+            <field name="EmployeeRole">Project Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team6"></field>
+            <field name="EmployeeEmail">ri.ibrahim@almusbah.com</field>
+        </record>
+        <record id="owner52" model="hr.employee">
+            <field name="name">Saber Ahmed</field>
+            <field name="EmployeeRole">IT Support Supervisor</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">saber.ahmed@almusbah.com</field>
+        </record>
+        <record id="owner53" model="hr.employee">
+            <field name="name">Sameer Alwosaby</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">sameer.alwosaby@almusbah.com</field>
+        </record>
+        <record id="owner54" model="hr.employee">
+            <field name="name">Sara Alnfeei</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail">s.alnfeei@almusbah.com</field>
+        </record>
+        <record id="owner55" model="hr.employee">
+            <field name="name">Satham Hussein</field>
+            <field name="EmployeeRole">Android Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team9"></field>
+            <field name="EmployeeEmail">s.hussain@fore-vision.com</field>
+        </record>
+        <record id="owner56" model="hr.employee">
+            <field name="name">Shabir Ali</field>
+            <field name="EmployeeRole">Business Development Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team4"></field>
+            <field name="EmployeeEmail">s.ali@fore-vision.com</field>
+        </record>
+        <record id="owner57" model="hr.employee">
+            <field name="name">Sheik Irfan</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">s.irfan@almusbah.com</field>
+        </record>
+        <record id="owner58" model="hr.employee">
+            <field name="name">Shorag Bajafar</field>
+            <field name="EmployeeRole">Call Center Agent</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team1"></field>
+            <field name="EmployeeEmail"></field>
+        </record>
+        <record id="owner59" model="hr.employee">
+            <field name="name">Sunil Kumar</field>
+            <field name="EmployeeRole">Business Analyst</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team6"></field>
+            <field name="EmployeeEmail">sun.kumar@almusbah.com</field>
+        </record>
+        <record id="owner60" model="hr.employee">
+            <field name="name">Talib Anis</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">talib@almusbah.com</field>
+        </record>
+        <record id="owner61" model="hr.employee">
+            <field name="name">Waqas Lodhi</field>
+            <field name="EmployeeRole">EMIS Development &amp; DBA Lead</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">waqas@almusbah.com</field>
+        </record>
+        <record id="owner62" model="hr.employee">
+            <field name="name">Yaser Bankhar</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">yaser.bankhar@almusbah.com</field>
+        </record>
+        <record id="owner63" model="hr.employee">
+            <field name="name">Yasir Elamin</field>
+            <field name="EmployeeRole">Project Manager</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team6"></field>
+            <field name="EmployeeEmail">yasir.elamin@almusbah.com</field>
+        </record>
+        <record id="owner64" model="hr.employee">
+            <field name="name">Zafar Shabu</field>
+            <field name="EmployeeRole">Team Leader-Modern Foods</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">zafar@almusbah.com</field>
+        </record>
+        <record id="owner65" model="hr.employee">
+            <field name="name">Zahid Razzaq</field>
+            <field name="EmployeeRole">Network Admin</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">zahid@almusbah.com</field>
+        </record>
+        <record id="owner66" model="hr.employee">
+            <field name="name">Zahir Babraik</field>
+            <field name="EmployeeRole">IT Support Engineer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team3"></field>
+            <field name="EmployeeEmail">z.babraik@almusbah.com</field>
+        </record>
+        <record id="owner67" model="hr.employee">
+            <field name="name">Zameer Ahmed</field>
+            <field name="EmployeeRole">Oracle Developer</field>
+            <field name="EmployeeBelongsToThisTeam" ref="team2"></field>
+            <field name="EmployeeEmail">z.ahmed@fore-vision.com</field>
+        </record>
+
+
+        <!-- Here goes the Activity Type -->
+
+        <record id="activity_type1" model="activitytypes">
+            <field name="ActivityTypes">Activity</field>
+        </record>
+        <record id="activity_type2" model="activitytypes">
+            <field name="ActivityTypes">Deliverable</field>
+        </record>
+        <record id="activity_type3" model="activitytypes">
+            <field name="ActivityTypes">Dependency</field>
+        </record>
+        <record id="activity_type4" model="activitytypes">
+            <field name="ActivityTypes">Programme</field>
+        </record>
+        <record id="activity_type5" model="activitytypes">
+            <field name="ActivityTypes">Task</field>
+        </record>
+
+        <!-- Here goes the Activities records -->
+
+        <record id="record1" model="account.analytic.account">
+            <field name="name">Almusbah - Phase 2</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner29"/>
+            <field name="Due_By"></field>
+            <field name="Estimated_By"></field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On"></field>
+            <field name="Last_Update"></field>
+            <field name="Notes"></field>
+            <field name="Creator" ref=""></field>
+            <field name="Track"></field>
+            <field name="Status">Assigned</field>
+            <field name="Priority">1</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+       
+        <record id="record2" model="account.analytic.account">
+            <field name="name">Almusbah Telephony - Fine Tuning</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner51"/>
+            <field name="Due_By">1/31/2016</field>
+            <field name="Estimated_By">1/31/2016</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/5/2015</field>
+            <field name="Last_Update">12/5/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">Assigned</field>
+            <field name="Priority">2</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record3" model="account.analytic.account">
+            <field name="name">Almusbah Telephony Phase 1</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner29"/>
+            <field name="Due_By">12/10/2015</field>
+            <field name="Estimated_By">12/10/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/6/2015</field>
+            <field name="Last_Update">12/6/2015</field>
+            <field name="Notes">Mandy to provide closure report to mark it as completed</field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track">Assigned</field>
+            <field name="Status">2</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record4" model="account.analytic.account">
+            <field name="name">ARSv2</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner11"/>
+            <field name="Due_By"></field>
+            <field name="Estimated_By"></field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On"></field>
+            <field name="Last_Update"></field>
+            <field name="Notes"></field>
+            <field name="Creator" ref=""></field>
+            <field name="Track"></field>
+            <field name="Status">Assigned</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record5" model="account.analytic.account">
+            <field name="name">ATG Odoo</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner20"/>
+            <field name="Due_By">12/20/2015</field>
+            <field name="Estimated_By">12/20/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/3/2015</field>
+            <field name="Last_Update">12/8/2015</field>
+            <field name="Notes">20/Dec is a provisional date to have a first check of the progress and direction.</field>
+            <field name="Creator" ref="owner32"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority">1</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record6" model="account.analytic.account">
+            <field name="name">Exchange Migration to Cloud - Project Plan</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner51"/>
+            <field name="Due_By">12/10/2015</field>
+            <field name="Estimated_By">12/10/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">10/17/2015</field>
+            <field name="Last_Update">12/5/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record7" model="account.analytic.account">
+            <field name="name">IP Trunking between the PBX and IT Help Desk CC</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner16"/>
+            <field name="Due_By">12/31/2015</field>
+            <field name="Estimated_By">12/31/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">10/25/2015</field>
+            <field name="Last_Update">12/6/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority">1</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record8" model="account.analytic.account">
+            <field name="name">IT Offices - Reorganization</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner51"/>
+            <field name="Due_By">12/31/2015</field>
+            <field name="Estimated_By">12/31/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">11/17/2015</field>
+            <field name="Last_Update">12/24/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority">2</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record9" model="account.analytic.account">
+            <field name="name">MCSM</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner63"/>
+            <field name="Due_By">1/31/2016</field>
+            <field name="Estimated_By">1/31/2016</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">11/3/2015</field>
+            <field name="Last_Update">12/6/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record10" model="account.analytic.account">
+            <field name="name">Meeza Access Control</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner27"/>
+            <field name="Due_By">6/30/2016</field>
+            <field name="Estimated_By">6/30/2016</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On"></field>
+            <field name="Last_Update"></field>
+            <field name="Notes"></field>
+            <field name="Creator" ref=""></field>
+            <field name="Track"></field>
+            <field name="Status"></field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record11" model="account.analytic.account">
+            <field name="name">Meeza eCommerce</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner27"/>
+            <field name="Due_By">3/31/2016</field>
+            <field name="Estimated_By">3/31/2016</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On"></field>
+            <field name="Last_Update">12/6/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner32"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record12" model="account.analytic.account">
+            <field name="name">Meeza Intranet</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner27"/>
+            <field name="Due_By">12/6/2016</field>
+            <field name="Estimated_By">12/6/2016</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/6/2015</field>
+            <field name="Last_Update"></field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner32"></field>
+            <field name="Track"></field>
+            <field name="Status">InProgress</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record13" model="account.analytic.account">
+            <field name="name">MPID</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner29"/>
+            <field name="Due_By">12/10/2015</field>
+            <field name="Estimated_By">12/10/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">11/2/2015</field>
+            <field name="Last_Update">11/29/2015</field>
+            <field name="Notes">Mandy will prepare high level plan and share the same with SDM and Massimo</field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track">29/11 - Mandy is working to propose solution design, cost, timelines</field>
+            <field name="Status">InProgress</field>
+            <field name="Priority">1</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record14" model="account.analytic.account">
+            <field name="name">SDM</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner21"/>
+            <field name="Due_By">12/31/2015</field>
+            <field name="Estimated_By">12/31/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">10/20/2015</field>
+            <field name="Last_Update">12/5/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner32"></field>
+            <field name="Track"></field>
+            <field name="Status">Accepted</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record15" model="account.analytic.account">
+            <field name="name">Sharepoint Project</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner51"/>
+            <field name="Due_By"></field>
+            <field name="Estimated_By"></field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On"></field>
+            <field name="Last_Update"></field>
+            <field name="Notes"></field>
+            <field name="Creator" ref=""></field>
+            <field name="Track"></field>
+            <field name="Status">StandBy</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record16" model="account.analytic.account">
+            <field name="name">Sepco eMIS</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner20"/>
+            <field name="Due_By"></field>
+            <field name="Estimated_By"></field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/8/2015</field>
+            <field name="Last_Update">12/8/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner32"></field>
+            <field name="Track"></field>
+            <field name="Status">Assigned</field>
+            <field name="Priority"></field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+
+        <record id="record17" model="account.analytic.account">
+            <field name="name">IP Telephony</field>
+            <field name="Description2"></field>
+            <field name="Outcome"></field>
+            <field name="Owner" ref="owner16"/>
+            <field name="Due_By">12/31/2015</field>
+            <field name="Estimated_By">12/31/2015</field>
+            <field name="Part_Of"></field>
+            <field name="Assigned_On">12/8/2015</field>
+            <field name="Last_Update">12/8/2015</field>
+            <field name="Notes"></field>
+            <field name="Creator" ref="owner20"></field>
+            <field name="Track"></field>
+            <field name="Status">Assigned</field>
+            <field name="Priority">1</field>
+            <field name="Type" ref="activity_type1" />
+            <field name="Dependencies"></field>
+        </record>
+        
+        <!-- Here goes team data -->
+
+    
+
+    </data>
+</openerp>

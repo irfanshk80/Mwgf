@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        
+
+     
+     
+             <record id="claim_recordrecord2" model="maw.claim">
+             
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+            <field name="state">closed</field>
+            
+             <field name="date_closed">12/29/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">claim</field>
+            
+            
+        </record>
+        
+        
+      
+        
+        
+              <record id="claim_recordrecord3" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+            <field name="state">closed</field>
+            
+            <field name="date_closed">12/29/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">claim</field>
+            
+        </record>
+        
+        
+        
+           <record id="claim_recordrecord1" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899 </field>
+            
+            <field name="date"> 12/5/2015 </field>
+            
+              <field name="customer_email"> eng@hotmail.com </field>
+            
+            
+        </record>
+        
+           <record id="claim_recordrecord3" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">claim</field>
+             
+             <field name="state">closed</field>
+            
+             <field name="date_closed">12/20/2015</field>
+            
+        </record>
+        
+        
+                   <record id="claim_recordrecord4" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">claim</field>
+             
+              <field name="state">closed</field>
+            
+             <field name="date_closed">12/20/2015</field>
+            
+        </record>
+        
+        
+        
+      <record id="claim_recordrecord5" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">comment</field>
+            
+        </record>
+        
+        
+        
+            <record id="claim_recordrecord6" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">comment</field>
+            
+        </record>        
+        
+             <record id="claim_recordrecord7" model="maw.claim">
+            <field name="customer_first_name">aref</field>
+            <field name="customer_second_name">hamed</field>
+            
+            <field name="mobile">1234567899</field>
+            
+            <field name="date">12/5/2015</field>
+            
+              <field name="customer_email">eng@hotmail.com</field>
+            
+             <field name="claimcateg">comment</field>
+            
+        </record>
+        
+        
+        
+            
+        
+         <record id="user_recordrecord1" model="res.users">
+            <field name="name">call_agent1</field>
+            <field name="login">call_agent1</field>
+            
+          </record>
+          
+          
+           <record id="user_recordrecord2" model="res.users">
+            <field name="name">service_officer1</field>
+            <field name="login">service_officer1</field>
+            
+          </record>
+          
+          
+          
+
+    </data>
+</openerp>

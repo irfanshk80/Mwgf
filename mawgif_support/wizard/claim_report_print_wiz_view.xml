@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_claim_report_print_wiz_form" model="ir.ui.view">
+            <field name="name">view.claim.report.print.wiz.form</field>
+            <field name="model">claim.report.print.wiz</field>
+            <field name="arch" type="xml">
+              <form >
+                  <group col="4" colspan="2">
+                      <field name="report_id" required="1" />
+                  </group>
+                  <footer>
+                      <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                      <button string="Cancel" class="oe_link" special="cancel" />
+                  </footer>
+              </form>
+            </field>
+        </record>
+
+        <record id="action_claim_report_print_wiz" model="ir.actions.act_window">
+            <field name="name">Analysis Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">claim.report.print.wiz</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_claim_report_print_wiz_form"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem name="Analysis Reports" id="menu_mawgif_claim_reports"
+            action="action_claim_report_print_wiz" parent="reports_side_mi" />
+     
+    </data>
+</openerp>
