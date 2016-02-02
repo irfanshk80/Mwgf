@@ -28,6 +28,7 @@
 						<h2>
 							Daily Report
 						</h2>
+						 <h2 t-esc="o.get_yesterday()"/>  
 					</div>
 					<div class="oe_structure" />
 					<t t-set="data" t-value="o.get_datas_daily(o)" />
@@ -56,6 +57,13 @@
 						</thead>
 						<tbody>
 							<tr t-foreach="data" t-as="l">
+								<t t-if="l[1].get('bold',0) &gt; 0">
+									<t t-set="style1" t-value="'font-weight: bold;'" />
+								</t>
+								<t t-if="not l[1].get('bold',0) &gt; 0">
+									<t t-set="style1" t-value="'font-weight: normal;'" />
+								</t>
+							
 								<td>
 									<span style="color: white;" t-esc="'..' * l[1].get('level',0)" />
 									<t t-if="l[1].get('level',0) &gt; 0">
@@ -66,12 +74,22 @@
 									</t>
 									<span t-att-style="style" t-esc="l[0]" />
 								</td>
-								<td style="text-align: center;" t-esc="l[1].get('opened','')"></td>
-								<td style="text-align: center;" t-esc="l[1].get('assigned','')"></td>
-								<td style="text-align: center;" t-esc="l[1].get('solved','')"></td>
-								<td style="text-align: center;" t-esc="l[1].get('ontime','')"></td>
-								<td style="text-align: center;" t-esc="l[1].get('late','')"></td>
-								<td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total','')"></td>
+								<td style="text-align: center;" >
+									<span t-att-style="style1" t-esc="l[1].get('opened','')"/>
+								</td>
+								<td  style="text-align: center;" >
+									<span t-att-style="style1" t-esc="l[1].get('assigned','')"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-att-style="style1" t-esc="l[1].get('solved','')"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-att-style="style1" t-esc="l[1].get('ontime','')"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-att-style="style1" t-esc="l[1].get('late','')"/>
+								</td>
+								<td  style="text-align: center;font-weight: bold;" t-esc="l[1].get('total','')"></td>
 								<td style="text-align: center;font-weight: bold;" t-esc="l[1].get('percent','')"></td>
 							</tr>
 						</tbody>

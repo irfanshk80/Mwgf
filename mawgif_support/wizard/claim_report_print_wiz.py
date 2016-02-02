@@ -71,18 +71,21 @@ class claim_report_print_wiz(models.TransientModel):
         return last_day
     
         #subtract from nextMonth and return
-
+        
+    def get_yesterday(self, cr, uid, context=None):
+        return (datetime.now()-timedelta(1)).strftime('%Y-%m-%d')
 
     @api.multi
     def print_report(self):
         report_name = False
+        data = None
         if self.report_id == 'daily':
             report_name = 'mawgif_support.report_daily_claim'
         elif self.report_id == 'monthly':
             report_name = 'mawgif_support.report_monthly_claim'
         elif self.report_id == 'on_demand':
             report_name = 'mawgif_support.report_ondemand_claim'
-        report = self.pool['report'].get_action(self._cr, self._uid, [], report_name, data=None)
+        report = self.pool['report'].get_action(self._cr, self._uid, [], report_name, data,self._context)
         return report
 
     
@@ -315,7 +318,7 @@ class claim_report_print_wiz(models.TransientModel):
         total_percent = (total_percent_previous + total_comment_percent_today + total_complaint_percent_today + total_question_percent_today)/4.0
         
         total_row = ('Total', {'opened':total_opened,'assigned':total_assigned,'solved':total_solved,'ontime':total_ontime,
-                         'late' : total_late,'total':total_closed
+                         'late' : total_late,'total':total_closed,'bold':1
                                
                     })
         final_list.append(total_row)
@@ -418,6 +421,8 @@ class claim_report_print_wiz(models.TransientModel):
         return data_list
     
     def get_datas_monthly(self, data):
+        date_from = data.date_from
+        date_to = data.date_to
         data_list = []
         res_dict = {}
         support = {'claim':'Complaint','comment':'Comment','question':'Question'}
@@ -450,8 +455,11 @@ class claim_report_print_wiz(models.TransientModel):
     
         from maw_claim where claimcateg='comment' or claimcateg='question' group by id) as c2 on c2.id=c.id
         
+        where (create_date_n >= '%s' AND create_date_n <= '%s') OR (first_assigned_date >= '%s' AND first_assigned_date <= '%s')
+                                OR (solved_date >= '%s' AND solved_date <= '%s') OR (date_closed >= '%s' AND date_closed <= '%s')
+        
         group by c.state, c.claimcateg
-        """  )
+        """ % (date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to)   )
         records = self.env.cr.fetchall()
         
         for record in records:
@@ -501,7 +509,7 @@ class claim_report_print_wiz(models.TransientModel):
         
         total_row = ('Total/Average', {'opened':total_opened,'assigned':total_assigned,'solved':total_solved,'total':total_items,
                          'open_average_time' : round(total_opened_avg,2),'assigned_average_time':round(total_assigned_avg,2),'solved_average_time':round(total_solved_avg,2),
-                         'total_average_time':  (round(total_avg_time/3,2)) 
+                         'total_average_time':  (round(total_avg_time/3,2)) ,'bold':1
                                
                     })
         data_list.append(total_row)
