@@ -8,7 +8,12 @@
 				<t t-jquery=".footer" t-operation="replace">
 					<div class="footer">
 						<div class="row">
-							<div class="text-right">
+							<div style="float:left;width:50%">
+								<hr color="black" />
+								<strong>Prepared On: </strong>
+								<span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"></span>
+							</div>
+							<div style="float:right;width:50%;text-align:right;">
 								<hr color="black" />
 								<strong>Prepared By: </strong>
 								<span t-esc="user.name"></span>
@@ -26,43 +31,52 @@
 					</div>
 					<div class="oe_structure" />
 					<t t-set="data" t-value="o.get_datas_daily(o)" />
-		           
-		            <table class="table" >
-		                <thead>
-	                         <tr style="border: 1px solid black;">
-                                <th style="border: 1px solid black;" rowspan="2"></th>
-                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle" >Opened</th>
-                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle">Assigned</th>
-                                <th style="border: 1px solid black;text-align: center;vertical-align: middle" rowspan="2" valign="middle">Solved</th>
-                                <th colspan="4"  style="border: 1px solid black;text-align: center;">Closed</th>
-                            </tr>
-                           	<tr style="border: 1px solid black;">
-                                <th style="border: 1px solid black;text-align: center;">On Time</th>
-                                <th style="border: 1px solid black;text-align: center;">Late</th>
-                                <th style="border: 1px solid black;text-align: center;">Total</th>
-                                <th style="border: 1px solid black;text-align: center;">% On Time</th>
-                            </tr>
-		               </thead>
-		               <tbody >
-		                  <tr t-foreach="data" t-as="l" >
-                              	<td >
-                                  	<span style="color: white;" t-esc="'..' * l[1].get('level',0)"/>
-                                	<t t-if="l[1].get('level',0) &gt; 0"><t t-set="style" t-value="'font-weight: normal;'"/></t>
-                             		<t t-if="not l[1].get('level',0) &gt; 0"><t t-set="style" t-value="'font-weight: bold;'"/></t>
-                                  	<span t-att-style="style" t-esc="l[0]"/>
-                              	</td >
-                  				<td style="text-align: center;" t-esc="l[1].get('opened','')"></td>
-                        		<td style="text-align: center;" t-esc="l[1].get('assigned','')"></td>
-                         		<td style="text-align: center;" t-esc="l[1].get('solved','')"></td>
-                        		<td style="text-align: center;" t-esc="l[1].get('ontime','')"></td>
-                        		<td style="text-align: center;" t-esc="l[1].get('late','')"></td>
-                         		<td style="text-align: center;" t-esc="l[1].get('total','')"></td>
-                         		<td style="text-align: center;" t-esc="l[1].get('percent','')"></td>
-                          	</tr>
-		               </tbody>
-		            </table>
-		            
-		            
+
+					<table class="table">
+						<thead>
+							<tr style="border: 1px solid black;">
+								<th style="border: 1px solid black;" rowspan="2"></th>
+								<th
+									style="border: 1px solid black;text-align: center;vertical-align: middle"
+									rowspan="2" valign="middle">Opened</th>
+								<th
+									style="border: 1px solid black;text-align: center;vertical-align: middle"
+									rowspan="2" valign="middle">Assigned</th>
+								<th
+									style="border: 1px solid black;text-align: center;vertical-align: middle"
+									rowspan="2" valign="middle">Solved</th>
+								<th colspan="4" style="border: 1px solid black;text-align: center;">Closed</th>
+							</tr>
+							<tr style="border: 1px solid black;">
+								<th style="border: 1px solid black;text-align: center;">On Time</th>
+								<th style="border: 1px solid black;text-align: center;">Late</th>
+								<th style="border: 1px solid black;text-align: center;">Total</th>
+								<th style="border: 1px solid black;text-align: center;">% On Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr t-foreach="data" t-as="l">
+								<td>
+									<span style="color: white;" t-esc="'..' * l[1].get('level',0)" />
+									<t t-if="l[1].get('level',0) &gt; 0">
+										<t t-set="style" t-value="'font-weight: normal;'" />
+									</t>
+									<t t-if="not l[1].get('level',0) &gt; 0">
+										<t t-set="style" t-value="'font-weight: bold;'" />
+									</t>
+									<span t-att-style="style" t-esc="l[0]" />
+								</td>
+								<td style="text-align: center;" t-esc="l[1].get('opened','')"></td>
+								<td style="text-align: center;" t-esc="l[1].get('assigned','')"></td>
+								<td style="text-align: center;" t-esc="l[1].get('solved','')"></td>
+								<td style="text-align: center;" t-esc="l[1].get('ontime','')"></td>
+								<td style="text-align: center;" t-esc="l[1].get('late','')"></td>
+								<td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total','')"></td>
+								<td style="text-align: center;font-weight: bold;" t-esc="l[1].get('percent','')"></td>
+							</tr>
+						</tbody>
+					</table>
+
 				</div>
 			</t>
 		</template>

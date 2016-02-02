@@ -9,7 +9,22 @@
               <form >
                   <group col="4" colspan="2">
                       <field name="report_id" required="1" />
+                      
                   </group>
+                  <notebook tabpos="up" colspan="4">
+                    <page string="Filters" name="filters">
+                        <group>
+                            <field name="filter" on_change="onchange_filter(filter)" required="1"/>
+                        </group>
+                        <group string="Dates"  attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}">
+                            <field name="date_from" />
+                            <field name="date_to" />
+                        </group>
+                        <group string="Month" attrs="{'invisible':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}">
+                            <field name="month" on_change="onchange_month(month)" attrs="{'required':[('filter', '=', 'filter_period')]}"/>
+                        </group>
+                    </page>
+                </notebook>
                   <footer>
                       <button name="print_report" string="Print" type="object" class="oe_highlight"/>
                       <button string="Cancel" class="oe_link" special="cancel" />

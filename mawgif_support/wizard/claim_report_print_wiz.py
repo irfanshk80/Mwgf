@@ -24,6 +24,8 @@ from openerp import models, fields, api, _
 from openerp.osv.orm import except_orm
 from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
+import time
+import calendar
 
 class claim_report_print_wiz(models.TransientModel):
     _name = 'claim.report.print.wiz'
@@ -34,7 +36,42 @@ class claim_report_print_wiz(models.TransientModel):
 
     report_id = fields.Selection([('daily','Daily Report'),('monthly','Monthly Report'),('on_demand','On demand Report')], default='daily', string='Report Type')
     user_id = fields.Many2one("res.users", string="User")
+    filter = fields.Selection([('filter_date', 'Date'), ('filter_period', 'Month')], "Filter by")
+    month = fields.Selection([('01', 'Jan'), ('02', 'Feb'), ('03', 'Mar'),('04', 'Apr'),('05', 'May'),('06', 'Jun'),
+                              ('07', 'July'), ('08', 'Aug'),('09', 'Sep'),('10', 'Oct'),('11', 'Nov'),('12', 'Dec')
+                              ], "Month")
+    date_from = fields.Date("Start Date")
+    date_to = fields.Date("End Date")
     
+    def onchange_filter(self, cr, uid, ids, filter='filter_period', context=None):
+        res = {'value': {}}
+        if filter == 'filter_date':
+            res['value'] = {'month': False, 'date_from': time.strftime('%Y-01-01'), 'date_to': time.strftime('%Y-%m-%d')}
+        if filter == 'filter_period':
+            month = time.strftime('%m')
+            date_from = time.strftime('%Y-'+ month +'-01')
+            date_to = self.mkLastOfMonth(cr, uid, ids, date_from, context)
+            res['value'] = {'month': month, 'date_from': date_from, 'date_to': date_to}
+        return res
+    
+    def onchange_month(self, cr, uid, ids, month, context=None):
+        res = {'value': {}}
+        if not month:
+            month = time.strftime('%m')
+            
+        date_from = time.strftime('%Y-'+ month +'-01')
+        date_to = self.mkLastOfMonth(cr, uid, ids, date_from, context)
+        res['value'] = {'date_from': date_from, 'date_to': date_to}
+        return res
+    
+    def mkLastOfMonth(self, cr, uid, ids, dtDateTime, context=None):
+        date = datetime.date(datetime.strptime(dtDateTime, '%Y-%m-%d'))
+        first_day = date.replace(day = 1)
+        last_day = date.replace(day = calendar.monthrange(date.year, date.month)[1])
+        return last_day
+    
+        #subtract from nextMonth and return
+
 
     @api.multi
     def print_report(self):
@@ -515,6 +552,25 @@ class claim_report_print_wiz(models.TransientModel):
                 vals['not_closed'] = records[0][0]
                 
             data_list.append([key,vals])
+        
+        vals = {}
+        
+        total_closed_query = "select  c.claimcateg as claimcateg,  count(*) as nbr  from  maw_claim c  where c.state = 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval)) group by c.claimcateg"
+        self.env.cr.execute(total_closed_query) 
+        records = self.env.cr.fetchall()
+        if records:
+            vals = dict(records)
+            vals['total'] = sum(vals.values())
+        
+        total_not_closed_query = "select  count(*) as nbr  from  maw_claim c  where c.state <> 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval))"
+        self.env.cr.execute(total_not_closed_query) 
+        records = self.env.cr.fetchall()
+        if records:
+            vals['not_closed'] = records[0][0]
+        #to make this row bold in report
+        vals['bold'] = 1
+            
+        data_list.append(['Total',vals])
             
         return data_list
 

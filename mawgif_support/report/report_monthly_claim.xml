@@ -8,7 +8,12 @@
 				<t t-jquery=".footer" t-operation="replace">
 					<div class="footer">
 						<div class="row">
-							<div class="text-right">
+							<div style="float:left;width:50%">
+								<hr color="black" />
+								<strong>Prepared On: </strong>
+								<span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"></span>
+							</div>
+							<div style="float:right;width:50%;text-align:right;">
 								<hr color="black" />
 								<strong>Prepared By: </strong>
 								<span t-esc="user.name"></span>
@@ -46,12 +51,12 @@
 		                      <td t-esc="l[0]"></td>
 		                      <td t-esc="l[1].get('opened',0)"></td>
                               <td t-esc="l[1].get('assigned',0)"></td>
-                               <td t-esc="l[1].get('solved',0)"></td>
-                              <td t-esc="l[1].get('total',0)"></td>
+                              <td t-esc="l[1].get('solved',0)"></td>
+                              <td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total',0)"></td>
                               <td t-esc="l[1].get('open_average_time',0.0)"></td>
                                <td t-esc="l[1].get('assigned_average_time',0.0)"></td>
                                <td t-esc="l[1].get('solved_average_time',0.0)"></td>
-                               <td t-esc="l[1].get('total_average_time',0.0)"></td>
+                               <td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total_average_time',0.0)"></td>
                           </tr>
 		               </tbody>
 	
