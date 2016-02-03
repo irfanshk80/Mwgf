@@ -26,6 +26,7 @@ Module to manage mawgif customer claims
                   "mawgif_report.xml",
                   "view/country.xml",
                   "data/country_data.xml",
+                  "data/city_data.xml",
                   "view/mawgif_claim.xml",
                   "data/cron_data.xml",
                   "view/city.xml",
