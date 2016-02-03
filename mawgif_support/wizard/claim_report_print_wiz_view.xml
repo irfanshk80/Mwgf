@@ -14,7 +14,7 @@
                   <notebook tabpos="up" colspan="4" attrs="{'invisible':[('report_id', '!=', 'monthly')]}">
                     <page string="Filters" name="filters">
                         <group>
-                            <field name="filter" on_change="onchange_filter(filter)" required="1"/>
+                            <field name="filter" on_change="onchange_filter(filter)" attrs="{'required':[('report_id', '=', 'monthly')]}"/>
                         </group>
                         <group string="Dates"  attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}">
                             <field name="date_from" />
