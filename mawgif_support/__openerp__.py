@@ -37,7 +37,7 @@ Module to manage mawgif customer claims
                   "data/email_template.xml",
                   'view/maw_claim_sequence.xml',
                   'data/website_mawgif_data.xml',
-                  'view/website_mawgif.xml',    
+                  'view/website_mawgif.xml',
                   ],
     "test": [],
     "auto_install": False,

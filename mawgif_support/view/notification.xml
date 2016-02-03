@@ -68,8 +68,8 @@
 		################################ menuitem course
 		################################################
 
-		<menuitem action="notification_win_act" id="notification_side_active_mi"
-			name="Notification" sequence="33" parent="configuration_side_mi" />
+<!-- 		<menuitem action="notification_win_act" id="notification_side_active_mi"
+			name="Notification" sequence="33" parent="configuration_side_mi" /> -->
 
 	</data>
 </openerp>	

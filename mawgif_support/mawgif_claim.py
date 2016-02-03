@@ -31,7 +31,7 @@ class maw_district(osv.osv):
     _columns = {
       'name': fields.char('District', size=100),
       'city_id': fields.many2one('maw.city','City'),
-      'description': fields.text('Description'),
+      'user_ids': fields.many2many('res.users', 'user_operations_rel', 'operation_id', 'user_id', 'Customer Service Officers'),
  }
     
 class maw_country(osv.osv):
@@ -75,8 +75,7 @@ class maw_claim(osv.osv):
     _description = "Claim"
     _order = "date desc"
     _inherit = ['mail.thread']
- 
- 
+    
     _columns = {
         'name': fields.char('Subject',copy=False),
         
@@ -85,6 +84,7 @@ class maw_claim(osv.osv):
         'mobile': fields.char('Mobile', required=True),
         'customer_email': fields.char('Email', size=128, help="Customer Email" ),      
         'user_id': fields.many2one('res.users', 'Assigned To'),
+        #'cso_group_id':fields.function(_get_cso_group,type='integer',String="CSO Group ID"),
         
         'customer_first_name': fields.char('First Name', required=True),
         'customer_second_name': fields.char('Last Name', required=True),
@@ -96,7 +96,7 @@ class maw_claim(osv.osv):
         
         'priority': fields.selection([('0','Low'), ('1','Normal'), ('2','High')], 'Priority'),
        
-        'city_id': fields.many2one('maw.city','Location Of Occurrence'),
+        'city_id': fields.many2one('maw.city','City of occurrence '),
         'location':fields.char("Location",size=250),
         'district': fields.many2one('maw.district' ,'Operations' ),
 
@@ -494,7 +494,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_open_notified = True
-                        subject = "Support Ticket Delay"
+                        subject = "Support Ticket - Delay On Open"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
@@ -531,7 +531,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_assigned_notified = True
-                        subject = "Support Ticket Delay"
+                        subject = "Support Ticket - Delay On Assigned"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
@@ -566,7 +566,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_solved_notified = True
-                        subject = "Support Ticket Delay"
+                        subject = "Support Ticket - Delay On Solved"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
