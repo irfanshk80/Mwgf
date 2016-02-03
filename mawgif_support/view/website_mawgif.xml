@@ -88,7 +88,7 @@
 						                
 						                <label class="col-xs-3 req_eng control-label" for="customer_first_name">Customer Name</label>
 						                <div class="col-xs-7">
-						                    <input type="text" class="form-control" name="customer_first_name" placeholder="First Name	 الاسم الاول" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_first_name or ''}"/>
+						                    <input type="text" class="form-control" name="customer_first_name" placeholder="First Name	 الاسم الاول" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_first_name or ''}" autofocus="True" />
 						                    <input type="text" class="form-control" name="customer_second_name" placeholder="Second Name      الاسم الاخير" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_second_name or ''}"/>
 						                </div>
 						                <label class="col-xs-2 ar_label control-label req_arb" for="customer_first_name">اسم العميل</label>
@@ -139,7 +139,7 @@
 					                                </option>
 					                            </t>
 					                        </select>
-					                        <input type="text" class="form-control" name="location" id="location" placeholder="Address" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{date or ''}"/>
+					                        <input type="text" class="form-control" name="location" id="location" placeholder="Address العنوان" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{date or ''}"/>
 				                        </div>
 				                        <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">موقع الحدث</label>
 				                    </div>
