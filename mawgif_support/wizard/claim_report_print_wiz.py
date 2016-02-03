@@ -445,13 +445,13 @@ class claim_report_print_wiz(models.TransientModel):
         
         from maw_claim c 
 
-        left outer join (select id, extract('epoch' from (first_assigned_date-create_date_n))/3600 as  open_average_time, 
-        extract('epoch' from (solved_date - first_assigned_date))/3600 as  assigned_average_time,
-        extract('epoch' from (date_closed - solved_date))/3600 as  solved_average_time
+        left outer join (select id, CASE WHEN (create_date_n >= '%s' AND create_date_n <= '%s') is TRUE THEN extract('epoch' from (first_assigned_date-create_date_n))/3600/24 ELSE 0 END as open_average_time, 
+        CASE WHEN (first_assigned_date >= '%s' AND first_assigned_date <= '%s') is TRUE THEN extract('epoch' from (solved_date - first_assigned_date))/3600/24 ELSE 0 END as assigned_average_time,
+        CASE WHEN (solved_date >= '%s' AND solved_date <= '%s') is TRUE THEN extract('epoch' from (date_closed - solved_date))/3600/24 ELSE 0 END  as solved_average_time
     
         from maw_claim where claimcateg='claim' group by id) as c1 on c1.id=c.id
 
-        left join (select id, extract('epoch' from (date_closed-create_date_n))/3600 as  open_average_time
+        left join (select id, CASE WHEN (create_date_n >= '%s' AND create_date_n <= '%s') is TRUE THEN extract('epoch' from (date_closed-create_date_n))/3600/24 ELSE 0 END as  open_average_time
     
         from maw_claim where claimcateg='comment' or claimcateg='question' group by id) as c2 on c2.id=c.id
         
@@ -459,7 +459,7 @@ class claim_report_print_wiz(models.TransientModel):
                                 OR (solved_date >= '%s' AND solved_date <= '%s') OR (date_closed >= '%s' AND date_closed <= '%s')
         
         group by c.state, c.claimcateg
-        """ % (date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to)   )
+        """ % (date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to)   )
         records = self.env.cr.fetchall()
         
         for record in records:
@@ -467,14 +467,14 @@ class claim_report_print_wiz(models.TransientModel):
                 inner_dict = res_dict[support.get(record[0],False)]
                 inner_dict[record[1]]=record[2]
                 inner_dict['total']+= record[2] if record[1] not in ['closed','new'] else 0
-                inner_dict['open_average_time']+=round(record[3] or 0.0,2)
-                inner_dict['assigned_average_time']+=round(record[4] or 0.0,2) 
-                inner_dict['solved_average_time']+=round(record[5] or 0.0,2) 
-                inner_dict['total_average_time']+=round(record[6] or 0.0,2) 
-                total_opened_avg += round(record[3] or 0.0,2)
-                total_assigned_avg += round(record[4] or 0.0,2) 
-                total_solved_avg += round(record[5] or 0.0,2)
-                total_avg_time += round(record[6] or 0.0,2) 
+                inner_dict['open_average_time']+=round(record[3] or 0.0,4)
+                inner_dict['assigned_average_time']+=round(record[4] or 0.0,4) 
+                inner_dict['solved_average_time']+=round(record[5] or 0.0,4) 
+                inner_dict['total_average_time']+=round(record[6] or 0.0,4) 
+                total_opened_avg += round(record[3] or 0.0,4)
+                total_assigned_avg += round(record[4] or 0.0,4) 
+                total_solved_avg += round(record[5] or 0.0,4)
+                total_avg_time += round(record[6] or 0.0,4) 
                 if record[1] not in ['closed','new']:
                     total_items += record[2]
                 
@@ -486,13 +486,13 @@ class claim_report_print_wiz(models.TransientModel):
                 if record[1]=='solved': 
                     total_solved += record[2]
             else:
-                res_dict[support.get(record[0],False)]= {record[1]:record[2],"open_average_time":round(record[3] or 0.0,2),"total":record[2] if record[1] not in ['closed','new'] else 0,
-                                                         'assigned_average_time':round(record[4] or 0.0,2) ,'solved_average_time':round(record[5] or 0.0,2),
-                                                         'total_average_time':round(record[6] or 0.0,2)
+                res_dict[support.get(record[0],False)]= {record[1]:record[2],"open_average_time":round(record[3] or 0.0,4),"total":record[2] if record[1] not in ['closed','new'] else 0,
+                                                         'assigned_average_time':round(record[4] or 0.0,4) ,'solved_average_time':round(record[5] or 0.0,4),
+                                                         'total_average_time':round(record[6] or 0.0,4)
                                                           }
-                total_opened_avg += round(record[3] or 0.0,2)
-                total_assigned_avg += round(record[4] or 0.0,2) 
-                total_solved_avg += round(record[5] or 0.0,2) 
+                total_opened_avg += round(record[3] or 0.0,4)
+                total_assigned_avg += round(record[4] or 0.0,4) 
+                total_solved_avg += round(record[5] or 0.0,4) 
                 
                 total_avg_time += round(record[6],2) 
                 if record[1] not in ['closed','new']:
