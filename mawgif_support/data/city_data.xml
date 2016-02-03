@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+    	<record id="city1" model="maw.city">
+            <field name="name">Dammam or Khobar</field>
+        </record>
+
+        <record id="city2" model="maw.city">
+            <field name="name">Riyadh</field>
+        </record>
+
+        <record id="city3" model="maw.city">
+            <field name="name">Jeddah</field>
+        </record>
+
+        <record id="city4" model="maw.city">
+            <field name="name">Mecca</field>
+        </record>
+
+        <record id="city5" model="maw.city">
+            <field name="name">Madinah</field>
+        </record>
+
+        <record id="loc1" model="maw.district">
+            <field name="city_id" ref="city1"></field>
+            <field name="name">On-Street</field>
+        </record>
+        <record id="loc2" model="maw.district">
+            <field name="city_id" ref="city1"></field>
+            <field name="name">KFIA</field>
+        </record>
+        <record id="loc3" model="maw.district">
+            <field name="city_id" ref="city2"></field>
+            <field name="name">KKIA</field>
+        </record>
+        <record id="loc4" model="maw.district">
+            <field name="city_id" ref="city2"></field>
+            <field name="name">Imam Uni</field>
+        </record>
+        <record id="loc5" model="maw.district">
+            <field name="city_id" ref="city2"></field>
+            <field name="name">Metro</field>
+        </record>
+        <record id="loc6" model="maw.district">
+            <field name="city_id" ref="city3"></field>
+            <field name="name">KAIA</field>
+        </record>
+        <record id="loc7" model="maw.district">
+            <field name="city_id" ref="city3"></field>
+            <field name="name">On-Street</field>
+        </record>
+        <record id="loc8" model="maw.district">
+            <field name="city_id" ref="city3"></field>
+            <field name="name">Off-Street</field>
+        </record>
+        <record id="loc9" model="maw.district">
+            <field name="city_id" ref="city4"></field>
+            <field name="name">Misfala</field>
+        </record>
+        <record id="loc10" model="maw.district">
+            <field name="city_id" ref="city4"></field>
+            <field name="name">On-Street</field>
+        </record>
+        <record id="loc11" model="maw.district">
+            <field name="city_id" ref="city5"></field>
+            <field name="name">Haram</field>
+        </record>        
+        
+    </data>
+</openerp>
