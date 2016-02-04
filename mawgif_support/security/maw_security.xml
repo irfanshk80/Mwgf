@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <openerp>
-    <data>
+	<data noupdate="0">
     
         <record id="group_customer_service" model="res.groups">
             <field name="name">Customer Service Officer</field>
@@ -13,7 +13,7 @@
         
         <record id="group_manager" model="res.groups">
             <field name="name">Mawgif Manager</field>
-            <field name="implied_ids" eval="[(4, ref('mawgif_support.group_customer_service'))]"/>
+            <field name="implied_ids" eval="[(4, ref('mawgif_support.group_call_center'))]"/>
         	<field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         

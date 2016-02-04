@@ -91,7 +91,7 @@
 										attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', '!=', 'new')]}" widget="selection" />
 									<field name="description" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}" string="Customer Concern" required="1"/>
 									<field name="user_id" attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', 'not in', ('new','opened','solved'))],'required':[('state', 'in', ('opened','solved'))]}" 
-									options='{"no_open": True, "no_create": True}' domain="[('cso','=', True)]"/>
+									options='{"no_open": True, "no_create": True}' domain="[('cso','=', True),('district_ids', '=', district)]"/>
 								</group>
 
 								<group>

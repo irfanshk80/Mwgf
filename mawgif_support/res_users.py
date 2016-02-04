@@ -18,10 +18,11 @@ class res_users(osv.osv):
         g_ids = all_groups.search(cr,uid,[('name','=','Customer Service Officer')])
         if g_ids:
             for record in self.browse(cr, uid, ids, context=context):
-                if g_ids[0] in record.groups_id:
+                if g_ids[0] in record.groups_id.ids:
                     res[record.id] = True
         return res
     
     _columns = {
       'cso' : fields.function(_get_cso_group,type='boolean',String="CSO Group ID",store=True),
+      'district_ids': fields.many2many('maw.district', 'user_operations_rel', 'user_id','operation_id', 'Customer Service Officers'),
     }
