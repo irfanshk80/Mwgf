@@ -517,7 +517,7 @@ class claim_report_print_wiz(models.TransientModel):
         
         total_row = ('Total/Average', {'opened':total_opened,'assigned':total_assigned,'solved':total_solved,'total':total_items,
                          'open_average_time' : round(total_opened_avg,2),'assigned_average_time':round(total_assigned_avg,2),'solved_average_time':round(total_solved_avg,2),
-                         'avg_average': (round(avg_average,2)),'total_average_time':  (round(total_avg_time/3,2)) ,'bold':1
+                         'avg_average': (round(avg_average/3,2)),'total_average_time':  (round(total_avg_time/3,2)) ,'bold':1
                                
                     })
         data_list.append(total_row)

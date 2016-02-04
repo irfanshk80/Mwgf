@@ -24,6 +24,7 @@
 						<h2>
 							Monthly Report
 						</h2>
+						<h2 t-esc="o.date_from + ' - ' + o.date_to"/>  
 					</div>
 					<t t-set="data" t-value="o.get_datas_monthly(o)" />
 		           
@@ -39,22 +40,28 @@
                                 <th>Assigned Average Time</th>
                                 <th>Solved Average Time</th>
                                 <th>Total Average Time</th>
-                                <th>AVERAGE Average Time</th>
+                                <th>Average Time</th>
                             </tr>
 		               </thead>
 		               <tbody class="sale_tbody">
-		                  <tr t-foreach="data" t-as="l">
-		                      <td t-esc="l[0]"></td>
-		                      <td t-esc="l[1].get('opened',0)"></td>
-                              <td t-esc="l[1].get('assigned',0)"></td>
-                               <td t-esc="l[1].get('solved',0)"></td>
-                              <td t-esc="l[1].get('total',0)"></td>
-                              <td t-esc="l[1].get('open_average_time',0.0)"></td>
-                               <td t-esc="l[1].get('assigned_average_time',0.0)"></td>
-                               <td t-esc="l[1].get('solved_average_time',0.0)"></td>
-                               <td t-esc="l[1].get('total_average_time',0.0)"></td>
-                               <td t-esc="l[1].get('avg_average',0.0)"></td>
-                          </tr>
+		               		<tr t-foreach="data" t-as="l">
+		                  		<t t-if="l[1].get('bold',0) &gt; 0">
+									<t t-set="style" t-value="'font-weight: bold;'" />
+								</t>
+								<t t-if="not l[1].get('bold',0) &gt; 0">
+									<t t-set="style" t-value="'font-weight: normal;'" />
+								</t>
+		                      <td t-att-style="style" t-esc="l[0]"></td>
+		                      <td t-att-style="style" t-esc="l[1].get('opened',0)"></td>
+                              <td t-att-style="style" t-esc="l[1].get('assigned',0)"></td>
+                              <td t-att-style="style" t-esc="l[1].get('solved',0)"></td>
+                              <td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total',0)"></td>
+                              <td t-att-style="style" t-esc="l[1].get('open_average_time',0.0)"></td>
+                               <td t-att-style="style" t-esc="l[1].get('assigned_average_time',0.0)"></td>
+                               <td t-att-style="style" t-esc="l[1].get('solved_average_time',0.0)"></td>
+                               <td style="text-align: center;font-weight: bold;" t-esc="l[1].get('total_average_time',0.0)"></td>
+                               <td style="text-align: center;font-weight: bold;" t-esc="l[1].get('avg_average',0.0)"></td>
+                          	</tr>
 		               </tbody>
 	
 		            </table>
