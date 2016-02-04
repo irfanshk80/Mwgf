@@ -433,6 +433,7 @@ class claim_report_print_wiz(models.TransientModel):
         total_assigned_avg = 0.0
         total_solved_avg = 0.0
         total_avg_time = 0.0
+        avg_average = 0.0
         total_items = 0
         
         ###total calculation by claimcateg and state
@@ -441,7 +442,9 @@ class claim_report_print_wiz(models.TransientModel):
         avg(c1.assigned_average_time),
         avg(c1.solved_average_time),
         
-        COALESCE(case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,0)+COALESCE(avg(c1.assigned_average_time),0)+COALESCE(avg(c1.solved_average_time),0) as sumavg
+        COALESCE(case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,0)+COALESCE(avg(c1.assigned_average_time),0)+COALESCE(avg(c1.solved_average_time),0) as sumavg,
+
+        (COALESCE(case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,0)+COALESCE(avg(c1.assigned_average_time),0)+COALESCE(avg(c1.solved_average_time),0))/3 as sumavg_average
         
         from maw_claim c 
 
@@ -471,10 +474,13 @@ class claim_report_print_wiz(models.TransientModel):
                 inner_dict['assigned_average_time']+=round(record[4] or 0.0,4) 
                 inner_dict['solved_average_time']+=round(record[5] or 0.0,4) 
                 inner_dict['total_average_time']+=round(record[6] or 0.0,4) 
+                inner_dict['avg_average']+=round(record[7] or 0.0,4) 
                 total_opened_avg += round(record[3] or 0.0,4)
                 total_assigned_avg += round(record[4] or 0.0,4) 
                 total_solved_avg += round(record[5] or 0.0,4)
-                total_avg_time += round(record[6] or 0.0,4) 
+                total_avg_time += round(record[6] or 0.0,4)
+                avg_average += round(record[7] or 0.0,4)
+
                 if record[1] not in ['closed','new']:
                     total_items += record[2]
                 
@@ -488,13 +494,15 @@ class claim_report_print_wiz(models.TransientModel):
             else:
                 res_dict[support.get(record[0],False)]= {record[1]:record[2],"open_average_time":round(record[3] or 0.0,4),"total":record[2] if record[1] not in ['closed','new'] else 0,
                                                          'assigned_average_time':round(record[4] or 0.0,4) ,'solved_average_time':round(record[5] or 0.0,4),
-                                                         'total_average_time':round(record[6] or 0.0,4)
+                                                         'total_average_time':round(record[6] or 0.0,4), 'avg_average':round(record[7] or 0.0,4)
                                                           }
                 total_opened_avg += round(record[3] or 0.0,4)
                 total_assigned_avg += round(record[4] or 0.0,4) 
                 total_solved_avg += round(record[5] or 0.0,4) 
                 
                 total_avg_time += round(record[6],2) 
+                avg_average += round(record[7],2) 
+                print avg_average
                 if record[1] not in ['closed','new']:
                     total_items += record[2] 
                 
@@ -509,7 +517,7 @@ class claim_report_print_wiz(models.TransientModel):
         
         total_row = ('Total/Average', {'opened':total_opened,'assigned':total_assigned,'solved':total_solved,'total':total_items,
                          'open_average_time' : round(total_opened_avg,2),'assigned_average_time':round(total_assigned_avg,2),'solved_average_time':round(total_solved_avg,2),
-                         'total_average_time':  (round(total_avg_time/3,2)) ,'bold':1
+                         'avg_average': (round(avg_average,2)),'total_average_time':  (round(total_avg_time/3,2)) ,'bold':1
                                
                     })
         data_list.append(total_row)
