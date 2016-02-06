@@ -213,7 +213,8 @@
 		################################ menuitem course ################################################
 
 		<menuitem action="mawgif_claim_win_act" id="mawgif_claim_side_active_mi"
-			name="Support Ticket" sequence="444" parent="basic_information_file_side_mi" />
+			name="Support Ticket" sequence="444" parent="basic_information_file_side_mi" 
+			groups="mawgif_support.group_manager,mawgif_support.group_customer_service,mawgif_support.group_call_center"/>
 
 
 	</data>

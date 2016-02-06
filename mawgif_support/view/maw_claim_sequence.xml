@@ -11,7 +11,9 @@
             <field name="code">maw.claim</field>
             <field name="prefix">%(day)s%(month)s%(year)s-</field>
             <field name="padding">5</field>
+            <field name="auto_reset">True</field>
+            <field name="reset_period">year</field>
+            <field name="reset_init_number">1</field>
         </record>
-
     </data>
 </openerp>

@@ -9,7 +9,7 @@
     "depends": ["base_setup",
                 "mail",
                 "email_template",
-                "website"             
+                "website",
                 ],
     "complexity": "easy",
     "description": """
@@ -18,6 +18,7 @@ Module to manage mawgif customer claims
     "data":[
                   'security/maw_security.xml',
                   'security/ir.model.access.csv',
+                  "view/ir_sequence.xml",
                   "view/a_basic_menues.xml",
                   "wizard/claim_report_print_wiz_view.xml",
                   "report/report_monthly_claim.xml",
