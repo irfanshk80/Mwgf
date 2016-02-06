@@ -22,3 +22,4 @@ mawgif21,notifiation,mawgif_support.model_maw_notification,mawgif_support.group_
 mawgif22,country,mawgif_support.model_maw_country,group_customer_service,0,0,1,0
 mawgif23,country,mawgif_support.model_maw_country,group_call_center,1,1,1,0
 mawgif24,country,mawgif_support.model_maw_country,group_manager,1,1,1,1
+mawgif25,claim,model_maw_claim,group_manager,1,1,1,1
