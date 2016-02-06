@@ -1,7 +1,7 @@
 id,name,model_id/id,group_id/id,perm_create,perm_unlink,perm_read,perm_write
-mawgif1, manager,mawgif_support.model_maw_claim,mawgif_support.group_manager,1,1,1,1
-mawgif2, manager m,mail.model_mail_message,mawgif_support.group_manager,1,1,1,1
-mawgif3, manager mail,email_template.model_email_template,mawgif_support.group_manager,1,1,1,1
+mawgif1,manager,mawgif_support.model_maw_claim,mawgif_support.group_manager,1,1,1,1
+mawgif2,manager m,mail.model_mail_message,mawgif_support.group_manager,1,1,1,1
+mawgif3,manager mail,email_template.model_email_template,mawgif_support.group_manager,1,1,1,1
 mawgif4,manger city,mawgif_support.model_maw_city,mawgif_support.group_manager,1,1,1,1
 mawgif5,manager disrict,mawgif_support.model_maw_district,mawgif_support.group_manager,1,1,1,1
 mawgif6,manager claim type,mawgif_support.model_maw_complaint_type,mawgif_support.group_manager,1,1,1,1
@@ -19,3 +19,6 @@ mawgif17,call center district,mawgif_support.model_maw_district,group_call_cente
 mawgif18,call center type,mawgif_support.model_maw_complaint_type,group_call_center,1,1,1,1
 mawgif19,notifiation,mawgif_support.model_maw_notification,group_call_center,1,1,1,1
 mawgif21,notifiation,mawgif_support.model_maw_notification,mawgif_support.group_manager,1,1,1,1
+mawgif22,country,mawgif_support.model_maw_country,group_customer_service,0,0,1,0
+mawgif23,country,mawgif_support.model_maw_country,group_call_center,1,1,1,0
+mawgif24,country,mawgif_support.model_maw_country,group_manager,1,1,1,1
