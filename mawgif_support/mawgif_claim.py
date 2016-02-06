@@ -122,6 +122,7 @@ class maw_claim(osv.osv):
         'delay_solved_notified':fields.boolean('Solved Delay Notified?',copy=False),
         
         'number': fields.char('Complaint ID', size=64, select=True,copy=False),
+        'source_type':fields.selection([('web', "Web"),('direct', "Direct")], 'Source Type'),
         
         'state': fields.selection([
          ('new', "New"),
@@ -147,6 +148,7 @@ class maw_claim(osv.osv):
         'delay_open_notified':False,
         'delay_assigned_notified':False,
         'delay_solved_notified':False,
+        'source_type':'direct'
     }
     
     def onchange_city(self, cr, uid, ids, city_id,context=None):
@@ -156,16 +158,16 @@ class maw_claim(osv.osv):
     def create(self, cr,uid,vals,context):
         return super(maw_claim, self).create(cr,uid,vals,context)
     
-#     def unlink(self, cr, uid, ids, context=None):
-#         claim_obj = self.pool['maw.claim']
-#         for item in self.browse(cr, uid, ids, context=context):
-#             if item.state != 'new':
-#                 raise osv.except_osv(
-#                     _('Invalid Action!'),
-#                     _('In order to delete a support, It should be in New state.')
-#                 )
-#             claim_obj.unlink(cr, uid, [line.id for line in item.line_ids], context=context)
-#         return super(maw_claim, self).unlink(cr, uid, ids, context=context)
+    def unlink(self, cr, uid, ids, context=None):
+        claim_obj = self.pool['maw.claim']
+        for item in self.browse(cr, uid, ids, context=context):
+            if item.state != 'new':
+                raise osv.except_osv(
+                    _('Invalid Action!'),
+                    _('In order to delete a support, It should be in New state.')
+                )
+            claim_obj.unlink(cr, uid, [line.id for line in item.line_ids], context=context)
+        return super(maw_claim, self).unlink(cr, uid, ids, context=context)
     
     def action_confirm(self, cr, uid, ids, context=None):
         for claim in self.browse(cr, uid, ids, context=context):        
@@ -355,9 +357,31 @@ class maw_claim(osv.osv):
                 return True
             else :
                 return False
+            
+    def _check_description(self, cr, uid, ids, context=None):
+        for claim in self.browse(cr, uid, ids, context):
+            if claim.description:
+                if len(claim.description)<=1000:
+                    return True
+                else :
+                    return False
+            else:
+                return True
+            
+    def _check_comments(self, cr, uid, ids, context=None):
+        for claim in self.browse(cr, uid, ids, context):
+            if claim.service_emp_comment:
+                if len(claim.service_emp_comment)<=1000:
+                    return True
+                else :
+                    return False
+            else:
+                return True
     
     _constraints = [(_check_mobile, 'not valid mobile',  ['mobile']),
-                (_check_mail, 'not valid mail',  ['customer_email'])
+                (_check_mail, 'Not a valid email id',  ['customer_email']),
+                (_check_description, 'Customer Concerns can not exceed 1000 characters',  ['description']),
+                (_check_comments, 'Comments can not exceed 1000 characters',  ['service_emp_comment'])
                 ]
            
     

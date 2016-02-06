@@ -13,14 +13,13 @@
 						<group>
 							<field name="city_id" />
 							<field name="name" />
-							<field name="user_ids" domain="[('cso','=', True)]">
+							<field name="user_ids" domain="[('cso','=', True)]" options='{"no_open": True, "no_create": True}'>
 							<tree>
 								<field name="name" />
 							</tree>
 							</field>
 						</group>
 						<group>
-						
 						</group>
 					</group>
 				</form>

@@ -101,6 +101,7 @@ class support(http.Controller):
                     'delay_open_notified':False,
                     'delay_assigned_notified':False,
                     'delay_solved_notified':False,
+                    'source_type':'web'
                   }
 
 
