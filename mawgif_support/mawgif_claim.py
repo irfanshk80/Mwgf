@@ -31,7 +31,7 @@ class maw_district(osv.osv):
     _columns = {
       'name': fields.char('District', size=100),
       'city_id': fields.many2one('maw.city','City'),
-      'user_ids': fields.many2many('res.users', 'user_operations_rel', 'operation_id', 'user_id', 'Customer Service Officers'),
+      'description': fields.text('Description'),
  }
     
 class maw_country(osv.osv):
@@ -75,16 +75,17 @@ class maw_claim(osv.osv):
     _description = "Claim"
     _order = "date desc"
     _inherit = ['mail.thread']
-    
+ 
+ 
     _columns = {
         'name': fields.char('Subject',copy=False),
         
         'create_date_n': fields.datetime('Creation Date',copy=False),
+        'write_date': fields.datetime('Update Date'),
         
         'mobile': fields.char('Mobile', required=True),
         'customer_email': fields.char('Email', size=128, help="Customer Email" ),      
-        'user_id': fields.many2one('res.users', 'Assigned To'),
-        #'cso_group_id':fields.function(_get_cso_group,type='integer',String="CSO Group ID"),
+        'user_id': fields.many2one('res.users', 'Assign To'),
         
         'customer_first_name': fields.char('First Name', required=True),
         'customer_second_name': fields.char('Last Name', required=True),
@@ -96,19 +97,21 @@ class maw_claim(osv.osv):
         
         'priority': fields.selection([('0','Low'), ('1','Normal'), ('2','High')], 'Priority'),
        
-        'city_id': fields.many2one('maw.city','City of occurrence '),
-        'location':fields.char("Location",size=250),
-        'district': fields.many2one('maw.district' ,'Operations' ),
+        'time': fields.float('Time Of Occurrence'),
+        
+        'city_id': fields.many2one('maw.city','Location Of Occurrence'),
+        'district': fields.many2one('maw.district' ,'District' ),
 
-        'date': fields.datetime('Occurrence Date', select=True ),
+        'date': fields.datetime('Date Of Occurrence', select=True ),
+        #'opened_date': fields.datetime('Assigned Date'),
         'assigned_date': fields.datetime('Assigned Date',copy=False),
-        'first_assigned_date': fields.datetime('First Assigned Date',copy=False),
+        'first_assigned_date': fields.datetime('First assigned Date',copy=False),
         'solved_date': fields.datetime('Solved Date',copy=False),
         'date_closed': fields.datetime('Closed Date',copy=False),
         
         'country_key': fields.many2one('maw.country', 'Country'),
         
-        'description': fields.text('Customer Concern',track_visibility='onchange'),
+        'description': fields.text('Description',track_visibility='onchange'),
         'service_emp_comment': fields.text('Comment',copy=False),
         
         'attachment': fields.binary(string='Attachment',copy=False),
@@ -121,8 +124,7 @@ class maw_claim(osv.osv):
         'delay_assigned_notified':fields.boolean('Assigned Delay Notified?',copy=False),
         'delay_solved_notified':fields.boolean('Solved Delay Notified?',copy=False),
         
-        'number': fields.char('Complaint ID', size=64, select=True,copy=False),
-        'source_type':fields.selection([('web', "Web"),('direct', "Direct")], 'Source Type'),
+        'number': fields.char('Claim ID', size=64, select=True,copy=False),
         
         'state': fields.selection([
          ('new', "New"),
@@ -133,13 +135,14 @@ class maw_claim(osv.osv):
          ('closed', "Closed"),
          
          
-    ], 'Status',track_visibility='onchange',copy=False)
+    ], 'State',track_visibility='onchange',copy=False)
                 
     }
     
 
     _defaults = {
-        'user_id': lambda s, cr, uid, c: uid or SUPERUSER_ID,
+        #'user_id': lambda s, cr, uid, c: uid or SUPERUSER_ID,
+        'user_id': '',
         'date': datetime.datetime.now(),
         'create_date_n': datetime.datetime.now(),
         'state':'new',
@@ -148,7 +151,6 @@ class maw_claim(osv.osv):
         'delay_open_notified':False,
         'delay_assigned_notified':False,
         'delay_solved_notified':False,
-        'source_type':'direct'
     }
     
     def onchange_city(self, cr, uid, ids, city_id,context=None):
@@ -158,16 +160,16 @@ class maw_claim(osv.osv):
     def create(self, cr,uid,vals,context):
         return super(maw_claim, self).create(cr,uid,vals,context)
     
-    def unlink(self, cr, uid, ids, context=None):
-        claim_obj = self.pool['maw.claim']
-        for item in self.browse(cr, uid, ids, context=context):
-            if item.state != 'new':
-                raise osv.except_osv(
-                    _('Invalid Action!'),
-                    _('In order to delete a support, It should be in New state.')
-                )
-            claim_obj.unlink(cr, uid, [line.id for line in item.line_ids], context=context)
-        return super(maw_claim, self).unlink(cr, uid, ids, context=context)
+#     def unlink(self, cr, uid, ids, context=None):
+#         claim_obj = self.pool['maw.claim']
+#         for item in self.browse(cr, uid, ids, context=context):
+#             if item.state != 'new':
+#                 raise osv.except_osv(
+#                     _('Invalid Action!'),
+#                     _('In order to delete a support, It should be in New state.')
+#                 )
+#             claim_obj.unlink(cr, uid, [line.id for line in item.line_ids], context=context)
+#         return super(maw_claim, self).unlink(cr, uid, ids, context=context)
     
     def action_confirm(self, cr, uid, ids, context=None):
         for claim in self.browse(cr, uid, ids, context=context):        
@@ -175,6 +177,7 @@ class maw_claim(osv.osv):
                 self.write(cr, uid, ids, {'state': 'opened'})
                 claim.number = self.pool.get('ir.sequence').get(cr, uid, 'maw.claim')
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','confirm'),('claimcateg','=','claim')])
+
                 if msg_ids:
                     msg_eng_draft = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
                     msg_eng = msg_eng_draft % claim.number
@@ -357,31 +360,9 @@ class maw_claim(osv.osv):
                 return True
             else :
                 return False
-            
-    def _check_description(self, cr, uid, ids, context=None):
-        for claim in self.browse(cr, uid, ids, context):
-            if claim.description:
-                if len(claim.description)<=1000:
-                    return True
-                else :
-                    return False
-            else:
-                return True
-            
-    def _check_comments(self, cr, uid, ids, context=None):
-        for claim in self.browse(cr, uid, ids, context):
-            if claim.service_emp_comment:
-                if len(claim.service_emp_comment)<=1000:
-                    return True
-                else :
-                    return False
-            else:
-                return True
     
     _constraints = [(_check_mobile, 'not valid mobile',  ['mobile']),
-                (_check_mail, 'Not a valid email id',  ['customer_email']),
-                (_check_description, 'Customer Concerns can not exceed 1000 characters',  ['description']),
-                (_check_comments, 'Comments can not exceed 1000 characters',  ['service_emp_comment'])
+                (_check_mail, 'not valid mail',  ['customer_email'])
                 ]
            
     
@@ -518,7 +499,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_open_notified = True
-                        subject = "Support Ticket - Delay On Open"
+                        subject = "Support Ticket - Delay in Open State"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
@@ -555,7 +536,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_assigned_notified = True
-                        subject = "Support Ticket - Delay On Assigned"
+                        subject = "Support Ticket - Delay in Assigned State"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
@@ -590,7 +571,7 @@ class maw_claim(osv.osv):
  
                             </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
                         claim.delay_solved_notified = True
-                        subject = "Support Ticket - Delay On Solved"
+                        subject = "Support Ticket - Delay in Solved State"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
