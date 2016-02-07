@@ -689,10 +689,29 @@ class claim_report_print_wiz(models.TransientModel):
         
         from maw_claim c 
 
-        left outer join (select id, CASE WHEN ((create_date_n >= '2016-01-01' AND create_date_n <= '2016-01-31') and first_assigned_date <= '2016-01-31') is TRUE THEN extract('epoch' from (first_assigned_date-create_date_n))/3600/24 WHEN (first_assigned_date > '2016-01-31') is TRUE THEN extract('epoch' from ('2016-01-31'-create_date_n))/3600/24 ELSE 0 END as open_average_time, 
-        CASE WHEN (first_assigned_date >= '2016-01-01' AND first_assigned_date <= '2016-01-31') is TRUE THEN extract('epoch' from (solved_date - first_assigned_date))/3600/24 WHEN (solved_date > '2016-01-31') is TRUE THEN extract('epoch' from ('2016-01-31'-solved_date))/3600/24 ELSE 0 END as assigned_average_time,
-        CASE WHEN (solved_date >= '2016-01-01' AND solved_date <= '2016-01-31') is TRUE THEN extract('epoch' from (date_closed - solved_date))/3600/24 WHEN (date_closed > '2016-01-31') is TRUE THEN extract('epoch' from ('2016-01-31'-date_closed))/3600/24 ELSE 0 END  as solved_average_time
-
+        left outer join 
+        (select id, 
+            CASE 
+                WHEN ((create_date_n >= '%s' AND create_date_n <= '%s' ) and first_assigned_date <= '%s') is TRUE THEN 
+                    extract('epoch' from (first_assigned_date-create_date_n))/3600/24 
+                WHEN (first_assigned_date > '%s') is TRUE THEN 
+                    extract('epoch' from ('%s'-create_date_n))/3600/24 
+                ELSE 0 
+            END as open_average_time, 
+                CASE 
+                WHEN (first_assigned_date >= '%s' AND first_assigned_date <= '%s'  and solved_date <= '%s' ) is TRUE THEN 
+                    extract('epoch' from (solved_date - first_assigned_date))/3600/24 
+                WHEN (solved_date > '%s' ) is TRUE THEN 
+                    extract('epoch' from ('%s' -solved_date))/3600/24 
+                ELSE 0 
+            END as assigned_average_time,
+            CASE 
+                WHEN (solved_date >= '%s'  AND solved_date <= '%s'  and date_closed <= '%s' ) is TRUE THEN 
+                    extract('epoch' from (date_closed - solved_date))/3600/24 
+                WHEN (date_closed > '%s' ) is TRUE THEN 
+                    extract('epoch' from ('%s'-date_closed))/3600/24 
+                ELSE 0 
+            END  as solved_average_time
                 
         from maw_claim where claimcateg='claim'
                                 group by id) as c1 on c1.id=c.id
@@ -711,8 +730,9 @@ class claim_report_print_wiz(models.TransientModel):
                                 OR (solved_date >= '%s' AND solved_date <= '%s' and c.state<>'new') OR (date_closed >= '%s' AND date_closed <= '%s' and c.state<>'new')
         
         group by c.claimcateg
-        """ % (date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,
-               date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to)   )
+        """ % (date_from,date_to,date_to,date_to,date_to,date_from,date_to,date_to,date_to,date_to,date_from,date_to,date_to,date_to,date_to,
+               date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to
+               ))
         records = self.env.cr.fetchall()
         
         for record in records:
