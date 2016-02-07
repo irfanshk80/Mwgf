@@ -111,11 +111,11 @@ class maw_claim(osv.osv):
         'description': fields.text('Customer Concern',track_visibility='onchange'),
         'service_emp_comment': fields.text('Comment',copy=False),
         
-        'attachment': fields.binary(string='Attachment',copy=False),
-        'attachment_fname': fields.char('Attachment', copy=False),
+        'attachment': fields.binary(string='Attachment1',copy=False),
+        'attachment_fname': fields.char('Attachment1', copy=False),
         
-        'attachment2': fields.binary(string='Additional file ',copy=False),
-        'attachment2_fname': fields.char('Additional file',copy=False),
+        'attachment2': fields.binary(string='Attachment2',copy=False),
+        'attachment2_fname': fields.char('Attachment2',copy=False),
         
         'delay_open_notified':fields.boolean('Opened Delay Notified?',copy=False),
         'delay_assigned_notified':fields.boolean('Assigned Delay Notified?',copy=False),

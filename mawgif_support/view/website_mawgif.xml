@@ -166,21 +166,21 @@
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الوصف</label>
 						            </div>
 						       		<div t-attf-class="form-group #{error and 'attachment' in error and 'has-error' or ''}">
-						                <label class="col-xs-3 control-label" for="attachment">Attachment</label>
+						                <label class="col-xs-3 control-label" for="attachment">Attachment1</label>
 						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
 						                <div class="col-xs-7">
 						                    <input type="file" class="form-control" name="attachment" id="attachment"/>
 						                </div>
-						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">مرفقات</label>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">مرفق1</label>
 						            </div>
 						            
 						       		<div t-attf-class="form-group #{error and 'attachment2' in error and 'has-error' or ''}">
-						                <label class="col-xs-3 control-label" for="attachment2">Additional File</label>
+						                <label class="col-xs-3 control-label" for="attachment2">Attachment2</label>
 						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>
 						               	<div class="col-xs-7">
 						                    <input type="file" placeholder="your attachment" class="form-control" name="attachment2" id="attachment2"/>
 						                </div>
-						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">ملف إضافي</label>
+						                <label class="col-xs-2 control-label ar_label" for="customer_first_name">مرفق2</label>
 						            </div>
 						            
 						            <t t-foreach="kwargs" t-as="kwarg">
