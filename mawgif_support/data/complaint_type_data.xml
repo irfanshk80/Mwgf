@@ -39,7 +39,7 @@
 		</record>
 		
 		<record id="complaint_type10" model="maw.complaint_type">
-			<field name="name">Pay-N-Display (PND) Parking Machines</field>
+			<field name="name">APM</field>
 		</record>
 		
 		<record id="complaint_type11" model="maw.complaint_type">
