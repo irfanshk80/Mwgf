@@ -694,6 +694,8 @@ class claim_report_print_wiz(models.TransientModel):
             CASE 
                 WHEN ((create_date_n >= '%s' AND create_date_n <= '%s' ) and first_assigned_date <= '%s') is TRUE THEN 
                     extract('epoch' from (first_assigned_date-create_date_n))/3600/24 
+                WHEN (create_date_n < '%s' AND first_assigned_date <= '%s') is TRUE THEN 
+                    extract('epoch' from (first_assigned_date-'%s'))/3600/24
                 WHEN (first_assigned_date > '%s') is TRUE THEN 
                     extract('epoch' from ('%s'-create_date_n))/3600/24 
                 ELSE 0 
@@ -701,6 +703,8 @@ class claim_report_print_wiz(models.TransientModel):
                 CASE 
                 WHEN (first_assigned_date >= '%s' AND first_assigned_date <= '%s'  and solved_date <= '%s' ) is TRUE THEN 
                     extract('epoch' from (solved_date - first_assigned_date))/3600/24 
+                WHEN (first_assigned_date < '%s' AND solved_date <= '%s') is TRUE THEN 
+                    extract('epoch' from (solved_date-'%s'))/3600/24
                 WHEN (solved_date > '%s' ) is TRUE THEN 
                     extract('epoch' from ('%s' -solved_date))/3600/24 
                 ELSE 0 
@@ -708,6 +712,8 @@ class claim_report_print_wiz(models.TransientModel):
             CASE 
                 WHEN (solved_date >= '%s'  AND solved_date <= '%s'  and date_closed <= '%s' ) is TRUE THEN 
                     extract('epoch' from (date_closed - solved_date))/3600/24 
+                WHEN (solved_date < '%s' AND date_closed <= '%s') is TRUE THEN 
+                    extract('epoch' from (date_closed-'%s'))/3600/24
                 WHEN (date_closed > '%s' ) is TRUE THEN 
                     extract('epoch' from ('%s'-date_closed))/3600/24 
                 ELSE 0 
@@ -730,7 +736,7 @@ class claim_report_print_wiz(models.TransientModel):
                                 OR (solved_date >= '%s' AND solved_date <= '%s' and c.state<>'new') OR (date_closed >= '%s' AND date_closed <= '%s' and c.state<>'new')
         
         group by c.claimcateg
-        """ % (date_from,date_to,date_to,date_to,date_to,date_from,date_to,date_to,date_to,date_to,date_from,date_to,date_to,date_to,date_to,
+        """ % (date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,
                date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to
                ))
         records = self.env.cr.fetchall()
