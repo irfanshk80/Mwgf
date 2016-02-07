@@ -141,7 +141,6 @@ class maw_claim(osv.osv):
     _defaults = {
         'user_id': lambda s, cr, uid, c: uid or SUPERUSER_ID,
         'date': datetime.datetime.now(),
-        'create_date_n': datetime.datetime.now(),
         'state':'new',
         'claimcateg': 'comment',
         'country_key':194,
@@ -172,7 +171,7 @@ class maw_claim(osv.osv):
     def action_confirm(self, cr, uid, ids, context=None):
         for claim in self.browse(cr, uid, ids, context=context):        
             if claim.claimcateg =='claim':              
-                self.write(cr, uid, ids, {'state': 'opened'})
+                self.write(cr, uid, ids, {'state': 'opened','create_date_n':datetime.datetime.now()})
                 claim.number = self.pool.get('ir.sequence').get(cr, uid, 'maw.claim')
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','confirm'),('claimcateg','=','claim')])
                 if msg_ids:
@@ -197,7 +196,7 @@ class maw_claim(osv.osv):
                         self.sendSms(cr, uid,ids, claim.mobile, combined_msg)
                 
             elif claim.claimcateg =='question':
-                self.write(cr, uid, ids, {'state': 'opened'})
+                self.write(cr, uid, ids, {'state': 'opened','create_date_n':datetime.datetime.now()})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','confirm'),('claimcateg','=','question')])
                 if msg_ids:
                     msg_eng = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -217,7 +216,7 @@ class maw_claim(osv.osv):
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
                 
             else:
-                self.write(cr, uid, ids, {'state': 'opened'})
+                self.write(cr, uid, ids, {'state': 'opened','create_date_n':datetime.datetime.now()})
         return True
     
     
