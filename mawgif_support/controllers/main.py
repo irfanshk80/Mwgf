@@ -94,7 +94,6 @@ class support(http.Controller):
         # Values field is initialized with defaults
         values = {
                     'user_id': SUPERUSER_ID,
-                    'create_date_n': str(datetime.utcnow()),
                     'state':'new',
                     'claimcateg': 'comment',
                     'country_key':194,
