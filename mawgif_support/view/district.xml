@@ -53,7 +53,7 @@
 		################################################
 
 		<record id="district_win_act" model="ir.actions.act_window">
-			<field name="name">Operations</field>
+			<field name="name">Operation</field>
 			<field name="res_model">maw.district</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
@@ -63,7 +63,7 @@
 
 
 		<menuitem action="district_win_act" id="district_side_active_mi"
-			name="Operations" sequence="33" parent="configuration_side_mi" />
+			name="Operation" sequence="33" parent="configuration_side_mi" />
 
 	</data>
 </openerp>	
