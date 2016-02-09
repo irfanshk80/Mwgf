@@ -679,13 +679,13 @@ class claim_report_print_wiz(models.TransientModel):
         
         ###total calculation by claimcateg
         self.env.cr.execute("""select c.claimcateg as claimcateg, count(c3.open_count) as open_count, count(c3.assign_count) as assign_count, count(c3.solve_count) as solve_count, count(c3.close_count) as close_count,
-        case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,
-        avg(c1.assigned_average_time),
-        avg(c1.solved_average_time),
+        case when avg(c1.open_average_time) is null then abs(avg(c2.open_average_time)) else abs(avg(c1.open_average_time)) end,
+        abs(avg(c1.assigned_average_time)),
+        abs(avg(c1.solved_average_time)),
         
-        COALESCE(case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,0)+COALESCE(avg(c1.assigned_average_time),0)+COALESCE(avg(c1.solved_average_time),0) as total,
+        COALESCE(case when avg(c1.open_average_time) is null then abs(avg(c2.open_average_time)) else abs(avg(c1.open_average_time)) end,0)+COALESCE(abs(avg(c1.assigned_average_time)),0)+COALESCE(abs(avg(c1.solved_average_time)),0) as total,
 
-                (COALESCE(case when avg(c1.open_average_time) is null then avg(c2.open_average_time) else avg(c1.open_average_time) end,0)+COALESCE(avg(c1.assigned_average_time),0)+COALESCE(avg(c1.solved_average_time),0))/3 as total_average
+                (COALESCE(case when avg(c1.open_average_time) is null then abs(avg(c2.open_average_time)) else abs(avg(c1.open_average_time)) end,0)+COALESCE(abs(avg(c1.assigned_average_time)),0)+COALESCE(abs(avg(c1.solved_average_time)),0))/3 as total_average
         
         from maw_claim c 
 
@@ -694,28 +694,28 @@ class claim_report_print_wiz(models.TransientModel):
             CASE 
                 WHEN ((create_date_n >= '%s' AND create_date_n <= '%s' ) and first_assigned_date <= '%s') is TRUE THEN 
                     extract('epoch' from (first_assigned_date-create_date_n))/3600/24 
-                WHEN (create_date_n < '%s' AND first_assigned_date <= '%s') is TRUE THEN 
+                WHEN (create_date_n < '%s' AND (first_assigned_date >= '%s' AND first_assigned_date <= '%s')) is TRUE THEN 
                     extract('epoch' from (first_assigned_date-'%s'))/3600/24
                 WHEN (first_assigned_date > '%s') is TRUE THEN 
-                    extract('epoch' from ('%s'-create_date_n))/3600/24 
+                    extract('epoch' from (create_date_n-'%s'))/3600/24 
                 ELSE 0 
             END as open_average_time, 
                 CASE 
-                WHEN (first_assigned_date >= '%s' AND first_assigned_date <= '%s'  and solved_date <= '%s' ) is TRUE THEN 
+                WHEN ((first_assigned_date >= '%s' AND first_assigned_date <= '%s')  and solved_date <= '%s' ) is TRUE THEN 
                     extract('epoch' from (solved_date - first_assigned_date))/3600/24 
-                WHEN (first_assigned_date < '%s' AND solved_date <= '%s') is TRUE THEN 
+                WHEN (first_assigned_date < '%s' AND (solved_date >= '%s' AND solved_date <= '%s')) is TRUE THEN 
                     extract('epoch' from (solved_date-'%s'))/3600/24
-                WHEN (solved_date > '%s' ) is TRUE THEN 
-                    extract('epoch' from ('%s' -solved_date))/3600/24 
+                WHEN (solved_date > '%s' AND first_assigned_date <= '%s') is TRUE THEN 
+                    extract('epoch' from ('%s'-first_assigned_date))/3600/24 
                 ELSE 0 
             END as assigned_average_time,
             CASE 
-                WHEN (solved_date >= '%s'  AND solved_date <= '%s'  and date_closed <= '%s' ) is TRUE THEN 
+                WHEN ((solved_date >= '%s'  AND solved_date <= '%s')  and date_closed <= '%s' ) is TRUE THEN 
                     extract('epoch' from (date_closed - solved_date))/3600/24 
                 WHEN (solved_date < '%s' AND date_closed <= '%s') is TRUE THEN 
                     extract('epoch' from (date_closed-'%s'))/3600/24
-                WHEN (date_closed > '%s' ) is TRUE THEN 
-                    extract('epoch' from ('%s'-date_closed))/3600/24 
+                WHEN (date_closed > '%s' AND solved_date <= '%s') is TRUE THEN 
+                    extract('epoch' from ('%s'-solved_date))/3600/24 
                 ELSE 0 
             END  as solved_average_time
                 
@@ -736,7 +736,7 @@ class claim_report_print_wiz(models.TransientModel):
                                 OR (solved_date >= '%s' AND solved_date <= '%s' and c.state<>'new') OR (date_closed >= '%s' AND date_closed <= '%s' and c.state<>'new')
         
         group by c.claimcateg
-        """ % (date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,
+        """ % (date_from,date_to,date_to,date_from,date_from,date_to,date_from,date_to,date_to,date_from,date_to,date_to,date_from,date_from,date_to,date_from,date_to,date_to,date_to,date_from,date_to,date_to,date_from,date_to,date_from,date_to,date_to,date_to,
                date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to,date_from,date_to
                ))
         records = self.env.cr.fetchall()
