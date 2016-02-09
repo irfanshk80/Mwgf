@@ -93,7 +93,6 @@ class support(http.Controller):
         post_description = []  # Info to add after the message
         # Values field is initialized with defaults
         values = {
-                    'user_id': SUPERUSER_ID,
                     'state':'new',
                     'claimcateg': 'comment',
                     'country_key':194,

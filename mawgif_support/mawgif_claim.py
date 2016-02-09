@@ -29,7 +29,7 @@ class maw_district(osv.osv):
     _name ='maw.district'
     
     _columns = {
-      'name': fields.char('District', size=100),
+      'name': fields.char('Operation', size=100),
       'city_id': fields.many2one('maw.city','City'),
       'user_ids': fields.many2many('res.users', 'user_operations_rel', 'operation_id', 'user_id', 'Customer Service Officers'),
  }
@@ -98,7 +98,7 @@ class maw_claim(osv.osv):
        
         'city_id': fields.many2one('maw.city','City of occurrence '),
         'location':fields.char("Location",size=250),
-        'district': fields.many2one('maw.district' ,'Operations' ),
+        'district': fields.many2one('maw.district' ,'Operation' ),
 
         'date': fields.datetime('Occurrence Date', select=True ),
         'assigned_date': fields.datetime('Assigned Date',copy=False),
@@ -108,8 +108,8 @@ class maw_claim(osv.osv):
         
         'country_key': fields.many2one('maw.country', 'Country'),
         
-        'description': fields.text('Customer Concern',track_visibility='onchange'),
-        'service_emp_comment': fields.text('Comment',copy=False),
+        'description': fields.text('Customer Concerns',track_visibility='onchange'),
+        'service_emp_comment': fields.text('Comments',copy=False),
         
         'attachment': fields.binary(string='Attachment1',copy=False),
         'attachment_fname': fields.char('Attachment1', copy=False),
@@ -139,7 +139,6 @@ class maw_claim(osv.osv):
     
 
     _defaults = {
-        'user_id': lambda s, cr, uid, c: uid or SUPERUSER_ID,
         'date': datetime.datetime.now(),
         'state':'new',
         'claimcateg': 'comment',
@@ -153,6 +152,10 @@ class maw_claim(osv.osv):
     def onchange_city(self, cr, uid, ids, city_id,context=None):
         
         return {'value': {'district':False}}
+    
+    def onchange_district(self, cr, uid, ids, district_id,context=None):
+    
+        return {'value': {'user_id':False}}
 
     def create(self, cr,uid,vals,context):
         return super(maw_claim, self).create(cr,uid,vals,context)
@@ -222,7 +225,12 @@ class maw_claim(osv.osv):
     
     def action_assign(self, cr, uid, ids, context=None):
         today = fields.datetime.now()
-        for claim in self.browse(cr, uid, ids, context=context):        
+        for claim in self.browse(cr, uid, ids, context=context):
+            if not claim.user_id:
+                raise osv.except_osv(
+                    _('Invalid Action!'),
+                    _("Please select an option in the 'Assign to' field to proceed")
+                )        
             if not claim.first_assigned_date:              
                 self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today})
             else: 
@@ -230,6 +238,12 @@ class maw_claim(osv.osv):
         return True
     
     def action_re_assign(self, cr, uid, ids, context=None):
+        for claim in self.browse(cr, uid, ids, context=context): 
+            if not claim.user_id:
+                raise osv.except_osv(
+                    _('Invalid Action!'),
+                    _("Please select an option in the 'Assign to' field to proceed")
+                )    
         today = fields.datetime.now()
         self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False})
         return True 
@@ -423,7 +437,7 @@ class maw_claim(osv.osv):
                          'subject': subject,
                          'body_html': msg,
                          'email_to': email_to,
-                         'email_from': email_from,
+                         'email_from':'support@mawgif.com',
                  }
         email_ids.append(self.pool.get('mail.mail').create(cr, uid, vals, context=context))
         if email_ids:
