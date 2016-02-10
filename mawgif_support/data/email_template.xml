@@ -5,7 +5,7 @@
         <!--Email template -->
         <record id="email_template_contact_customer" model="email.template">
             <field name="name">Mawgif - Contact Customer by Email</field>
-            <field name="email_from">${(object.user_id.email or '')|safe}</field>
+            <field name="email_from">support@mawgif.com</field>
             <field name="subject">${('Mawgif Customer Support')|safe}</field>
             <field name="email_to">${(object.customer_email or '')|safe}</field>
             <field name="model_id" ref="mawgif_support.model_maw_claim"/>
