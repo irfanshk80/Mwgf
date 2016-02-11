@@ -6,7 +6,7 @@
 			<field name="model">maw.claim</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string=" Details">
+				<form string=" Details" create="false">
 					<header>
 						<button name="action_confirm" type="object" string="Confirm"
 							states="new" groups="mawgif_support.group_call_center,mawgif_support.group_manager" class="oe_highlight" />
@@ -172,7 +172,7 @@
 			<field name="model">maw.claim</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
-				<tree string=" Details">
+				<tree string=" Details" create="false">
 					<field name="customer_first_name" string="Customer First Name" />
 					<field name="mobile" />
 					<field name="city_id" string="City"/>
