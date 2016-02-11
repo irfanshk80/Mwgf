@@ -28,11 +28,13 @@ class maw_city(osv.osv):
 class maw_district(osv.osv):
     _name ='maw.district'
     
+    
     _columns = {
       'name': fields.char('Operation', size=100),
       'city_id': fields.many2one('maw.city','City'),
       'user_ids': fields.many2many('res.users', 'user_operations_rel', 'operation_id', 'user_id', 'Customer Service Officers'),
- }
+      'manager': fields.many2one('res.users', 'Manager'),
+    }
     
 class maw_country(osv.osv):
     _name ='maw.country'
