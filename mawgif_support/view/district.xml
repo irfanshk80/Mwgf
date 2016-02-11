@@ -18,6 +18,7 @@
 								<field name="name" />
 							</tree>
 							</field>
+							<field name="manager" domain="[('manager_group_id','=',True)]"/>
 						</group>
 						<group>
 						</group>
