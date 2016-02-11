@@ -86,7 +86,7 @@
 						<notebook colspan="4">
 							<page string="Support Details">
 								<group>
-									<field name="claimcateg" attrs="{'readonly':[('state', '!=', 'new')]}" required="1"/>
+									<field name="claimcateg" attrs="{'readonly':[('state', 'not in', ('new','opened'))]}" required="1"/>
 									<field name="complaint_type"
 										attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', '!=', 'new')]}" widget="selection" />
 									<field name="description" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}" string="Customer Concerns" required="1"/>
