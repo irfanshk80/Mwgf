@@ -75,7 +75,7 @@ class maw_claim(osv.osv):
     """
     _name = "maw.claim"
     _description = "Claim"
-    _order = "date desc"
+    #_order = "date desc"
     _inherit = ['mail.thread']
     
     _columns = {
@@ -153,6 +153,13 @@ class maw_claim(osv.osv):
         'delay_solved_notified':False,
         'source_type':'direct'
     }
+
+    ## sort records with newest by create_date older first when state close and opposite when other state
+    def _generate_order_by(self, order_spec, query):
+        my_order = "CASE WHEN state='closed' THEN create_date_n end desc, case when state='opened' or state='assigned' or state='solved' then create_date_n end asc"            
+        if order_spec:
+            return super(maw_claim, self)._generate_order_by(order_spec, query) + ", " + my_order
+        return " order by " + my_order
     
     def onchange_city(self, cr, uid, ids, city_id,context=None):
         

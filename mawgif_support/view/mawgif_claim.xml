@@ -186,6 +186,12 @@
 					<filter string="Unassigned" icon="terp-personal-"
 						domain="[('user_id','=', False)]" help="Unassigned" />
 
+					<filter string="Progress" name="progress" icon="terp-personal-"
+						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress"/>
+
+					<filter string="Closed" icon="terp-personal-"
+						domain="[('state','=', 'closed')]" help="Closed"/>
+
 					<field name="user_id" />
 					<group expand="0" string="Group By">
 						<filter string="Support Type" icon="terp-personal" domain="[]"
