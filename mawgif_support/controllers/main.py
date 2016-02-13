@@ -92,6 +92,18 @@ class support(http.Controller):
         post_file = []  # List of file to add to ir_attachment once we have the ID
         post_description = []  # Info to add after the message
         # Values field is initialized with defaults
+        creator_type = False
+        creator_id = False
+        if not request.env.user.active:
+            creator_type = 'customer'
+            creator_id = False
+        else:
+            if request.env.user.cso:
+                creator_type = 'customer_service_officer'
+                creator_id = request.env.user.id
+            else:
+                creator_type = 'call_center_agent'
+                creator_id = request.env.user.id
         values = {
                     'state':'new',
                     'claimcateg': 'comment',
@@ -99,7 +111,9 @@ class support(http.Controller):
                     'delay_open_notified':False,
                     'delay_assigned_notified':False,
                     'delay_solved_notified':False,
-                    'source_type':'web'
+                    'source_type':'web',
+                    'creator_type':creator_type,
+                    'created_by':creator_id
                   }
 
 

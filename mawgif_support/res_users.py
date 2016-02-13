@@ -25,7 +25,7 @@ class res_users(osv.osv):
     def _get_manager_group(self, cr, uid, ids, name, arg, context=None):
         res = {}
         all_groups=self.pool.get('res.groups')
-        manager_ids = all_groups.search(cr,uid,[('name','=','Mawgif Manager')])
+        manager_ids = all_groups.search(cr,uid,[('name','=','Operation Manager')])
         if manager_ids:
             for record in self.browse(cr, uid, ids, context=context):
                 if manager_ids[0] in record.groups_id.ids:
@@ -34,6 +34,6 @@ class res_users(osv.osv):
     
     _columns = {
       'cso' : fields.function(_get_cso_group,type='boolean',String="CSO Group ID",store=True),
-      'manager_group_id':fields.function(_get_manager_group,type='boolean',String="Manager Group ID",store=True),
+      'manager_group_id':fields.function(_get_manager_group,type='boolean',String="Operation Manager Group ID",store=True),
       'district_ids': fields.many2many('maw.district', 'user_operations_rel', 'user_id','operation_id', 'Customer Service Officers'),
     }

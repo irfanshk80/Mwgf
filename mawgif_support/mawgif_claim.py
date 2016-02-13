@@ -125,6 +125,9 @@ class maw_claim(osv.osv):
         
         'number': fields.char('Complaint ID', size=64, select=True,copy=False),
         'source_type':fields.selection([('web', "Web"),('direct', "Direct")], 'Source Type'),
+        'creator_type':fields.selection([('call_center_agent', "Call Center Agent"),('customer_service_officer', "Customer Service Officer"),
+                                         ('customer', "Customer")], 'Creator Type'),
+        'created_by':fields.many2one('res.users','Created By'),
         
         'state': fields.selection([
          ('new', "New"),

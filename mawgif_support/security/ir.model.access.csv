@@ -5,13 +5,13 @@ mawgif3,manager mail,email_template.model_email_template,mawgif_support.group_ma
 mawgif4,manger city,mawgif_support.model_maw_city,mawgif_support.group_manager,1,1,1,1
 mawgif5,manager disrict,mawgif_support.model_maw_district,mawgif_support.group_manager,1,1,1,1
 mawgif6,manager claim type,mawgif_support.model_maw_complaint_type,mawgif_support.group_manager,1,1,1,1
-mawgif7,cus serv,model_maw_claim,group_customer_service,0,1,1,1
+mawgif7,cus serv,mawgif_support.model_maw_claim,group_customer_service,1,0,1,1
 mawgif8,cus serv m,mail.model_mail_message,group_customer_service,0,1,1,1
 mawgif9,cus serv mail,email_template.model_email_template,group_customer_service,0,1,1,1
 mawgif10,cus serv city,mawgif_support.model_maw_city,group_customer_service,0,1,1,1
 mawgif11,cus serv district,mawgif_support.model_maw_district,group_customer_service,0,1,1,1
 mawgif12,cus serv type,mawgif_support.model_maw_complaint_type,group_customer_service,0,1,1,1
-mawgif13,call center,model_maw_claim,group_call_center,1,1,1,1
+mawgif13,call center,mawgif_support.model_maw_claim,group_call_center,1,0,1,1
 mawgif14,call center m,mail.model_mail_message,group_call_center,1,1,1,1
 mawgif15,call center mail,email_template.model_email_template,group_call_center,1,1,1,1
 mawgif16,call center city,mawgif_support.model_maw_city,group_call_center,1,1,1,1
@@ -22,4 +22,12 @@ mawgif21,notifiation,mawgif_support.model_maw_notification,mawgif_support.group_
 mawgif22,country,mawgif_support.model_maw_country,group_customer_service,0,0,1,0
 mawgif23,country,mawgif_support.model_maw_country,group_call_center,1,1,1,0
 mawgif24,country,mawgif_support.model_maw_country,group_manager,1,1,1,1
-mawgif25,claim,model_maw_claim,group_manager,1,1,1,1
+mawgif25,claim,mawgif_support.model_maw_claim,group_manager,0,0,1,0
+mawgif26,claim,mawgif_support.model_maw_claim,group_operation_manager,0,0,1,0
+mawgif27,country,mawgif_support.model_maw_country,group_operation_manager,0,0,1,0
+mawgif28,notifiation,mawgif_support.model_maw_notification,group_operation_manager,1,1,1,1
+mawgif29,call center type,mawgif_support.model_maw_complaint_type,group_operation_manager,1,1,1,1
+mawgif30,call center district,mawgif_support.model_maw_district,group_operation_manager,1,1,1,1
+mawgif31,call center city,mawgif_support.model_maw_district,group_operation_manager,1,1,1,1
+mawgif32,call center mail,email_template.model_email_template,group_operation_manager,1,1,1,1
+mawgif33,call center m,mail.model_mail_message,group_operation_manager,1,1,1,1
