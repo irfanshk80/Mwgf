@@ -10,6 +10,7 @@
                 "mail",
                 "email_template",
                 "website",
+                "web_iframe"
                 ],
     "complexity": "easy",
     "description": """
