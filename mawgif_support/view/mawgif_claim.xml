@@ -169,8 +169,6 @@
 					<field name="mobile" string="Mobile" />
 					<field name="customer_email" string="Email" />
 					<separator />
-					<filter string="Unassigned" icon="terp-personal-"
-						domain="[('user_id','=', False)]" help="Unassigned" />
 
 					<filter string="Progress" name="progress" icon="terp-personal-"
 						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress"/>
@@ -186,8 +184,6 @@
 							help="Creator Type" context="{'group_by':'creator_type'}" />
 						<filter string="Status" icon="terp-personal" domain="[]"
 							help="Status" context="{'group_by':'state'}" />
-						<filter string="Assigned To" icon="terp-personal" domain="[]"
-							help="Responsible User" context="{'group_by':'user_id'}" />
 						<filter string="City" icon="terp-personal" domain="[]"
 							help="City" context="{'group_by':'city_id'}" />
 						<filter string="Operations" icon="terp-personal" domain="[]"
