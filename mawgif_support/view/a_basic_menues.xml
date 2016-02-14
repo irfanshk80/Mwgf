@@ -12,7 +12,7 @@
 <menuitem  id="reports_side_mi" name="Reports" sequence="5"  parent="mawgif_mi" groups="mawgif_support.group_manager"/>
 
 
-<menuitem  id="configuration_side_mi" name="Configuration" sequence="7"  parent="mawgif_mi" groups="mawgif_support.group_manager,mawgif_support.group_operation_manager"/>
+<menuitem  id="configuration_side_mi" name="Configuration" sequence="7"  parent="mawgif_mi" groups="mawgif_support.group_manager"/>
 
 
 
