@@ -619,8 +619,9 @@ class maw_claim(osv.osv):
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
         return True
     
-    def construct_claim_url(self,cid):
-        web_base_url = "http://localhost:8069/web?#id=%s&view_type=form&model=maw.claim"
+    def construct_claim_url(self,cr,uid,cid):
+        base = self.pool['ir.config_parameter'].get_param(cr, uid, 'web.base.url') or ''
+        web_base_url = base + "/web?#id=%s&view_type=form&model=maw.claim"
         if cid:
             return web_base_url % cid
         

@@ -268,7 +268,7 @@
 		<record id="mawgif_claim_iframe_act" model="ir.actions.client">
             <field name="name">Create Support Ticket</field>
             <field name="tag">web_iframe.iframe</field>
-            <field name="params" eval="{'link': 'http://localhost:8069/page/support'}"/>
+            <field name="params" eval="{'link': '/page/support'}"/>
         </record>
 		################################ menuitem course ################################################
 
