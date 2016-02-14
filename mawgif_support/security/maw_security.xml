@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <openerp>
-	<data>
+	<data noupdate="1">
 
 		<record id="group_customer_service" model="res.groups">
 			<field name="name">Customer Service Officer</field>
@@ -51,7 +51,11 @@
         </record>
 
         <record id="mail.mail_feeds_main" model="ir.ui.menu">
-            <field name="groups_id" eval="[(4, ref('mawgif_support.group_no_messgng'))]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_no_messgng')])]"/>
+        </record>
+        
+        <record id="website.menu_website" model="ir.ui.menu">
+			<field name="groups_id" eval="[(6,0,[ref('group_no_messgng')])]"/>
         </record>
 		
 
