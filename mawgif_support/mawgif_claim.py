@@ -238,10 +238,10 @@ class maw_claim(osv.osv):
     def action_assign(self, cr, uid, ids, context=None):
         today = fields.datetime.now()
         for claim in self.browse(cr, uid, ids, context=context):
-            if not claim.user_id:
+            if not claim.district:
                 raise osv.except_osv(
                     _('Invalid Action!'),
-                    _("Please select an option in the 'Assign to' field to proceed")
+                    _("Please select an option in the 'Operation' field to proceed")
                 )        
             if not claim.first_assigned_date:              
                 self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today})
@@ -251,10 +251,10 @@ class maw_claim(osv.osv):
     
     def action_re_assign(self, cr, uid, ids, context=None):
         for claim in self.browse(cr, uid, ids, context=context): 
-            if not claim.user_id:
+            if not claim.district:
                 raise osv.except_osv(
                     _('Invalid Action!'),
-                    _("Please select an option in the 'Assign to' field to proceed")
+                    _("Please select an option in the 'Operation' field to proceed")
                 )    
         today = fields.datetime.now()
         self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False})
