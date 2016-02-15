@@ -107,11 +107,12 @@
 								<group>
 									<group string="Dates" >
 										<field name="create_date_n" readonly="1"/>
-										<field name="date_closed" readonly="1"/>
-										<field name="write_date" readonly="1"/>
+										<field name="first_assigned_date" readonly="1"/>
 										<field name="assigned_date" readonly="1"/>
 										<field name="solved_date" readonly="1"/>
-										<field name="first_assigned_date" readonly="1"/>
+										<field name="date_closed" readonly="1"/>
+										<field name="write_date" readonly="1"/>
+										
 									</group>
 									<group string="Users">
 										<field name="first_assigned_by" invisible="1" />
