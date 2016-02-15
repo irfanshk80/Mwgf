@@ -68,8 +68,8 @@
 						<group string="Other Info">
 							<group>
 								<field name="date"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
-								<field name="creator_type" readonly="1"/>
-								<field name="created_by" readonly="1"/>
+								<field name="creator_type" readonly="1" />
+								<field name="created_by" readonly="1" options='{"no_open": True, "no_create": True}'/>
 							</group>
 							<group>
 								<field name="city_id" required="1"  attrs="{'readonly':[('state', '=', 'closed')]}" on_change="onchange_city(city_id)" options='{"no_open": True, "no_create": True}'/>
@@ -94,8 +94,8 @@
 									<field name="complaint_type"
 										attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', '!=', 'new')]}" widget="selection" />
 									<field name="description" colspan="4"  attrs="{'readonly':[('state', '=', 'closed')]}" string="Customer Concerns" required="1"/>
-									<field name="user_id" attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', 'not in', ('new','opened','solved'))]}" 
-									options='{"no_open": True, "no_create": True}' domain="[('cso','=', True),('district_ids', '=', district)]"/>
+<!-- 									<field name="user_id" attrs="{'invisible':[('claimcateg', '!=', 'claim')],'readonly':[('state', 'not in', ('new','opened','solved'))]}" 
+									options='{"no_open": True, "no_create": True}' domain="[('cso','=', True),('district_ids', '=', district)]"/> -->
 								</group>
 
 								<group>
@@ -113,7 +113,12 @@
 										<field name="solved_date" readonly="1"/>
 										<field name="first_assigned_date" readonly="1"/>
 									</group>
-									<group >
+									<group string="Users">
+										<field name="first_assigned_by" invisible="1" />
+										<field name="assigned_by" readonly="1" options='{"no_open": True, "no_create": True}'/>
+										<field name="solved_by" readonly="1" options='{"no_open": True, "no_create": True}'/>
+										<field name="closed_by" readonly="1" options='{"no_open": True, "no_create": True}'/>
+										<field name="first_solved_by" invisible="1" />
 										<field name="source_type" invisible="1" />
 										<field name="partner_id" invisible="1" />
 									</group>

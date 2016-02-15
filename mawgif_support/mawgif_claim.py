@@ -105,8 +105,14 @@ class maw_claim(osv.osv):
         'date': fields.datetime('Occurrence Date', select=True ),
         'assigned_date': fields.datetime('Assigned Date',copy=False),
         'first_assigned_date': fields.datetime('First Assigned Date',copy=False),
+        'first_solved_date': fields.datetime('First Solved Date',copy=False),
         'solved_date': fields.datetime('Solved Date',copy=False),
         'date_closed': fields.datetime('Closed Date',copy=False),
+        'solved_by':fields.many2one('res.users','Solved by',copy=False),
+        'first_solved_by':fields.many2one('res.users','First Solved by',copy=False),
+        'assigned_by':fields.many2one('res.users','Assigned by',copy=False),
+        'first_assigned_by':fields.many2one('res.users','First Assigned by',copy=False),
+        'closed_by':fields.many2one('res.users','Closed by',copy=False),
         
         'country_key': fields.many2one('maw.country', 'Country'),
         
@@ -126,8 +132,8 @@ class maw_claim(osv.osv):
         'number': fields.char('Complaint ID', size=64, select=True,copy=False),
         'source_type':fields.selection([('web', "Web"),('direct', "Direct")], 'Source Type'),
         'creator_type':fields.selection([('call_center_agent', "Call Center Agent"),('customer_service_officer', "Customer Service Officer"),
-                                         ('customer', "Customer")], 'Creator Type'),
-        'created_by':fields.many2one('res.users','Created By'),
+                                         ('customer', "Customer")], 'Creator Type',copy=False),
+        'created_by':fields.many2one('res.users','Created By',copy=False),
         
         'state': fields.selection([
          ('new', "New"),
@@ -244,9 +250,9 @@ class maw_claim(osv.osv):
                     _("Please select an option in the 'Operation' field to proceed")
                 )        
             if not claim.first_assigned_date:              
-                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today})
+                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today,'assigned_by':uid,'first_assigned_by':uid})
             else: 
-                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today}) 
+                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'assigned_by':uid}) 
         return True
     
     def action_re_assign(self, cr, uid, ids, context=None):
@@ -257,12 +263,17 @@ class maw_claim(osv.osv):
                     _("Please select an option in the 'Operation' field to proceed")
                 )    
         today = fields.datetime.now()
-        self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False})
+        self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False,'assigned_by':uid})
         return True 
     
     def action_solve(self, cr, uid, ids, context=None):
         today = fields.datetime.now()
-        self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today,'delay_solved_notified':False})
+        for claim in self.browse(cr, uid, ids, context=context):
+            if not claim.first_assigned_date:              
+                self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today , 'first_solved_date': today,'solved_by':uid,'first_solved_by':uid})
+            else: 
+                self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today,'delay_solved_notified':False,'solved_by':uid})
+        
         return True
     
     def action_close(self, cr, uid, ids, context=None):
@@ -271,7 +282,7 @@ class maw_claim(osv.osv):
             if not claim.service_emp_comment: 
                 raise osv.except_osv(_('Error!'),_("Please enter some comment before closing."))
             if claim.claimcateg =='claim':              
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','claim')])
                 if msg_ids:
                     msg_eng_draft = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -294,7 +305,7 @@ class maw_claim(osv.osv):
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
                 
             elif claim.claimcateg =='question':
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','question')])
                 if msg_ids:
                     msg_eng = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -313,7 +324,7 @@ class maw_claim(osv.osv):
                         combined_msg ="\n".join([msg_eng,msg_ar])
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
             elif claim.claimcateg =='comment':
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','comment')])
                 if msg_ids:
                     msg_eng = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -352,7 +363,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
             else:
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
         return True
         
     
