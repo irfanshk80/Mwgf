@@ -78,6 +78,14 @@ class maw_claim(osv.osv):
     #_order = "date desc"
     _inherit = ['mail.thread']
     
+    def fields_get(self, cr, uid, fields=None, context=None): 
+        fields_to_hide = ['attachment', 'attachment2','user_id','partner_id','priority',
+                          'name',] 
+        res = super(maw_claim, self).fields_get(cr, uid, fields, context) 
+        for field in fields_to_hide: 
+            res[field]['selectable'] = False 
+        return res
+    
     _columns = {
         'name': fields.char('Subject',copy=False),
         

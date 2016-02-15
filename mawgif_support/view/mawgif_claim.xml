@@ -181,7 +181,6 @@
 					<filter string="Closed" icon="terp-personal-"
 						domain="[('state','=', 'closed')]" help="Closed"/>
 
-					<field name="user_id" />
 					<group expand="0" string="Group By">
 						<filter string="Support Type" icon="terp-personal" domain="[]"
 							help="Support Type" context="{'group_by':'claimcateg'}" />
