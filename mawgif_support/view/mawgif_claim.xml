@@ -74,7 +74,7 @@
 							<group>
 								<field name="city_id" required="1"  attrs="{'readonly':[('state', '=', 'closed')]}" on_change="onchange_city(city_id)" options='{"no_open": True, "no_create": True}'/>
 								<field name="location" attrs="{'readonly':[('state', '=', 'closed')]}" />
-								<field name="district" on_change="onchange_district(district)"  attrs="{'readonly':[('state', '=', 'closed')]}" domain="[('city_id', '=', city_id)]" context="{'default_city_id':city_id}" options='{"no_open": True, "no_create": True}'/>
+								<field name="district" on_change="onchange_district(district)" required="1" attrs="{'readonly':[('state', '=', 'closed')]}" domain="[('city_id', '=', city_id)]" context="{'default_city_id':city_id}" options='{"no_open": True, "no_create": True}'/>
 							</group>
 
 							<group>
