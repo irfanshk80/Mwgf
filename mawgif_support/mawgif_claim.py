@@ -83,7 +83,8 @@ class maw_claim(osv.osv):
                           'name',] 
         res = super(maw_claim, self).fields_get(cr, uid, fields, context) 
         for field in fields_to_hide: 
-            res[field]['selectable'] = False 
+            if res.get(field,False):
+                res[field]['selectable'] = False 
         return res
     
     _columns = {
