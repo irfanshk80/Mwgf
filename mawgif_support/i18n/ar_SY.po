@@ -1,0 +1,1246 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mawgif_support
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20151017\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-07 04:46+0000\n"
+"PO-Revision-Date: 2016-02-16 09:26+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Language: ar\n"
+"X-Generator: Poedit 1.6.3\n"
+
+#. module: mawgif_support
+#: model:email.template,subject:mawgif_support.email_template_contact_customer
+#: model:email.template,subject:mawgif_support.email_template_notify_customer
+msgid "${('Mawgif Customer Support')|safe}"
+msgstr "${('Mawgif Customer Support')|safe}"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+msgid "% On Time"
+msgstr "% On Time"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid ""
+"(File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)"
+msgstr ""
+"(File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)"
+
+#. module: mawgif_support
+#: field:maw.country,active:0
+msgid "Active?"
+msgstr "Active?"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Address العنوان"
+msgstr "Address العنوان"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.action_claim_report_print_wiz
+#: model:ir.ui.menu,name:mawgif_support.menu_mawgif_claim_reports
+msgid "Analysis Reports"
+msgstr "تقارير التحليل"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Apr"
+msgstr "Apr"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Assign"
+msgstr "اسند إلي"
+
+#. module: mawgif_support
+#: selection:maw.claim,state:0
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Assigned"
+msgstr "مسند"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Assigned Average Time"
+msgstr "Assigned Average Time"
+
+#. module: mawgif_support
+#: field:maw.claim,assigned_date:0
+msgid "Assigned Date"
+msgstr "تاريخ الاسناد"
+
+#. module: mawgif_support
+#: field:maw.claim,delay_assigned_notified:0
+msgid "Assigned Delay Notified?"
+msgstr "Assigned Delay Notified?"
+
+#. module: mawgif_support
+#: field:maw.claim,user_id:0
+msgid "Assigned To"
+msgstr "اسناد إلي"
+
+#. module: mawgif_support
+#: field:maw.claim,attachment:0 field:maw.claim,attachment_fname:0
+#: view:website:mawgif_support.mawgif_support
+msgid "Attachment1"
+msgstr "مرفق1"
+
+#. module: mawgif_support
+#: field:maw.claim,attachment2:0 field:maw.claim,attachment2_fname:0
+#: view:website:mawgif_support.mawgif_support
+msgid "Attachment2"
+msgstr "مرفق2"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Aug"
+msgstr "Aug"
+
+#. module: mawgif_support
+#: view:ir.sequence:mawgif_support.sequence_autoreset_view
+#: field:ir.sequence,auto_reset:0
+msgid "Auto Reset"
+msgstr "Auto Reset"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Average Time"
+msgstr "Average Time"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "By Month"
+msgstr "By Month"
+
+#. module: mawgif_support
+#: selection:maw.notification,recipient:0
+msgid "COO"
+msgstr "COO"
+
+#. module: mawgif_support
+#: selection:maw.claim,creator_type:0
+#: model:res.groups,name:mawgif_support.group_call_center
+msgid "Call Center Agent"
+msgstr "موظف مركز الاتصالات"
+
+#. module: mawgif_support
+#: view:claim.report.print.wiz:mawgif_support.view_claim_report_print_wiz_form
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.city_win_act
+#: model:ir.ui.menu,name:mawgif_support.city_side_active_mi
+#: field:maw.city,name:0 view:maw.claim:mawgif_support.mawgif_claim_tree_view
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.district,city_id:0
+msgid "City"
+msgstr "المدينة"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "City - المدينة"
+msgstr "City - المدينة"
+
+#. module: mawgif_support
+#: field:maw.claim,city_id:0
+msgid "City of occurrence "
+msgstr "مدينة الحدث"
+
+#. module: mawgif_support
+#: model:ir.model,name:mawgif_support.model_maw_claim
+msgid "Claim"
+msgstr "شكوى"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Claims"
+msgstr "الشكاوي"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: selection:maw.notification,trigger:0
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: selection:maw.claim,state:0
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,date_closed:0
+msgid "Closed Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: mawgif_support
+#: selection:maw.claim,claimcateg:0 selection:maw.notification,claimcateg:0
+msgid "Comment"
+msgstr "تعليق"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Comment - تعليق"
+msgstr "Comment - تعليق"
+
+#. module: mawgif_support
+#: field:maw.claim,service_emp_comment:0
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Comments"
+msgstr "ملاحظات"
+
+#. module: mawgif_support
+#: constraint:maw.claim:0
+msgid "Comments can not exceed 1000 characters"
+msgstr "Comments can not exceed 1000 characters"
+
+#. module: mawgif_support
+#: selection:maw.claim,claimcateg:0 selection:maw.notification,claimcateg:0
+msgid "Complaint"
+msgstr "شكوى"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Complaint - شكوى"
+msgstr "Complaint - شكوى"
+
+#. module: mawgif_support
+#: field:maw.claim,number:0
+msgid "Complaint ID"
+msgstr "رقم الشكوى"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.complaint_type_win_act
+#: model:ir.ui.menu,name:mawgif_support.complaint_type_side_active_mi
+#: field:maw.claim,complaint_type:0 field:maw.complaint_type,name:0
+msgid "Complaint Type"
+msgstr "نوع الشكوى"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Complaints"
+msgstr "Complaints"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.configuration_side_mi
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: selection:maw.notification,trigger:0
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Contact Info"
+msgstr "معلومات التواصل"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.maw_country_win_act
+#: model:ir.ui.menu,name:mawgif_support.maw_country_side_active_mi
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: field:maw.claim,country_key:0
+msgid "Country"
+msgstr "البلد"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.mawgif_claim_iframe_mi
+msgid "Create New"
+msgstr "نموذج جديد"
+
+#. module: mawgif_support
+#: model:ir.actions.client,name:mawgif_support.mawgif_claim_iframe_act
+msgid "Create Support Ticket"
+msgstr "Create Support Ticket"
+
+#. module: mawgif_support
+#: field:maw.claim,created_by:0
+msgid "Created By"
+msgstr "الإنشاء بواسطة"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,create_uid:0 field:maw.city,create_uid:0
+#: field:maw.claim,create_uid:0 field:maw.complaint_type,create_uid:0
+#: field:maw.country,create_uid:0 field:maw.district,create_uid:0
+#: field:maw.notification,create_uid:0
+msgid "Created by"
+msgstr "الإنشاء بواسطة"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,create_date:0 field:maw.city,create_date:0
+#: field:maw.claim,create_date:0 field:maw.complaint_type,create_date:0
+#: field:maw.country,create_date:0 field:maw.district,create_date:0
+#: field:maw.notification,create_date:0
+msgid "Created on"
+msgstr "الإنشاء في"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,create_date_n:0
+msgid "Creation Date"
+msgstr "تاريخ الإنشاء"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,creator_type:0
+msgid "Creator Type"
+msgstr "فئة مُنشئ النموذج"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/controllers/main.py:162
+#, python-format
+msgid "Custom Fields: "
+msgstr "Custom Fields: "
+
+#. module: mawgif_support
+#: selection:maw.claim,creator_type:0 field:maw.claim,partner_id:0
+#: selection:maw.notification,recipient:0
+msgid "Customer"
+msgstr "Customer"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Customer Concern"
+msgstr "تعليق العميل"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: field:maw.claim,description:0
+msgid "Customer Concerns"
+msgstr "تعليق العميل"
+
+#. module: mawgif_support
+#: constraint:maw.claim:0
+msgid "Customer Concerns can not exceed 1000 characters"
+msgstr "لا يمكن تجاوز 1000 حرف"
+
+#. module: mawgif_support
+#: help:maw.claim,customer_email:0
+msgid "Customer Email"
+msgstr "Customer Email"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_tree_view
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Customer First Name"
+msgstr "الاسم الاول للعميل"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Customer Info"
+msgstr "بيانات العميل"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Customer Name"
+msgstr "Customer Name"
+
+#. module: mawgif_support
+#: selection:maw.claim,creator_type:0
+#: model:res.groups,name:mawgif_support.group_customer_service
+msgid "Customer Service Officer"
+msgstr "موظف خدمة العملاء"
+
+#. module: mawgif_support
+#: field:maw.district,user_ids:0 field:res.users,district_ids:0
+msgid "Customer Service Officers"
+msgstr "موظفي خدمة العملاء"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.mawgif_mi
+msgid "Customer Support"
+msgstr "دعم العملاء"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.basic_information_file_side_mi
+msgid "Customer Support "
+msgstr "دعم العملاء"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Customer Support - دعم العملاء"
+msgstr "Customer Support - دعم العملاء"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,report_id:0
+#: view:website:mawgif_support.report_daily_claim_document
+msgid "Daily Report"
+msgstr "Daily Report"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,filter:0
+msgid "Date"
+msgstr "Date"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Date Closed"
+msgstr "تاريخ الإغلاق"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Date of Occurance"
+msgstr "Date of Occurance"
+
+#. module: mawgif_support
+#: help:maw.claim,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Date of the last message posted on the record."
+
+#. module: mawgif_support
+#: view:claim.report.print.wiz:mawgif_support.view_claim_report_print_wiz_form
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Days Past Due"
+msgstr "Days Past Due"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Dec"
+msgstr "Dec"
+
+#. module: mawgif_support
+#: field:maw.complaint_type,description:0
+#: view:website:mawgif_support.mawgif_support
+msgid "Description"
+msgstr "وصف"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: view:maw.claim:mawgif_support.mawgif_claim_tree_view
+#: view:maw.complaint_type:mawgif_support.city_form_view
+#: view:maw.complaint_type:mawgif_support.city_tree_view
+#: view:maw.country:mawgif_support.country_form_view
+#: view:maw.country:mawgif_support.country_tree_view
+#: view:maw.district:mawgif_support.district_form_view
+#: view:maw.district:mawgif_support.district_tree_view
+#: view:maw.notification:mawgif_support.notification_form_view
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: mawgif_support
+#: selection:maw.claim,source_type:0
+msgid "Direct"
+msgstr "Direct"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,customer_email:0 view:website:mawgif_support.mawgif_support
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Email Customer"
+msgstr "راسل العميل"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Email بريد الالكتروني"
+msgstr "Email بريد الالكتروني"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,date_to:0
+msgid "End Date"
+msgstr "End Date"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Enter mobile without leading 0 ادخل رقم الموبايل بدون صفر في البداية"
+msgstr "Enter mobile without leading 0 ادخل رقم الموبايل بدون صفر في البداية"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/controllers/main.py:171
+#, python-format
+msgid "Environ Fields: "
+msgstr "Environ Fields: "
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/mawgif_claim.py:272
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Day"
+msgstr "Every Day"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Hour"
+msgstr "Every Hour"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Minute"
+msgstr "Every Minute"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Month"
+msgstr "Every Month"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Second"
+msgstr "Every Second"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Week"
+msgstr "Every Week"
+
+#. module: mawgif_support
+#: selection:ir.sequence,reset_period:0
+msgid "Every Year"
+msgstr "Every Year"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Extra Info"
+msgstr "معلومات إضافية"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Feb"
+msgstr "Feb"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,filter:0
+msgid "Filter by"
+msgstr "Filter by"
+
+#. module: mawgif_support
+#: view:claim.report.print.wiz:mawgif_support.view_claim_report_print_wiz_form
+msgid "Filters"
+msgstr "Filters"
+
+#. module: mawgif_support
+#: field:maw.claim,first_assigned_date:0
+msgid "First Assigned Date"
+msgstr "تاريخ أول إسناد"
+
+#. module: mawgif_support
+#: field:maw.claim,customer_first_name:0
+msgid "First Name"
+msgstr "الاسم الاول"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "First Name  الاسم الاول"
+msgstr "First Name  الاسم الاول"
+
+#. module: mawgif_support
+#: field:maw.claim,message_follower_ids:0
+msgid "Followers"
+msgstr "المتابعين"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Group By"
+msgstr "تجميع بـ"
+
+#. module: mawgif_support
+#: selection:maw.claim,priority:0
+msgid "High"
+msgstr "High"
+
+#. module: mawgif_support
+#: help:maw.claim,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,id:0 field:maw.city,id:0 field:maw.claim,id:0
+#: field:maw.complaint_type,id:0 field:maw.country,id:0
+#: field:maw.district,id:0 field:maw.notification,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: mawgif_support
+#: field:maw.country,iso_code:0
+msgid "ISO Code"
+msgstr "ISO Code"
+
+#. module: mawgif_support
+#: help:maw.claim,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "If checked new messages require your attention."
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "In Progress"
+msgstr "تحت التنفيذ"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/mawgif_claim.py:181
+#, python-format
+msgid "In order to delete a support, It should be in New state."
+msgstr "In order to delete a support, It should be in New state."
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/mawgif_claim.py:180
+#: code:addons/mawgif_support/mawgif_claim.py:243
+#: code:addons/mawgif_support/mawgif_claim.py:256
+#, python-format
+msgid "Invalid Action!"
+msgstr "Invalid Action!"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/ir_sequence.py:71
+#, python-format
+msgid "Invalid prefix or suffix for sequence '%s'"
+msgstr "Invalid prefix or suffix for sequence '%s'"
+
+#. module: mawgif_support
+#: field:maw.claim,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Is a Follower"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Jan"
+msgstr "Jan"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "July"
+msgstr "July"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Jun"
+msgstr "Jun"
+
+#. module: mawgif_support
+#: field:maw.claim,message_last_post:0
+msgid "Last Message Date"
+msgstr "Last Message Date"
+
+#. module: mawgif_support
+#: field:maw.claim,customer_second_name:0
+msgid "Last Name"
+msgstr "الاسم الاخير"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,write_uid:0 field:maw.city,write_uid:0
+#: field:maw.claim,write_uid:0 field:maw.complaint_type,write_uid:0
+#: field:maw.country,write_uid:0 field:maw.district,write_uid:0
+#: field:maw.notification,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,write_date:0 field:maw.city,write_date:0
+#: field:maw.claim,write_date:0 field:maw.complaint_type,write_date:0
+#: field:maw.country,write_date:0 field:maw.district,write_date:0
+#: field:maw.notification,write_date:0
+msgid "Last Updated on"
+msgstr "اخر تحديث في"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+msgid "Late"
+msgstr "Late"
+
+#. module: mawgif_support
+#: field:maw.claim,location:0 view:website:mawgif_support.mawgif_support
+msgid "Location"
+msgstr "العنوان"
+
+#. module: mawgif_support
+#: selection:maw.claim,priority:0
+msgid "Low"
+msgstr "Low"
+
+#. module: mawgif_support
+#: field:maw.district,manager:0
+msgid "Manager"
+msgstr "Manager"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Mar"
+msgstr "Mar"
+
+#. module: mawgif_support
+#: model:res.groups,name:mawgif_support.group_manager
+msgid "Mawgif COO"
+msgstr "Mawgif COO"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "May"
+msgstr "May"
+
+#. module: mawgif_support
+#: field:maw.notification,msg_ar:0
+msgid "Message in Arabic"
+msgstr "Message in Arabic"
+
+#. module: mawgif_support
+#: field:maw.notification,msg_eng:0
+msgid "Message in English"
+msgstr "Message in English"
+
+#. module: mawgif_support
+#: field:maw.claim,message_ids:0
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: mawgif_support
+#: help:maw.claim,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messages and communication history"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,mobile:0 view:website:mawgif_support.mawgif_support
+msgid "Mobile"
+msgstr "جوال"
+
+#. module: mawgif_support
+#: field:maw.country,mob_code:0
+msgid "Mobile Code"
+msgstr "كود الدولة"
+
+#. module: mawgif_support
+#: view:claim.report.print.wiz:mawgif_support.view_claim_report_print_wiz_form
+#: selection:claim.report.print.wiz,filter:0
+#: field:claim.report.print.wiz,month:0
+msgid "Month"
+msgstr "Month"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,report_id:0
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Monthly Report"
+msgstr "Monthly Report"
+
+#. module: mawgif_support
+#: field:ir.sequence,reset_time:0 field:maw.country,name:0
+#: field:maw.notification,name:0
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mawgif_support
+#: selection:maw.claim,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: mawgif_support
+#: model:res.groups,name:mawgif_support.group_no_messgng
+msgid "No Messaging"
+msgstr "No Messaging"
+
+#. module: mawgif_support
+#: selection:maw.claim,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Not Closed"
+msgstr "Not Closed"
+
+#. module: mawgif_support
+#: constraint:maw.claim:0
+msgid "Not a valid email id"
+msgstr "Not a valid email id"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.notification_win_act
+#: view:maw.notification:mawgif_support.notification_search
+msgid "Notification"
+msgstr "Notification"
+
+#. module: mawgif_support
+#: view:maw.notification:mawgif_support.notification_tree_view
+msgid "Notifications"
+msgstr "Notifications"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Nov"
+msgstr "Nov"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_tree_view
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Occurance Date"
+msgstr "تاريخ الحدوث"
+
+#. module: mawgif_support
+#: field:maw.claim,date:0
+msgid "Occurrence Date"
+msgstr "تاريخ الحدوث"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Oct"
+msgstr "Oct"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "On Demand Report"
+msgstr "On Demand Report"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+msgid "On Time"
+msgstr "On Time"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,report_id:0
+msgid "On demand Report"
+msgstr "On demand Report"
+
+#. module: mawgif_support
+#: selection:maw.claim,state:0
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Opened"
+msgstr "مفتوح"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Opened Average Time"
+msgstr "Opened Average Time"
+
+#. module: mawgif_support
+#: field:maw.claim,delay_open_notified:0
+msgid "Opened Delay Notified?"
+msgstr "Opened Delay Notified?"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.district_win_act
+#: model:ir.ui.menu,name:mawgif_support.district_side_active_mi
+#: field:maw.claim,district:0 field:maw.district,name:0
+msgid "Operation"
+msgstr "المشروع"
+
+#. module: mawgif_support
+#: model:res.groups,name:mawgif_support.group_operation_manager
+msgid "Operation Manager"
+msgstr "Operation Manager"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Operations"
+msgstr "المشاريع"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Other Info"
+msgstr "معلومات أخرى"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/mawgif_claim.py:272
+#, python-format
+msgid "Please enter some comment before closing."
+msgstr "من فضلك اكتب ملاحظاتك على النموذج قبل الاغلاق في حقل ملاحظات"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/mawgif_claim.py:244
+#: code:addons/mawgif_support/mawgif_claim.py:257
+#, python-format
+msgid "Please select an option in the 'Operation' field to proceed"
+msgstr "Please select an option in the 'Operation' field to proceed"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Prepared By:"
+msgstr "Prepared By:"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Prepared On:"
+msgstr "Prepared On:"
+
+#. module: mawgif_support
+#: view:claim.report.print.wiz:mawgif_support.view_claim_report_print_wiz_form
+#: model:ir.actions.report.xml,name:mawgif_support.report_mawgif_daily_claim
+#: model:ir.actions.report.xml,name:mawgif_support.report_mawgif_monthly_claim
+#: model:ir.actions.report.xml,name:mawgif_support.report_mawgif_ondemand_claim
+msgid "Print"
+msgstr "Print"
+
+#. module: mawgif_support
+#: field:maw.claim,priority:0
+msgid "Priority"
+msgstr "Priority"
+
+#. module: mawgif_support
+#: selection:maw.claim,claimcateg:0 selection:maw.notification,claimcateg:0
+msgid "Question"
+msgstr "سؤال"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Question - سؤال"
+msgstr "Question - سؤال"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Questions"
+msgstr "Questions"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Reassign"
+msgstr "إعادة إسناد"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_tree_view
+msgid "Reassigned Date"
+msgstr "Reassigned Date"
+
+#. module: mawgif_support
+#: field:maw.notification,recipient:0
+msgid "Recipient"
+msgstr "Recipient"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid ""
+"Relevant details : location , plate number , CN number , eWallet number , "
+"machine number ,space number , atc)      تفاصيل اخرى : المكان,رقم لوحة "
+"السيارة ,رقم المخالفة,رقم الحافظة الالكترونية,رقم مكان الانتظار"
+msgstr ""
+"Relevant details : location , plate number , CN number , eWallet number , "
+"machine number ,space number , atc)      تفاصيل اخرى : المكان,رقم لوحة "
+"السيارة ,رقم المخالفة,رقم الحافظة الالكترونية,رقم مكان الانتظار"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,report_id:0
+msgid "Report Type"
+msgstr "Report Type"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.reports_side_mi
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Reset   تفريغ"
+msgstr "Reset   تفريغ"
+
+#. module: mawgif_support
+#: field:ir.sequence,reset_init_number:0
+msgid "Reset Number"
+msgstr "Reset Number"
+
+#. module: mawgif_support
+#: field:ir.sequence,reset_period:0
+msgid "Reset Period"
+msgstr "Reset Period"
+
+#. module: mawgif_support
+#: help:ir.sequence,reset_init_number:0
+msgid "Reset number of this sequence"
+msgstr "Reset number of this sequence"
+
+#. module: mawgif_support
+#: view:maw.city:mawgif_support.city_search
+#: view:maw.complaint_type:mawgif_support.complaint_type_search
+#: view:maw.country:mawgif_support.country_search
+#: view:maw.district:mawgif_support.district_search
+msgid "Search"
+msgstr "Search"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Search Claims"
+msgstr "البحث في الشكاوي"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Second Name      الاسم الاخير"
+msgstr "Second Name      الاسم الاخير"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "Send   إرسل"
+msgstr "Send   إرسل"
+
+#. module: mawgif_support
+#: selection:claim.report.print.wiz,month:0
+msgid "Sep"
+msgstr "Sep"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Solve"
+msgstr "حل"
+
+#. module: mawgif_support
+#: selection:maw.claim,state:0
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Solved"
+msgstr "تم الحل"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Solved Average Time"
+msgstr "Solved Average Time"
+
+#. module: mawgif_support
+#: field:maw.claim,solved_date:0
+msgid "Solved Date"
+msgstr "تاريخ الحل"
+
+#. module: mawgif_support
+#: field:maw.claim,delay_solved_notified:0
+msgid "Solved Delay Notified?"
+msgstr "Solved Delay Notified?"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Source"
+msgstr "Source"
+
+#. module: mawgif_support
+#: field:maw.claim,source_type:0
+msgid "Source Type"
+msgstr "Source Type"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,date_from:0
+msgid "Start Date"
+msgstr "Start Date"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,state:0
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mawgif_support
+#: field:maw.claim,name:0
+msgid "Subject"
+msgstr "Subject"
+
+#. module: mawgif_support
+#: field:maw.claim,message_summary:0
+msgid "Summary"
+msgstr "Summary"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "Support Details"
+msgstr "تفاصيل الدعم"
+
+#. module: mawgif_support
+#: model:ir.actions.act_window,name:mawgif_support.mawgif_claim_win_act
+msgid "Support Ticket"
+msgstr "بطاقات الدعم"
+
+#. module: mawgif_support
+#: model:ir.ui.menu,name:mawgif_support.mawgif_claim_side_active_mi
+msgid "Support Tickets"
+msgstr "بطاقات الدعم"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+#: field:maw.claim,claimcateg:0 field:maw.notification,claimcateg:0
+#: view:website:mawgif_support.mawgif_support
+msgid "Support Type"
+msgstr "نوع الدعم"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_thanks
+msgid "Thank You - شكرا لك"
+msgstr "Thank You - شكرا لك"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "Ticket #"
+msgstr "Ticket #"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_daily_claim_document
+#: view:website:mawgif_support.report_monthly_claim_document
+#: view:website:mawgif_support.report_ondemand_claim_document
+msgid "Total"
+msgstr "Total"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.report_monthly_claim_document
+msgid "Total Average Time"
+msgstr "Total Average Time"
+
+#. module: mawgif_support
+#: field:maw.notification,trigger:0
+msgid "Trigger"
+msgstr "Trigger"
+
+#. module: mawgif_support
+#: field:maw.claim,message_unread:0
+msgid "Unread Messages"
+msgstr "Unread Messages"
+
+#. module: mawgif_support
+#: field:claim.report.print.wiz,user_id:0
+msgid "User"
+msgstr "User"
+
+#. module: mawgif_support
+#: model:ir.model,name:mawgif_support.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: mawgif_support
+#: code:addons/mawgif_support/ir_sequence.py:71
+#, python-format
+msgid "Warning"
+msgstr "Warning"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_thanks
+msgid "We will get back to you shortly."
+msgstr "We will get back to you shortly."
+
+#. module: mawgif_support
+#: selection:maw.claim,source_type:0
+msgid "Web"
+msgstr "Web"
+
+#. module: mawgif_support
+#: model:ir.actions.act_url,name:mawgif_support.action_open_website_support
+msgid "Website Customer Support Form"
+msgstr "Website Customer Support Form"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_thanks
+msgid "Your support request has been submitted successfully."
+msgstr "Your support request has been submitted successfully."
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_customer_support_form_remove_create_delete
+#: view:maw.claim:mawgif_support.view_customer_support_form_remove_edit
+#: view:maw.claim:mawgif_support.view_customer_support_tree_remove_create_delete
+msgid "false"
+msgstr "false"
+
+#. module: mawgif_support
+#: constraint:maw.claim:0
+msgid "not valid mobile"
+msgstr "not valid mobile"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.view_crm_case_claims_filter
+msgid "progress"
+msgstr "progress"
+
+#. module: mawgif_support
+#: field:res.users,cso:0 field:res.users,manager_group_id:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.mawgif_claim_form_view
+msgid "without leading zero"
+msgstr "ادخل الرقم بدون صفر في البداية"
+
+#. module: mawgif_support
+#: view:maw.claim:mawgif_support.maw_claim_graph_view
+msgid "xyz"
+msgstr "xyz"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "your attachment"
+msgstr "your attachment"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "اسم العميل"
+msgstr "اسم العميل"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "البريد الإلكتروني"
+msgstr "البريد الإلكتروني"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "الجوال"
+msgstr "الجوال"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "الوصف"
+msgstr "الوصف"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "تاريخ الحدوث"
+msgstr "تاريخ الحدوث"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_thanks
+msgid "تم ارسال طلبك للدعم بنجاح"
+msgstr "تم ارسال طلبك للدعم بنجاح"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_thanks
+msgid "سوف نتواصل معك قريبا"
+msgstr "سوف نتواصل معك قريبا"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "مرفق1"
+msgstr "مرفق1"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "مرفق2"
+msgstr "مرفق2"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "من فضلك لا يمكن ترك هذا الحقل فارغا"
+msgstr "من فضلك لا يمكن ترك هذا الحقل فارغا"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "موقع الحدث"
+msgstr "موقع الحدث"
+
+#. module: mawgif_support
+#: view:website:mawgif_support.mawgif_support
+msgid "نوع الدعم"
+msgstr "نوع الدعم"
