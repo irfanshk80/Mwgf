@@ -423,10 +423,10 @@ class maw_claim(osv.osv):
             else:
                 return True
     
-    _constraints = [(_check_mobile, 'not valid mobile',  ['mobile']),
-                (_check_mail, 'Not a valid email id',  ['customer_email']),
-                (_check_description, 'Customer Concerns can not exceed 1000 characters',  ['description']),
-                (_check_comments, 'Comments can not exceed 1000 characters',  ['service_emp_comment'])
+    _constraints = [(_check_mobile, 'Enter mobile without leading 0- رقم الموبيل يجب الا يبدأ بصفر',  ['mobile']),
+                (_check_mail, 'Not a valid email id- البريد الالكتروني غير صحيح',  ['customer_email']),
+                (_check_description, 'Customer Concerns can not exceed 1000 characters-تعليق العميل يجب الا يزيد عن 1000 حرف',  ['description']),
+                (_check_comments, 'Comments can not exceed 1000 characters- الحقل لا يمكن ان يزيد عن 1000 حرف',  ['service_emp_comment'])
                 ]
            
     
