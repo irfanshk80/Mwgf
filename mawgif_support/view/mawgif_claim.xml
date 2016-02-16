@@ -192,15 +192,13 @@
 						<filter string="City" icon="terp-personal" domain="[]"
 							help="City" context="{'group_by':'city_id'}" />
 						<filter string="Operations" icon="terp-personal" domain="[]"
-							help="City" context="{'group_by':'district'}" />
+							help="Operations" context="{'group_by':'district'}" />
 						<filter string="Occurance Date" icon="terp-go-month" domain="[]"
 							help="By Month" context="{'group_by':'date'}" />
 						<filter string="Creation Date" icon="terp-go-month" domain="[]"
 							help="By Month" context="{'group_by':'create_date_n'}" />
 						<filter string="Closed Date" icon="terp-go-month" domain="[]"
 							help="Date Closed" context="{'group_by':'date_closed'}" />
-						<filter string="Source" icon="terp-go-month" domain="[]"
-							help="Source" context="{'group_by':'source_type'}" />
 					</group>
 				</search>
 			</field>

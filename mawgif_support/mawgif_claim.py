@@ -557,11 +557,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
-     
  
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_open_notified = True
                         subject = "Support Ticket - Delay On Open"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
@@ -594,11 +592,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
      
- 
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_assigned_notified = True
                         subject = "Support Ticket - Delay On Assigned"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
@@ -629,11 +625,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
      
- 
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_solved_notified = True
                         subject = "Support Ticket - Delay On Solved"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
