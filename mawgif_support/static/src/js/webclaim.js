@@ -35,10 +35,27 @@ $(document).ready(function() {
                                   // No custom constraint violation
                                 this.setCustomValidity("");  
                 });
+
+            $(".desc").on("change", function (e) {
+                if ($(".desc").val().length > 1000) {
+                    e.preventDefault();
+                    this.setCustomValidity("Text should not exceed 1000 character يجب أن لا يتجاوز النص 1000 حرف");
+                    console.log('prevented');
+                    return false;
+                }else if($(".desc").val() == '') {
+                    console.log("empty field");
+                    this.setCustomValidity('Please fill the required field من فضلك لا يمكن ترك هذا الحقل فارغا');
+                } 
+                else {
+                    this.setCustomValidity('');
+                }
+            });
                 
 });
 
+
 function InvalidMsg(textbox) {
+
     if(textbox.name == 'customer_email') {
         if(textbox.validity.typeMismatch) {
                 console.log('in email');

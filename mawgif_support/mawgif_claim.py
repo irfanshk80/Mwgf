@@ -154,12 +154,18 @@ class maw_claim(osv.osv):
         'source_type':'direct'
     }
 
-    ## sort records with newest by create_date older first when state close and opposite when other state
+    # sort records with newest by create_date older first when state close and opposite when other state
     def _generate_order_by(self, order_spec, query):
-        my_order = "CASE WHEN state='closed' THEN create_date_n end desc, case when state='opened' or state='assigned' or state='solved' then create_date_n end asc"            
-        if order_spec:
+        my_order = "CASE WHEN state='closed' THEN create_date_n end desc, CASE when state='opened' or state='assigned' or state='solved' then create_date_n end asc"
+
+        print order_spec
+
+        if order_spec and (order_spec != "city_id" and order_spec != "district" and order_spec != "claimcateg" and order_spec != "date" and order_spec != "creator_type" and order_spec != "date_closed"):
             return super(maw_claim, self)._generate_order_by(order_spec, query) + ", " + my_order
+        if order_spec == "city_id" or order_spec == "district" or order_spec == "claimcateg" or order_spec == "date" or order_spec == "creator_type" or order_spec == "date_closed":
+            return " create_date_n desc"
         return " order by " + my_order
+
     
     def onchange_city(self, cr, uid, ids, city_id,context=None):
         
