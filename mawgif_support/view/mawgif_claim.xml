@@ -177,10 +177,10 @@
 					<separator />
 
 					<filter string="In Progress" name="progress" icon="terp-personal-"
-						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress"/>
+						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress" context="{'order_by':'create_date_n asc'}" />
 
 					<filter string="Closed" icon="terp-personal-"
-						domain="[('state','=', 'closed')]" help="Closed"/>
+						domain="[('state','=', 'closed')]" help="Closed" context="{'order_by':'date_closed desc'}" />
 
 					<group expand="0" string="Group By">
 						<filter string="Support Type" icon="terp-personal" domain="[]"
