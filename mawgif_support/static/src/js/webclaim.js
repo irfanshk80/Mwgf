@@ -38,7 +38,20 @@ $(document).ready(function() {
                 
 });
 
+function chkDesc(textarea) {
+    if (textarea.value.length > 1000) {
+        textarea.setCustomValidity("Text should not exceed 1000 character يجب أن لا يتجاوز النص 1000 حرف");
+        return false;
+    }else if(textarea.value == '') {
+        textarea.setCustomValidity('Please fill the required field من فضلك لا يمكن ترك هذا الحقل فارغا');
+    } 
+    else {
+        textarea.setCustomValidity('');
+    }
+}
+
 function InvalidMsg(textbox) {
+
     if(textbox.name == 'customer_email') {
         if(textbox.validity.typeMismatch) {
                 console.log('in email');
