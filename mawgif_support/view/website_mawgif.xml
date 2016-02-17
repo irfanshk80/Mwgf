@@ -168,7 +168,7 @@
 						            <div t-attf-class="form-group required #{error and 'description' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 req_eng control-label" for="description">Description</label>
 						                <div class="col-xs-7">
-						                    <textarea  class="form-control desc" name="description" placeholder="Relevant details : location , plate number , CN number , eWallet number , machine number ,space number , atc)      تفاصيل اخرى : المكان,رقم لوحة السيارة ,رقم المخالفة,رقم الحافظة الالكترونية,رقم مكان الانتظار" style="min-height: 120px" required="True" ><t t-esc="description or ''"/></textarea>
+						                    <textarea  class="form-control desc" name="description" placeholder="Relevant details : location , plate number , CN number , eWallet number , machine number ,space number , atc)      تفاصيل اخرى : المكان,رقم لوحة السيارة ,رقم المخالفة,رقم الحافظة الالكترونية,رقم مكان الانتظار" style="min-height: 120px" required="True" oninvalid="chkDesc(this);" oninput="chkDesc(this);" ><t t-esc="description or ''"/></textarea>
 						                </div>
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الوصف</label>
 						            </div>
