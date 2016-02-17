@@ -64,6 +64,14 @@
     </html>
 </template>
 
+<template id="footer_mawgif" inherit_id="website.layout">
+    <xpath expr="//footer" position="replace">
+    </xpath>
+</template>
+
+<delete id="website.menu_homepage" model="website.menu"/>
+<delete id="website.menu_contactus" model="website.menu"/>
+
 <template id="webcrm_maw_temp" name="mymodule css assets" inherit_id="website.assets_frontend">
 
 		            <xpath expr="/t" position="inside">

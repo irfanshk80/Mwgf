@@ -78,6 +78,15 @@ class maw_claim(osv.osv):
     #_order = "date desc"
     _inherit = ['mail.thread']
     
+    def fields_get(self, cr, uid, fields=None, context=None): 
+        fields_to_hide = ['attachment', 'attachment2','user_id','partner_id','priority',
+                          'name',] 
+        res = super(maw_claim, self).fields_get(cr, uid, fields, context) 
+        for field in fields_to_hide: 
+            if res.get(field,False):
+                res[field]['selectable'] = False 
+        return res
+    
     _columns = {
         'name': fields.char('Subject',copy=False),
         
@@ -105,8 +114,14 @@ class maw_claim(osv.osv):
         'date': fields.datetime('Occurrence Date', select=True ),
         'assigned_date': fields.datetime('Assigned Date',copy=False),
         'first_assigned_date': fields.datetime('First Assigned Date',copy=False),
+        'first_solved_date': fields.datetime('First Solved Date',copy=False),
         'solved_date': fields.datetime('Solved Date',copy=False),
         'date_closed': fields.datetime('Closed Date',copy=False),
+        'solved_by':fields.many2one('res.users','Solved by',copy=False),
+        'first_solved_by':fields.many2one('res.users','First Solved by',copy=False),
+        'assigned_by':fields.many2one('res.users','Assigned by',copy=False),
+        'first_assigned_by':fields.many2one('res.users','First Assigned by',copy=False),
+        'closed_by':fields.many2one('res.users','Closed by',copy=False),
         
         'country_key': fields.many2one('maw.country', 'Country'),
         
@@ -126,8 +141,8 @@ class maw_claim(osv.osv):
         'number': fields.char('Complaint ID', size=64, select=True,copy=False),
         'source_type':fields.selection([('web', "Web"),('direct', "Direct")], 'Source Type'),
         'creator_type':fields.selection([('call_center_agent', "Call Center Agent"),('customer_service_officer', "Customer Service Officer"),
-                                         ('customer', "Customer")], 'Creator Type'),
-        'created_by':fields.many2one('res.users','Created By'),
+                                         ('customer', "Customer")], 'Creator Type',copy=False),
+        'created_by':fields.many2one('res.users','Created By',copy=False),
         
         'state': fields.selection([
          ('new', "New"),
@@ -250,9 +265,9 @@ class maw_claim(osv.osv):
                     _("Please select an option in the 'Operation' field to proceed")
                 )        
             if not claim.first_assigned_date:              
-                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today})
+                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today , 'first_assigned_date': today,'assigned_by':uid,'first_assigned_by':uid})
             else: 
-                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today}) 
+                self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'assigned_by':uid}) 
         return True
     
     def action_re_assign(self, cr, uid, ids, context=None):
@@ -263,12 +278,17 @@ class maw_claim(osv.osv):
                     _("Please select an option in the 'Operation' field to proceed")
                 )    
         today = fields.datetime.now()
-        self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False})
+        self.write(cr, uid, ids, {'state': 'assigned' , 'assigned_date': today,'delay_assigned_notified':False,'assigned_by':uid})
         return True 
     
     def action_solve(self, cr, uid, ids, context=None):
         today = fields.datetime.now()
-        self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today,'delay_solved_notified':False})
+        for claim in self.browse(cr, uid, ids, context=context):
+            if not claim.first_assigned_date:              
+                self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today , 'first_solved_date': today,'solved_by':uid,'first_solved_by':uid})
+            else: 
+                self.write(cr, uid, ids, {'state': 'solved' , 'solved_date': today,'delay_solved_notified':False,'solved_by':uid})
+        
         return True
     
     def action_close(self, cr, uid, ids, context=None):
@@ -277,7 +297,7 @@ class maw_claim(osv.osv):
             if not claim.service_emp_comment: 
                 raise osv.except_osv(_('Error!'),_("Please enter some comment before closing."))
             if claim.claimcateg =='claim':              
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','claim')])
                 if msg_ids:
                     msg_eng_draft = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -300,7 +320,7 @@ class maw_claim(osv.osv):
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
                 
             elif claim.claimcateg =='question':
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','question')])
                 if msg_ids:
                     msg_eng = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -319,7 +339,7 @@ class maw_claim(osv.osv):
                         combined_msg ="\n".join([msg_eng,msg_ar])
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
             elif claim.claimcateg =='comment':
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
                 msg_ids = self.pool.get('maw.notification').search(cr,uid,[('trigger','=','close'),('claimcateg','=','comment')])
                 if msg_ids:
                     msg_eng = self.pool.get('maw.notification').browse(cr,uid,msg_ids[0]).msg_eng
@@ -358,7 +378,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
             else:
-                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today})
+                self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
         return True
         
     
@@ -409,10 +429,10 @@ class maw_claim(osv.osv):
             else:
                 return True
     
-    _constraints = [(_check_mobile, 'not valid mobile',  ['mobile']),
-                (_check_mail, 'Not a valid email id',  ['customer_email']),
-                (_check_description, 'Customer Concerns can not exceed 1000 characters',  ['description']),
-                (_check_comments, 'Comments can not exceed 1000 characters',  ['service_emp_comment'])
+    _constraints = [(_check_mobile, 'Enter mobile without leading 0- رقم الموبيل يجب الا يبدأ بصفر',  ['mobile']),
+                (_check_mail, 'Not a valid email id- البريد الالكتروني غير صحيح',  ['customer_email']),
+                (_check_description, 'Customer Concerns can not exceed 1000 characters-تعليق العميل يجب الا يزيد عن 1000 حرف',  ['description']),
+                (_check_comments, 'Comments can not exceed 1000 characters- الحقل لا يمكن ان يزيد عن 1000 حرف',  ['service_emp_comment'])
                 ]
            
     
@@ -543,11 +563,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
-     
  
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_open_notified = True
                         subject = "Support Ticket - Delay On Open"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
@@ -580,11 +598,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
      
- 
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_assigned_notified = True
                         subject = "Support Ticket - Delay On Assigned"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
@@ -615,11 +631,9 @@ class maw_claim(osv.osv):
                     if email_ids:
                         msg = """ <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif font-size: 12px color: rgb(34, 34, 34) background-color: #FFF ">
  
-                            <p>Responsible : %s</p>
                             <p><a href="%s">Click to View</a></p>
      
- 
-                            </div>""" % (responsible.partner_id.name,self.construct_claim_url(row_workitem[3])) 
+                            </div>""" % (self.construct_claim_url(cr,uid,row_workitem[3])) 
                         claim.delay_solved_notified = True
                         subject = "Support Ticket - Delay On Solved"
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, ','.join(email_ids),msg, context)
