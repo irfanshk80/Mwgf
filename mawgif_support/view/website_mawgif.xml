@@ -64,10 +64,10 @@
     </html>
 </template>
 
-<template id="footer_mawgif" inherit_id="website.layout">
+<!-- <template id="footer_mawgif" inherit_id="website.layout">
     <xpath expr="//footer" position="replace">
     </xpath>
-</template>
+</template> -->
 
 <delete id="website.menu_homepage" model="website.menu"/>
 <delete id="website.menu_contactus" model="website.menu"/>
