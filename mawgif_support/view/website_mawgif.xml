@@ -122,7 +122,7 @@
 					                        </select>
 					                     </div>
 					                     <div class="col-xs-5">
-					                        <input type="text" class="form-control" name="mobile" placeholder="Enter mobile without leading 0 ادخل رقم الموبايل بدون صفر في البداية" required="True" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" t-attf-value="#{mobile or ''}" pattern="^[1-9][0-9]+" autofocus="True" />
+					                        <input type="text" class="form-control" name="mobile" placeholder="Mobile without leading 0 االموبايل بدون صفر في البداية" required="True" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" t-attf-value="#{mobile or ''}" pattern="^[1-9][0-9]+" autofocus="True" />
 				                        </div>
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الجوال</label>
 						            </div>
