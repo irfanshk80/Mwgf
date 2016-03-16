@@ -106,6 +106,7 @@ class maw_claim(osv.osv):
         'complaint_type': fields.many2one('maw.complaint_type', 'Complaint Type'),
         
         'priority': fields.selection([('0','Low'), ('1','Normal'), ('2','High')], 'Priority'),
+        'language': fields.selection([('ar','Arabic'), ('en','English')], 'Language of Customer'), #language for sms notifications
        
         'city_id': fields.many2one('maw.city','City of occurrence '),
         'location':fields.char("Location",size=250),
@@ -220,7 +221,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, claim.customer_email,msg, context)
                     else:
-                        combined_msg ="\n".join([msg_eng,msg_ar])
+                        combined_msg = self.append_sms_footer(cr, uid, msg_eng,msg_ar, claim.language)
                         self.sendSms(cr, uid,ids, claim.mobile, combined_msg)
                 
             elif claim.claimcateg =='question':
@@ -240,7 +241,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, claim.customer_email,msg, context)
                     else:
-                        combined_msg ="\n".join([msg_eng,msg_ar])
+                        combined_msg = self.append_sms_footer(cr, uid, msg_eng,msg_ar, claim.language)
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
                 
             else:
@@ -283,6 +284,18 @@ class maw_claim(osv.osv):
         
         return True
     
+    def append_sms_footer(self,cr,uid,msg_eng,msg_ar,lang):
+        reload(sys) 
+        sys.setdefaultencoding('utf-8') 
+        msg=""
+        if lang=='en':
+            msg = msg_eng + "\n\n Mawgif Team"
+        elif lang=="ar":
+            msg = msg_ar + "\n\nفريق موقف" 
+        reload(sys) 
+        sys.setdefaultencoding('ascii')
+        return msg
+    
     def action_close(self, cr, uid, ids, context=None):
         today = fields.datetime.now()
         for claim in self.browse(cr, uid, ids, context=context): 
@@ -308,7 +321,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif"  
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, claim.customer_email,msg, context)
                     else:
-                        combined_msg ="\n".join([msg_eng,msg_ar])
+                        combined_msg = self.append_sms_footer(cr, uid, msg_eng,msg_ar, claim.language)
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
                 
             elif claim.claimcateg =='question':
@@ -328,7 +341,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, claim.customer_email,msg, context)
                     else:
-                        combined_msg ="\n".join([msg_eng,msg_ar])
+                        combined_msg = self.append_sms_footer(cr, uid, msg_eng,msg_ar, claim.language)
                         self.sendSms(cr, uid, ids,claim.mobile, combined_msg)
             elif claim.claimcateg =='comment':
                 self.write(cr, uid, ids,{'state': 'closed', 'date_closed': today,'closed_by':uid})
@@ -347,7 +360,7 @@ class maw_claim(osv.osv):
                         subject = "موقف - Mawgif" 
                         return self.send_email(cr, uid, ids,subject,claim.user_id.email, claim.customer_email,msg, context)
                     else:
-                        combined_msg ="\n".join([msg_eng,msg_ar])
+                        combined_msg = self.append_sms_footer(cr, uid, msg_eng,msg_ar, claim.language)
                         self.sendSms(cr, uid,ids, claim.mobile, combined_msg)
                 
                 ir_model_data = self.pool.get('ir.model.data')
@@ -484,9 +497,6 @@ class maw_claim(osv.osv):
         reload(sys) 
         sys.setdefaultencoding('utf-8') 
         
-        sms_footer = "\n\nفريق موقف" 
-        msg = msg + sms_footer
-
         encoded_msg = self.convertToUnicode(msg)
         #encoded_msg = "062A064500200641062A062D002006270644064506390627064506440629002006310642064500200023002000310035002D0030003000300031002000200633064806410020064A062A0645002006270644062A06480627063506440020064506390643002006420631064A06280627"
         print encoded_msg

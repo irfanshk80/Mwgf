@@ -53,6 +53,7 @@
 									<field name="mobile" nolabel="1"
 										placeholder="without leading zero" style="width: 60%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
 								</div>
+								<field name="language" required="1" attrs="{'readonly':[('state', '=', 'closed')]}"/>
 							</group>
 
 							<group groups="base.group_user">

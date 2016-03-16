@@ -127,6 +127,18 @@
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الجوال</label>
 						            </div>
 						            
+						            <div t-attf-class="form-group required #{error and 'language' in error and 'has-error' or ''}" >
+				                        <label class="col-xs-3 req_eng control-label" for="language">Language of Customer</label>
+				                        <div class="col-xs-7">
+					                        <select class="form-control" name='language' required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا">
+					                        	<option value=''>Language of Communication - لغة التخاطب</option>
+				                             	<option value='ar'>Arabic - عربي</option>
+				                              	<option value='en'>English - إنجليزي</option>
+					                        </select>
+				                        </div>
+				                        <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">لغة العميل</label>
+				                    </div>
+						            
 						             <div t-attf-class="form-group #{error and 'date' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 control-label" for="date">Date of Occurance</label>
 						                <div class="col-xs-7">
