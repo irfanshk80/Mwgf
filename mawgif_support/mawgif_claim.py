@@ -291,7 +291,7 @@ class maw_claim(osv.osv):
         if lang=='en':
             msg = msg_eng + "\n\n Mawgif Team"
         elif lang=="ar":
-            msg = msg_ar + "\n\nفريق موقف" 
+            msg = msg_ar + "\nموقف" 
         reload(sys) 
         sys.setdefaultencoding('ascii')
         return msg
