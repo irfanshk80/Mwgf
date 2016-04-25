@@ -11,8 +11,9 @@
 				<form string=" Details">
 					<group>
 						<group>
-							<field name="city_id" />
 							<field name="name" />
+							<field name="city_id" />
+							<field name="operation_categ" />
 							<field name="user_ids" domain="[('cso','=', True)]" options='{"no_open": True, "no_create": True}'>
 							<tree>
 								<field name="name" />
@@ -35,6 +36,7 @@
 				<tree string=" Details">
 					<field name="name" />
 					<field name="city_id" />
+					<field name="operation_categ" />
 				</tree>
 			</field>
 		</record>
@@ -46,6 +48,19 @@
 			<field name="arch" type="xml">
 				<search string="Search ">
 					<field name="name" />
+					
+					<filter string="In Progress" name="progress" icon="terp-personal-"
+						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress" context="{'order_by':'create_date_n asc'}" />
+
+					<filter string="Closed" icon="terp-personal-"
+						domain="[('state','=', 'closed')]" help="Closed" context="{'order_by':'date_closed desc'}" />
+
+					<group expand="0" string="Group By">
+						<filter string="City" icon="terp-personal" domain="[]"
+							help="City" context="{'group_by':'city_id'}" />
+						<filter string="Category" icon="terp-personal" domain="[]"
+							help="Category" context="{'group_by':'operation_categ'}" />
+					</group>
 				</search>
 			</field>
 		</record>

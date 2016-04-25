@@ -28,12 +28,31 @@ class maw_city(osv.osv):
 class maw_district(osv.osv):
     _name ='maw.district'
     
-    
     _columns = {
       'name': fields.char('Operation', size=100),
       'city_id': fields.many2one('maw.city','City'),
       'user_ids': fields.many2many('res.users', 'user_operations_rel', 'operation_id', 'user_id', 'Customer Service Officers'),
       'manager': fields.many2one('res.users', 'Manager'),
+      'operation_categ':fields.many2one('maw.operation.category',"Category")
+    }
+    
+class maw_operation_category(osv.osv):
+    _name ='maw.operation.category'
+    
+    
+    _columns = {
+      'name': fields.char('Name', size=100),
+      'parent_id': fields.many2one('maw.operation.category', 'Parent'),
+      'description': fields.text('Description'),
+    }
+    
+class maw_plate_type(osv.osv):
+    _name ='maw.plate.type'
+    
+    
+    _columns = {
+      'name': fields.char('Name', size=100),
+      'description': fields.text('Description'),
     }
     
 class maw_country(osv.osv):
@@ -87,6 +106,27 @@ class maw_claim(osv.osv):
                 res[field]['selectable'] = False 
         return res
     
+    def _plate_no_full(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for ticket in self.browse(cr, uid, ids, context=context):
+            if ticket.plate_no_head and ticket.plate_no_tail:
+                res[ticket.id] = ticket.plate_no_head + ' ' + ticket.plate_no_tail
+        return res 
+    
+    def _staff_id_full(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for ticket in self.browse(cr, uid, ids, context=context):
+            if ticket.staff_id_head and ticket.staff_id_tail:
+                res[ticket.id] = ticket.staff_id_head + ' ' + ticket.staff_id_tail.zfill(8-len(ticket.staff_id_tail))
+        return res 
+    
+    def _customer_name_full(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for ticket in self.browse(cr, uid, ids, context=context):
+            if ticket.customer_first_name and ticket.customer_second_name:
+                res[ticket.id] = ticket.customer_first_name + ' ' + ticket.customer_second_name
+        return res 
+    
     _columns = {
         'name': fields.char('Subject',copy=False),
         
@@ -99,6 +139,7 @@ class maw_claim(osv.osv):
         
         'customer_first_name': fields.char('First Name', required=True),
         'customer_second_name': fields.char('Last Name', required=True),
+        'customer_name':fields.function(_customer_name_full,type="char",size=128,string="Customer Name",store=True),
         'partner_id':fields.many2one('res.partner', "Customer"),
         
         'claimcateg': fields.selection([('claim', "Complaint"),('question', "Question"),('comment', "Comment"),], 'Support Type'),     
@@ -145,6 +186,17 @@ class maw_claim(osv.osv):
                                          ('customer', "Customer")], 'Creator Type',copy=False),
         'created_by':fields.many2one('res.users','Created By',copy=False),
         
+        'pnd_no':fields.char('PND Number', size=64, select=True),
+        'ewallet_account':fields.char('eWallet Account', size=64, select=True),
+        'plate_no_head':fields.char('Plate No Prefix', size=64, select=True),
+        'plate_no_tail':fields.char('Plate No Suffix', size=64, select=True),
+        'plate_no_full':fields.function(_plate_no_full,type="char",size=64,store=True,string="Plate No"),
+        'plate_type':fields.many2one("maw.plate.type", 'Plate Type'),
+        'staff_id_head':fields.char('Staff ID Head', size=64, select=True),
+        'staff_id_tail':fields.char('Staff ID Tail', size=64, select=True),
+        'staff_id_full':fields.function(_staff_id_full,type="char",size=64,store=True,string="Staff ID"),
+        'staff_name':fields.char('Staff Name', size=64, select=True),
+        'operation_categ':fields.related('district','operation_categ',type='many2one', relation='maw.operation.category',string='Operation Category',store=True),
         'state': fields.selection([
          ('new', "New"),
          ('opened', "Opened"),

@@ -43,6 +43,17 @@
 							<group>
 								<field name="customer_second_name" attrs="{'readonly':[('state', '=', 'closed')]}"/>
 							</group>
+							
+							<group>
+								<field name="pnd_no"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<field name="plate_no_full"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<field name="staff_id_full" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+							</group>
+							<group>
+								<field name="ewallet_account"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<field name="plate_type" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<field name="staff_name" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+							</group>
 						</group>
 						<group string="Contact Info">
 							<group>
@@ -175,10 +186,15 @@
 					<field name="customer_first_name" string="Customer First Name" />
 					<field name="mobile" string="Mobile" />
 					<field name="customer_email" string="Email" />
+					<field name="staff_id_full" string="Staff ID" />
+					<field name="pnd_no" string="PND Number" />
+					<field name="ewallet_account" string="eWallet" />
+					<field name="plate_no_full" string="Plat Number" />
+					<field name="plate_type" string="Plat Type" />
 					<separator />
 
 					<filter string="In Progress" name="progress" icon="terp-personal-"
-						domain="[('state','in', ('new','opened','assigned','solved'))]" help="progress" context="{'order_by':'create_date_n asc'}" />
+						domain="[('state','in', ('opened','assigned','solved'))]" help="progress" context="{'order_by':'create_date_n asc'}" />
 
 					<filter string="Closed" icon="terp-personal-"
 						domain="[('state','=', 'closed')]" help="Closed" context="{'order_by':'date_closed desc'}" />
@@ -192,14 +208,30 @@
 							help="Status" context="{'group_by':'state'}" />
 						<filter string="City" icon="terp-personal" domain="[]"
 							help="City" context="{'group_by':'city_id'}" />
-						<filter string="Operations" icon="terp-personal" domain="[]"
-							help="Operations" context="{'group_by':'district'}" />
+						<filter string="Operation" icon="terp-personal" domain="[]"
+							help="Operation" context="{'group_by':'district'}" />
 						<filter string="Occurance Date" icon="terp-go-month" domain="[]"
 							help="By Month" context="{'group_by':'date'}" />
 						<filter string="Creation Date" icon="terp-go-month" domain="[]"
 							help="By Month" context="{'group_by':'create_date_n'}" />
 						<filter string="Closed Date" icon="terp-go-month" domain="[]"
 							help="Date Closed" context="{'group_by':'date_closed'}" />
+						<filter string="PND Number" icon="terp-go-month" domain="[]"
+							help="PND Number" context="{'group_by':'pnd_no'}" />
+						<filter string="eWallet" icon="terp-go-month" domain="[]"
+							help="eWallet" context="{'group_by':'ewallet_account'}" />
+						<filter string="Plate No" icon="terp-go-month" domain="[]"
+							help="Plate No" context="{'group_by':'plate_no_full'}" />
+						<filter string="Plate Type" icon="terp-go-month" domain="[]"
+							help="Plate Type" context="{'group_by':'plate_type'}" />
+						<filter string="Staff ID" icon="terp-go-month" domain="[]"
+							help="Staff ID" context="{'group_by':'staff_id_full'}" />
+						<filter string="Mobile" icon="terp-go-month" domain="[]"
+							help="Mobile" context="{'group_by':'mobile'}" />
+						<filter string="Customer First Name" icon="terp-go-month" domain="[]"
+							help="Customer First Name" context="{'group_by':'customer_first_name'}" />
+						<filter string="Operation Category" icon="terp-go-month" domain="[]"
+							help="Operation Category" context="{'group_by':'operation_categ'}" />
 					</group>
 				</search>
 			</field>
@@ -226,6 +258,14 @@
 					<field name="claimcateg" />
 					<field name="state" />
 					<field name="source_type" invisible="1" />
+					<field name="staff_id_full" string="Staff ID" invisible="1"/>
+					<field name="pnd_no" string="PND Number" invisible="1"/>
+					<field name="ewallet_account" string="eWallet" invisible="1"/>
+					<field name="plate_no_full" string="Plat Number" invisible="1"/>
+					<field name="plate_type" string="Plat Type" invisible="1"/>
+					<field name="customer_name" string="Customer Name" invisible="1"/>
+					<field name="customer_first_name" string="Customer First Name" invisible="1"/>
+					<field name="operation_categ" string="Operation Category" invisible="1"/>
 				</tree>
 			</field>
 		</record>

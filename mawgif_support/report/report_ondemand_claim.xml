@@ -29,6 +29,10 @@
 						<h2>
 							On Demand Report
 						</h2>
+						<h2 t-esc="o.get_today()"/>  
+					</div>
+					<div class="text-center">
+						<h4 t-esc="o.get_filter_data(o)"/>  
 					</div>
 
 					<t t-set="data" t-value="o.get_datas_ondemand(o)" />

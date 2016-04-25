@@ -34,6 +34,17 @@
 	        name="mawgif_support.report_ondemand_claim"
 	        menu="False"
         />
+        
+        <!-- Ondemand Mawgif Customer Support Report -->
+        <report
+	        id="report_mawgif_ondemand_dtl_claim"
+	        string="Print"
+	        model="claim.report.print.wiz"
+	        report_type="qweb-pdf"
+	        file="mawgif_support.report_ondemand_dtl_claim"
+	        name="mawgif_support.report_ondemand_dtl_claim"
+	        menu="False"
+        />
 
     </data>
 </openerp>

@@ -1,50 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data>
+	<data>
 
-        <record id="view_claim_report_print_wiz_form" model="ir.ui.view">
-            <field name="name">view.claim.report.print.wiz.form</field>
-            <field name="model">claim.report.print.wiz</field>
-            <field name="arch" type="xml">
-              <form >
-                  <group col="4" colspan="2">
-                      <field name="report_id" required="1" />
-                      
-                  </group>
-                  <notebook tabpos="up" colspan="4" attrs="{'invisible':[('report_id', '!=', 'monthly')]}">
-                    <page string="Filters" name="filters">
-                        <group>
-                            <field name="filter" on_change="onchange_filter(filter)" attrs="{'required':[('report_id', '=', 'monthly')]}"/>
-                        </group>
-                        <group string="Dates"  attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}">
-                            <field name="date_from" />
-                            <field name="date_to" />
-                        </group>
-                        <group string="Month" attrs="{'invisible':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}">
-                            <field name="month" on_change="onchange_month(month)" attrs="{'required':[('filter', '=', 'filter_period')]}"/>
-                        </group>
-                    </page>
-                </notebook>
-                  <footer>
-                      <button name="print_report" string="Print" type="object" class="oe_highlight"/>
-                      <button string="Cancel" class="oe_link" special="cancel" />
-                  </footer>
-              </form>
-            </field>
-        </record>
+		<record id="view_claim_report_print_wiz_form" model="ir.ui.view">
+			<field name="name">view.claim.report.print.wiz.form</field>
+			<field name="model">claim.report.print.wiz</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="4" colspan="2">
+						<field name="report_id" required="1" />
+					</group>
+					<notebook tabpos="up" colspan="4" >
+						<page string="Filters" name="filters" >
+							<group string="Period" attrs="{'invisible':[('report_id', 'not in', ['monthly'])]}">
+								<group>
+									<field name="filter" on_change="onchange_filter(filter)"
+										attrs="{'required':[('report_id', '=', 'monthly')]}" />
+								</group>
+								<group attrs="{'invisible':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}">
+									<field name="date_from" />
+									<field name="date_to" />
+								</group>
+								<group 
+									attrs="{'invisible':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}">
+									<field name="month" on_change="onchange_month(month)"
+										attrs="{'required':[('filter', '=', 'filter_period')]}" />
+								</group>
+							</group>
+							
+							<group string="Operation">
+								<group>
+										<field name="operation_filter" on_change="onchange_opt_filter(operation_filter)"/>
+										<field name="operation_categ" on_change="onchange_city_category(operation_filter,city_id,operation_categ)" attrs="{'invisible':[('operation_filter', '!=', 'opt_category')]}"  options='{"no_open": True, "no_create": True}'/>
+										<field name="city_id" on_change="onchange_city_category(operation_filter,city_id,operation_categ)" attrs="{'invisible':[('operation_filter', '!=', 'city')]}" options='{"no_open": True, "no_create": True}'/>
+										<field name="district" options='{"no_open": True, "no_create": True}'/>
+								</group>
+							</group>
+							<group string="Extra" attrs="{'invisible':[('report_id', '!=', 'on_demand_dtl')]}">
+								<group>
+									<field name="pnd_no" />
+									<field name="plate_no_full" />
+									<field name="staff_id_full" />
+								</group>
+								<group>
+									<field name="ewallet_account" />
+									<field name="plate_type" options='{"no_open": True, "no_create": True}'/>
+								</group>
+								<group>
+									<field name="customer_name" />
+								</group>
+								<group>
+									<field name="mobile" />
+								</group>
+							</group>
+						</page>
+					</notebook>
+					<footer>
+						<button name="print_report" string="Print" type="object"
+							class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
 
-        <record id="action_claim_report_print_wiz" model="ir.actions.act_window">
-            <field name="name">Analysis Reports</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">claim.report.print.wiz</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_claim_report_print_wiz_form"/>
-            <field name="target">new</field>
-        </record>
-        
-        <menuitem name="Analysis Reports" id="menu_mawgif_claim_reports"
-            action="action_claim_report_print_wiz" parent="reports_side_mi" />
-     
-    </data>
+		<record id="action_claim_report_print_wiz" model="ir.actions.act_window">
+			<field name="name">Analysis Reports</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">claim.report.print.wiz</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_claim_report_print_wiz_form" />
+			<field name="target">new</field>
+		</record>
+
+		<menuitem name="Analysis Reports" id="menu_mawgif_claim_reports"
+			action="action_claim_report_print_wiz" parent="reports_side_mi" />
+
+	</data>
 </openerp>

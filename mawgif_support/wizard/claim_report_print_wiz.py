@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 #/#############################################################################
 #
-#    Span Tree
-#    Copyright (C) 2004-TODAY DrishtiTech(<http://www.drishtitech.com/>).
-#
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
@@ -34,14 +31,46 @@ class claim_report_print_wiz(models.TransientModel):
     def _default_user_id(self): 
         return self._uid
 
-    report_id = fields.Selection([('daily','Daily Report'),('monthly','Monthly Report'),('on_demand','On demand Report')], default='daily', string='Report Type')
+    report_id = fields.Selection([('daily','Daily Report'),('monthly','Monthly Report'),('on_demand','On Demand Report')
+                                  ,('on_demand_dtl','On Demand Report - Detailed')], default='daily', string='Report Type')
     user_id = fields.Many2one("res.users", string="User")
-    filter = fields.Selection([('filter_date', 'Date'), ('filter_period', 'Month')], "Filter by")
+    filter = fields.Selection([('filter_date', 'Date'), ('filter_period', 'Month')], "Period By")
     month = fields.Selection([('01', 'Jan'), ('02', 'Feb'), ('03', 'Mar'),('04', 'Apr'),('05', 'May'),('06', 'Jun'),
                               ('07', 'July'), ('08', 'Aug'),('09', 'Sep'),('10', 'Oct'),('11', 'Nov'),('12', 'Dec')
                               ], "Month")
     date_from = fields.Date("Start Date")
     date_to = fields.Date("End Date")
+    
+    operation_filter = fields.Selection([('city', 'City'), ('opt_category', 'Operation Category')], "Operations By")
+    pnd_no = fields.Char('PND Number', size=64)
+    ewallet_account = fields.Char('eWallet Account', size=64)
+    plate_no_full = fields.Char('Plate No', size=64)
+    plate_type = fields.Many2one("maw.plate.type", 'Plate Type')
+    staff_id_full = fields.Char('Staff ID', size=64)
+    staff_name = fields.Char('Staff Name', size=64)
+    operation_categ = fields.Many2one('maw.operation.category',string='Operation Category')
+    mobile = fields.Char('Mobile')
+    city_id = fields.Many2one('maw.city','City')
+    customer_name = fields.Char('Customer Name', size=64)
+    district = fields.Many2one('maw.district' ,'Operation' )
+    
+    def onchange_opt_filter(self, cr, uid, ids, opt_filter, context=None):
+        res = {'value': {}}
+        if opt_filter == 'city':
+            res['value'] = {'operation_categ':False}
+        if opt_filter == 'opt_categ':
+            res['value'] = {'city_id':False}
+        return res
+    
+    def onchange_city_category(self, cr, uid, ids, opt_filter,city_id,opt_categ, context=None):
+        res = {'value': {}}
+        if opt_filter == 'city':
+            res['value'] = {'operation_categ':False}
+            res['domain'] = {'district':[('city_id','=',city_id)]}
+        if opt_filter == 'opt_categ':
+            res['value'] = {'city_id':False}
+            res['domain'] = {'district':[('operation_categ','=',opt_categ)]}
+        return res
     
     def onchange_filter(self, cr, uid, ids, filter='filter_period', context=None):
         res = {'value': {}}
@@ -74,6 +103,37 @@ class claim_report_print_wiz(models.TransientModel):
         
     def get_yesterday(self, cr, uid, context=None):
         return (datetime.now()-timedelta(1)).strftime('%Y-%m-%d')
+    
+    def get_today(self, cr, uid, context=None):
+        return (datetime.now()).strftime('%Y-%m-%d')
+    
+    def get_filter_data(self, data):
+        filter_data = ""
+        filter_dict = {}
+        filter_dict['Operation Category'] = data.operation_categ.name
+        filter_dict['City'] = data.city_id.name
+        filter_dict['Operation'] = data.district.name
+        filter_dict['PND No'] = data.pnd_no
+        filter_dict['eWallet'] = data.ewallet_account
+        filter_dict['Plate No'] = data.plate_no_full
+        filter_dict['Plate Type'] = data.plate_type.id
+        filter_dict['Staff ID'] = data.staff_id_full
+        filter_dict['Staff Name'] = data.staff_name
+        filter_dict['Mobile'] = data.mobile
+        filter_dict['Customer Name'] = data.customer_name
+        
+        operator = ' = '
+        no = 0
+        for key,value in filter_dict.iteritems():
+            if value:
+                if no!=0:
+                    filter_data  += ", "
+                else:
+                    filter_data  += "Filter Criteria : "
+                filter_data  +=  key + operator + str(value)
+                no+=1
+                
+        return filter_data
 
     @api.multi
     def print_report(self):
@@ -85,11 +145,26 @@ class claim_report_print_wiz(models.TransientModel):
             report_name = 'mawgif_support.report_monthly_claim'
         elif self.report_id == 'on_demand':
             report_name = 'mawgif_support.report_ondemand_claim'
+        elif self.report_id == "on_demand_dtl":
+            report_name = 'mawgif_support.report_ondemand_dtl_claim'
         report = self.pool['report'].get_action(self._cr, self._uid, [], report_name, data,self._context)
         return report
 
     
     def get_datas_daily(self, data):
+        
+        filter_dict = {}
+        filter_dict['operation_categ'] = data.operation_categ.id
+        filter_dict['city_id'] = data.city_id.id
+        filter_dict['district'] = data.district.id
+        
+        filter_where = " "
+        alias = "c."
+        operator = '='
+        for key,value in filter_dict.iteritems():
+            if value:
+                filter_where  += " and " + alias + key + operator + str(value)
+        
         support = {'claim':'Complaint','comment':'Comment','question':'Question'}
         res_dict = {}
         prev_res_dict = {}
@@ -122,13 +197,13 @@ class claim_report_print_wiz(models.TransientModel):
         
         days_list = ['Today','All Previous']
         days = {'Today':"""  
-            (c.create_date_n > TIMESTAMP 'yesterday' and c.create_date_n < TIMESTAMP 'today') or (c.assigned_date > TIMESTAMP 'yesterday' and c.assigned_date < TIMESTAMP 'today') or 
+            ((c.create_date_n > TIMESTAMP 'yesterday' and c.create_date_n < TIMESTAMP 'today') or (c.assigned_date > TIMESTAMP 'yesterday' and c.assigned_date < TIMESTAMP 'today') or 
          
-            (c.solved_date > TIMESTAMP 'yesterday' and c.solved_date < TIMESTAMP 'today') """,
+            (c.solved_date > TIMESTAMP 'yesterday' and c.solved_date < TIMESTAMP 'today')) """,
             
-            'All Previous':"""  (c.create_date_n < TIMESTAMP 'yesterday') or (c.assigned_date < TIMESTAMP 'yesterday') or
+            'All Previous':"""  ((c.create_date_n < TIMESTAMP 'yesterday') or (c.assigned_date < TIMESTAMP 'yesterday') or
          
-            (c.solved_date < TIMESTAMP 'yesterday') """}
+            (c.solved_date < TIMESTAMP 'yesterday')) """}
         days_closed = {
                        'Today' : """ (c.state='closed') and (c.date_closed > TIMESTAMP 'yesterday' and c.date_closed < TIMESTAMP 'today') and ( c.date_closed - c.create_date_n %s '6 day'::interval) """,
                        'All Previous': """ (c.state='closed') and (c.date_closed < TIMESTAMP 'yesterday') and (c.date_closed - c.create_date_n  %s '6 day'::interval) """
@@ -147,7 +222,7 @@ class claim_report_print_wiz(models.TransientModel):
         for key in days_list:
             if key =='Today':
                 ##### For all states except Close state
-                query = select + claim_column + state_column + count_column + where + group_by_categ_state
+                query = select + claim_column + state_column + count_column + where + filter_where + group_by_categ_state
                 query = query % (days[key]) 
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -168,7 +243,7 @@ class claim_report_print_wiz(models.TransientModel):
                         total_solved += record[2]
                         
                 ##### For close state on time
-                query = select + claim_column + state_column + count_column + where + group_by_categ_state
+                query = select + claim_column + state_column + count_column + where + filter_where + group_by_categ_state
                 query = query % (days_closed[key]  % ("<"))
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -189,7 +264,7 @@ class claim_report_print_wiz(models.TransientModel):
                         total_complaint_ontime_today += record[2]
                         
                 ##### For close state late
-                query = select + claim_column + state_column + count_column + where + group_by_categ_state
+                query = select + claim_column + state_column + count_column + where + filter_where + group_by_categ_state
                 query = query % (days_closed[key]  % (">"))
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -245,7 +320,7 @@ class claim_report_print_wiz(models.TransientModel):
             else:
                 ##### All Previous ############
                 ##### For all states except Close state
-                query = select + state_column + count_column + where + group_by_state
+                query = select + state_column + count_column + where + filter_where + group_by_state
                 query = query % (days[key]) 
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -267,7 +342,7 @@ class claim_report_print_wiz(models.TransientModel):
                     
                     
                 ##### For close state on time    
-                query = select + state_column + count_column + where + group_by_state
+                query = select + state_column + count_column + where + filter_where + group_by_state
                 query = query % (days_closed[key]  % ("<"))
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -283,7 +358,7 @@ class claim_report_print_wiz(models.TransientModel):
                 
                 ##### For close state late
                 
-                query = select + state_column + count_column + where + group_by_state
+                query = select + state_column + count_column + where + filter_where + group_by_state
                 query = query % (days_closed[key]  % (">"))
                 self.env.cr.execute(query) 
                 records = self.env.cr.fetchall()
@@ -768,6 +843,18 @@ class claim_report_print_wiz(models.TransientModel):
         return data_list
     
     def get_datas_ondemand(self, data):
+        filter_dict = {}
+        filter_dict['operation_categ'] = data.operation_categ.id
+        filter_dict['city_id'] = data.city_id.id
+        filter_dict['district'] = data.district.id
+        
+        where = " "
+        alias = "c."
+        operator = '='
+        for key,value in filter_dict.iteritems():
+            if value:
+                where  += " and " + alias + key + operator + str(value)
+        
         data_list = []
         days_list = ['7-10','11-15','16-30','31-60','61+']
         days = {'7-10':(6,10),'11-15':(10,15),'16-30':(15,30),'31-60':(30,60),'61+':(60,60)}
@@ -776,8 +863,8 @@ class claim_report_print_wiz(models.TransientModel):
         count_column = " count(*) as nbr  from  maw_claim c " 
         where_between = """ where c.state %s 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '%s day'::interval)) and 
                          
-                         ((current_date -  c.create_date_n   <= '%s day'::interval)) """
-        where_above = " where c.state %s 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '%s day'::interval)) "
+                         ((current_date -  c.create_date_n   <= '%s day'::interval)) """ + where
+        where_above = " where c.state %s 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '%s day'::interval)) " + where
         group_by = " group by c.claimcateg "
         
         for key in days_list:
@@ -815,14 +902,14 @@ class claim_report_print_wiz(models.TransientModel):
         
         vals = {}
         
-        total_closed_query = "select  c.claimcateg as claimcateg,  count(*) as nbr  from  maw_claim c  where c.state = 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval)) group by c.claimcateg"
+        total_closed_query = "select  c.claimcateg as claimcateg,  count(*) as nbr  from  maw_claim c  where c.state = 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval)) "+ where+" group by c.claimcateg"
         self.env.cr.execute(total_closed_query) 
         records = self.env.cr.fetchall()
         if records:
             vals = dict(records)
             vals['total'] = sum(vals.values())
         
-        total_not_closed_query = "select  count(*) as nbr  from  maw_claim c  where c.state <> 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval))"
+        total_not_closed_query = "select  count(*) as nbr  from  maw_claim c  where c.state <> 'closed' and c.state <> 'new' and ((current_date -  c.create_date_n   > '6 day'::interval))" + where
         self.env.cr.execute(total_not_closed_query) 
         records = self.env.cr.fetchall()
         if records:
@@ -832,6 +919,49 @@ class claim_report_print_wiz(models.TransientModel):
             
         data_list.append(['Total',vals])
             
+        return data_list
+
+    def get_datas_ondemand_dtl(self, data):
+        filter_dict = {}
+        
+#         date_from = data.date_from
+#         date_to = data.date_to
+        
+        filter_dict['pnd_no'] = (data.pnd_no,'non-list')
+        filter_dict['ewallet_account'] = (data.ewallet_account,'non-list')
+        filter_dict['plate_no_full'] = (data.plate_no_full,'non-list')
+        filter_dict['plate_type'] = (data.plate_type.id,'non-list')
+        filter_dict['staff_id_full'] = (data.staff_id_full,'non-list')
+        filter_dict['staff_name'] = (data.staff_name,'non-list')
+        filter_dict['operation_categ'] = (data.operation_categ.id,'non-list')
+        filter_dict['mobile'] = (data.mobile,'non-list')
+        filter_dict['city_id'] = (data.city_id.id,'non-list')
+        filter_dict['customer_name'] = (data.customer_name,'non-list')
+        filter_dict['district'] = (data.district.id,'non-list')
+        
+        where = " "
+        alias = "c."
+        for key,value in filter_dict.iteritems():
+            if value[1]=='non-list' and value[0]:
+                operator = '=' if value[1]=="non-list" else " in "
+                val = " and " + alias + key + operator
+                if  isinstance(value[0], basestring):
+                    val += """'%s'""" % (value[0],)
+                else:
+                    val += """%s""" % (value[0],)
+                where   += val
+#         ondemand_dtl_query = """select ROW_NUMBER() OVER (ORDER BY c.number) AS serial_number, c.date as date, c.number as complaint_id, concat(c.customer_first_name,' ',c.customer_second_name) as customer, mc.name as city, md.name as operation, 
+#                                 c.state as state from maw_claim c left join maw_city mc on c.city_id=mc.id left join maw_district md on c.district=md.id 
+#                                 where c.claimcateg='claim' and c.state <> 'new' and create_date_n >= '%s' AND create_date_n <= '%s'""" + where
+        
+        ondemand_dtl_query = """select ROW_NUMBER() OVER (ORDER BY c.number) AS serial_number, c.date as date, c.number as complaint_id, concat(c.customer_first_name,' ',c.customer_second_name) as customer, mc.name as city, md.name as operation, 
+                                c.state as state from maw_claim c left join maw_city mc on c.city_id=mc.id left join maw_district md on c.district=md.id 
+                                where c.claimcateg='claim' and c.state <> 'new' """ + where
+                                
+#         ondemand_dtl_query = ondemand_dtl_query % (date_from,date_to)
+        
+        self.env.cr.execute(ondemand_dtl_query) 
+        data_list = self.env.cr.fetchall()
         return data_list
 
 

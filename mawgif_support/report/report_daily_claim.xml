@@ -30,6 +30,9 @@
 						</h2>
 						 <h2 t-esc="o.get_yesterday()"/>  
 					</div>
+					<div class="text-center">
+						<h4 t-esc="o.get_filter_data(o)"/>  
+					</div>
 					<div class="oe_structure" />
 					<t t-set="data" t-value="o.get_datas_daily(o)" />
 

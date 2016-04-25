@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		################################ maw.plate.type Views
+		################################################
+		<record id="plate_type_form_view" model="ir.ui.view">
+			<field name="name">maw.plate.type.form.view</field>
+			<field name="model">maw.plate.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plate Type">
+					<group>
+						<group>
+							<field name="name" />
+						</group>
+						<group>
+							<field name="description" />
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="plate_type_tree_view" model="ir.ui.view">
+			<field name="name">maw.plate.type.tree.view</field>
+			<field name="model">maw.plate.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string=" Details">
+					<field name="name" />
+					<field name="description" />
+				</tree>
+			</field>
+		</record>
+
+
+
+
+		<record id="plate_type_search" model="ir.ui.view">
+			<field name="name">maw_plate_type_search</field>
+			<field name="model">maw.plate.type</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search ">
+					<field name="name" />
+					<field name="description" />
+				</search>
+			</field>
+		</record>
+
+		################################ course window action
+		################################################
+
+		<record id="plate_type_win_act" model="ir.actions.act_window">
+			<field name="name">Plate Type</field>
+			<field name="res_model">maw.plate.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		################################ menuitem course
+		################################################
+
+
+		<menuitem action="plate_type_win_act" id="plate_type_win_act_mi"
+			name="Plant Type" sequence="33" parent="configuration_side_mi" />
+
+	</data>
+</openerp>	
+
+
+
+
+
+
+
+
+
+
+
+

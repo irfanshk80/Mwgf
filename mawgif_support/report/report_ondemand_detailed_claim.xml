@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<template id="report_ondemand_dtl_claim_document">
+
+			<t t-extend="report.external_layout_footer">
+				<t t-jquery=".footer" t-operation="replace">
+					<div class="footer">
+						<div class="row">
+							<div style="float:left;width:50%">
+								<hr color="black" />
+								<strong>Prepared On: </strong>
+								<span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"></span>
+							</div>
+							<div style="float:right;width:50%;text-align:right;">
+								<hr color="black" />
+								<strong>Prepared By: </strong>
+								<span t-esc="user.name"></span>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+			<t t-call="report.external_layout">
+				<div class="page">
+					<div class="oe_structure" />
+					<div class="text-center">
+						<h2>
+							On Demand Report - Detailed
+						</h2>
+						<h2 t-esc="o.get_today()"/>  
+					</div>
+					<div class="text-center">
+						<h4 t-esc="o.get_filter_data(o)"/>  
+					</div>
+
+					<t t-set="data" t-value="o.get_datas_ondemand_dtl(o)" />
+					<table class="table table-condensed">
+						<thead>
+							<tr style="border: 1px solid black;">
+								<th style="border: 1px solid black;text-align: center;vertical-align: middle"
+									 valign="middle">#</th>
+								<th style="border: 1px solid black;text-align: center;vertical-align: middle"
+									 valign="middle">Occurance Date and Time</th>
+								<th style="border: 1px solid black;text-align: center;">Complaint ID</th>
+								<th style="border: 1px solid black;text-align: center;">Customer Name</th>
+								<th style="border: 1px solid black;text-align: center;">City</th>
+								<th style="border: 1px solid black;text-align: center;">Operation</th>
+								<th style="border: 1px solid black;text-align: center;">Status</th>
+							</tr>
+						</thead>
+						<tbody class="table table-condensed">
+							<tr t-foreach="data" t-as="l">
+								<td style="text-align: center;">
+									<span t-esc="l[0]" />
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[1]"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[2]"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[3]"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[4]"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[5]"/>
+								</td>
+								<td style="text-align: center;" >
+									<span t-esc="l[6]"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</t>
+		</template>
+
+		<template id="report_ondemand_dtl_claim">
+			<t t-call="report.html_container">
+				<t t-foreach="doc_ids" t-as="doc_id">
+					<t
+						t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'mawgif_support.report_ondemand_dtl_claim_document')" />
+				</t>
+			</t>
+		</template>
+
+	</data>
+</openerp>
