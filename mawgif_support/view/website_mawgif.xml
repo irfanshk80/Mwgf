@@ -95,8 +95,10 @@
 						            <div t-attf-class="form-group required #{error and 'customer_first_name' in error and 'has-error' or ''}">
 						                
 						                <label class="col-xs-3 req_eng control-label" for="customer_first_name">Customer Name</label>
-						                <div class="col-xs-7">
+						                <div class="col-xs-3">
 						                    <input type="text" class="form-control" name="customer_first_name" placeholder="First Name	 الاسم الاول" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_first_name or ''}" autofocus="True" />
+						                 </div>
+						                 <div class="col-xs-4">
 						                    <input type="text" class="form-control" name="customer_second_name" placeholder="Second Name      الاسم الاخير" required="True" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{customer_second_name or ''}"/>
 						                </div>
 						                <label class="col-xs-2 ar_label control-label req_arb" for="customer_first_name">اسم العميل</label>
@@ -164,6 +166,73 @@
 				                        <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">موقع الحدث</label>
 				                    </div>
 				                    
+				                    
+				                    <!-- Extra fields for Plate ewallet pnd staff -->
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="PND Number">PND Number</label>
+						                <div class="col-xs-7">
+						                    <input type="text" class="form-control" name="pnd_no" placeholder="PND Number      جهاز المواقف" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{pnd_no or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="pnd_no">جهاز المواقف</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="eWallet Account">eWallet Account</label>
+						                <div class="col-xs-7">
+						                    <input type="text" class="form-control" name="ewallet_account" placeholder="eWallet Account      الحساب الالكتروني" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{ewallet_account or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="ewallet_account">الحساب الالكتروني</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="Plate Number Head">Plate Number</label>
+						                <div class="col-xs-3">
+						                    <input type="text" class="form-control" name="plate_no_head" placeholder="Plate Num:KGH - رقم المركبة : ك ج ح" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_head or ''}" />
+						                </div>
+						                <!-- <div class="col-xs-1">&amp;nbsp;</div> -->
+						                <div class="col-xs-4">
+						                    <input type="text" class="form-control" name="plate_no_tail" placeholder="Plate Num:1234 - رقم المركبة : ١ ٢ ٣ ٤" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_tail or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="Plate Number Head">رقم المركبة</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="Plate Type">Plate Type</label>
+						                <div class="col-xs-7">
+						                    <select class="form-control" id="plate_type" name='plate_type' >
+						                    	<option value="">Choose Plate Type - اختيار نوع اللوحة</option>
+					                            <t t-foreach='plate_types' t-as='plate_type'>
+					                                <option t-att-value='plate_type.id' >
+					                                    <t t-esc='plate_type.name'/>
+					                                </option>
+					                            </t>
+					                        </select>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="Plate Type">نوع لوحة المركبة</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="Staff ID Head">Staff ID</label>
+						                <div class="col-xs-3">
+						                    <input type="text" class="form-control staff-head staff" name="staff_id_head" placeholder="Staff ID: 19 - رقم الموظف : ١٩" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_head or ''}" maxlength="2" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+						                </div>
+						                <div class="col-xs-4">
+						                    <input type="text" class="form-control staff-tail staff" name="staff_id_tail" placeholder="Staff ID: 0011 - رقم الموظف : ٠٠١١" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_tail or ''}" maxlength="4" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="Staff ID Head">رقم الموظف</label>
+						            </div>
+						            
+						            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+						                <label class="col-xs-3 control-label" for="Staff Name">Staff Name</label>
+						                <div class="col-xs-7">
+						                    <input type="text" class="form-control" name="staff_name" placeholder="Staff Name     اسم الموظف" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_name or ''}"/>
+						                </div>
+						                <label class="col-xs-2 control-label ar_label" for="Staff Name">اسم الموظف</label>
+						            </div>
+						            
+						            <!-- End extra fields -->
+				                    
 									
 									<div t-attf-class="form-group #{error and 'claimcateg' in error and 'has-error' or ''}">
 				                        <label class="col-xs-3 control-label" for="claimcateg">Support Type</label>
@@ -184,6 +253,7 @@
 						                </div>
 						                <label class="col-xs-2 control-label ar_label req_arb" for="customer_first_name">الوصف</label>
 						            </div>
+						            
 						       		<div t-attf-class="form-group #{error and 'attachment' in error and 'has-error' or ''}">
 						                <label class="col-xs-3 control-label" for="attachment">Attachment1</label>
 						                <span class="filesizelbl"> (File size should not exceed 1 MB --- 1 MB ينبغي ألا يتجاوز حجم الملفات)</span>

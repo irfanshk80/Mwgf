@@ -27,6 +27,7 @@ class support(http.Controller):
         orm_city = request.registry['maw.city']
         district_orm = request.registry['maw.district']
         country_orm = request.registry['maw.country']
+        plate_type_orm = request.registry['maw.plate.type']
 
         city_ids = orm_city.search(cr, SUPERUSER_ID, [], context=context)
         cities = orm_city.browse(cr, SUPERUSER_ID, city_ids, context)
@@ -34,13 +35,14 @@ class support(http.Controller):
         districts = district_orm.browse(cr, SUPERUSER_ID, district_ids, context)
         country_ids = country_orm.search(cr, SUPERUSER_ID, [], context=context)
         countries = country_orm.browse(cr, SUPERUSER_ID, country_ids, context)
-
+        plate_ids = plate_type_orm.search(cr, SUPERUSER_ID, [], context=context)
+        plate_types = plate_type_orm.browse(cr, SUPERUSER_ID, plate_ids, context)
         
         for field in ['mobile', 'customer_first_name', 'customer_second_name' ,'description','customer_email'] :
             if kwargs.get(field):
                 values[field] = kwargs.pop(field)
         values.update(kwargs=kwargs.items())
-        values.update({'cities':cities,'districts':districts,'countries':countries})
+        values.update({'cities':cities,'districts':districts,'countries':countries, 'plate_types':plate_types})
         
         return request.website.render("mawgif_support.mawgif_support", values)
 

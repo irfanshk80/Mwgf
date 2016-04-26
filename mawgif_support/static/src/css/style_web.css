@@ -1,5 +1,5 @@
 body {
-	
+	font-size: 12px;
 }
 
 .ar_label {
@@ -20,4 +20,9 @@ span.filesizelbl {
 .form-group.required .control-label:not(.req_eng):before {
 	content: "*";
 	color: red;
+}
+
+.form-control {
+	height: 28px;
+	font-size: 12px;
 }

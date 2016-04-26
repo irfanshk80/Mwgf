@@ -36,7 +36,23 @@ $(document).ready(function() {
                                 this.setCustomValidity("");  
                 });
                 
+                $('.staff').on('keyup', function() {
+                	if($('.staff-head').val() != "") {
+                		$('.staff-tail').prop('required', true);
+                		$('.staff-head').prop('required', false);
+                	} else {
+                		$('.staff-tail').prop('required', false);
+                	}
+                	if($('.staff-tail').val() !== "") {
+                		$('.staff-head').prop('required', true);
+                		$('.staff-tail').prop('required', false)
+                	} else {
+                		$('.staff-head').prop('required', false);
+                	}
+                })
+                
 });
+
 
 function chkDesc(textarea) {
     if (textarea.value.length > 1000) {
