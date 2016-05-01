@@ -1,5 +1,5 @@
 body {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .ar_label {
@@ -24,5 +24,22 @@ span.filesizelbl {
 
 .form-control {
 	height: 28px;
-	font-size: 12px;
+	font-size: 10px;
+}
+
+#text2::-webkit-input-placeholder::before {
+    color:#666;
+    content:"Line 1\A Line 2\A Line 3\A";
+}
+
+.rt-bdr {
+	border-right: 0.1em solid;
+}
+
+.panel {
+	margin-bottom: 0px;
+	border: 0;
+}
+.panel-heading {
+	padding: 1px 0px;
 }
