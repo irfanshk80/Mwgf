@@ -243,7 +243,6 @@
 						                                    <t t-esc='plate_type.name'/>
 						                                </option>
 						                            </t>
-						                            <option value="Other">Other</option>
 						                        </select>
 							                </div>
 							                <div class="col-xs-4">

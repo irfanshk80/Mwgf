@@ -60,7 +60,7 @@ $(document).ready(function() {
                 
                $('#plate_type').on('change', function(){
             	   console.log('selected' + $("#plate_type").val());
-            	   if($('#plate_type option:selected').val() === 'Other') {
+            	   if($('#plate_type option:selected').val() === '7') {
             		   
             		   $('.oplt-type').css('display','block');
             	   } else {
