@@ -235,7 +235,7 @@
 							            
 							            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
 							                <label class="col-xs-3 control-label" for="Plate Type">Plate Type</label>
-							                <div class="col-xs-7">
+							                <div class="col-xs-3">
 							                    <select class="form-control" id="plate_type" name='plate_type' >
 							                    	<option value="">Choose Plate Type - اختيار نوع اللوحة</option>
 						                            <t t-foreach='plate_types' t-as='plate_type'>
@@ -243,7 +243,11 @@
 						                                    <t t-esc='plate_type.name'/>
 						                                </option>
 						                            </t>
+						                            <option value="Other">Other</option>
 						                        </select>
+							                </div>
+							                <div class="col-xs-4">
+							                	<input type="text" class="form-control oplt-type" name="other_plate_type" placeholder="Other Plate Type" style="display: none"/>
 							                </div>
 							                <label class="col-xs-2 control-label ar_label" for="Plate Type">نوع لوحة المركبة</label>
 							            </div>

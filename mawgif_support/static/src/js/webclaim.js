@@ -49,9 +49,32 @@ $(document).ready(function() {
                 	} else {
                 		$('.staff-head').prop('required', false);
                 	}
-                })
+                });
+                
+//                var placeholder_text = $('form input:text');
+//                console.log(placeholder_text.length);
+
+//                Array.prototype.forEach.call(placeholder_text, function(elem) {
+//                    elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+//                });
+                
+               $('#plate_type').on('change', function(){
+            	   console.log('selected' + $("#plate_type").val());
+            	   if($('#plate_type option:selected').val() === 'Other') {
+            		   
+            		   $('.oplt-type').css('display','block');
+            	   } else {
+            		   $('.oplt-type').css('display','none');
+            	   }
+               });
                 
 });
+
+//var textAreas = document.getElementsByTagName('text');
+//Array.prototype.forEach.call(textAreas, function(elem) {
+//	alert('here')
+//    elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+//});
 
 
 function chkDesc(textarea) {
