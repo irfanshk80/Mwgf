@@ -13,9 +13,9 @@
 						<group>
 							<field name="name" />
 						</group>
-						<group>
+					</group>
+					<group>
 							<field name="description" />
-						</group>
 					</group>
 				</form>
 			</field>
@@ -63,7 +63,7 @@
 
 
 		<menuitem action="plate_type_win_act" id="plate_type_win_act_mi"
-			name="Plant Type" sequence="33" parent="configuration_side_mi" />
+			name="Plate Type" sequence="33" parent="configuration_side_mi" />
 
 	</data>
 </openerp>	

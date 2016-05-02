@@ -14,9 +14,9 @@
 							<field name="name" />
 							<field name="parent_id" />
 						</group>
-						<group>
+					</group>
+					<group>
 							<field name="description" />
-						</group>
 					</group>
 				</form>
 			</field>
