@@ -46,12 +46,30 @@
 							
 							<group>
 								<field name="pnd_no"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
-								<field name="plate_no_full"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
-								<field name="staff_id_full" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<label for="plate_no_head" string="Plate No" />
+								<div class="address_format">
+									<field name="plate_no_head" nolabel="1" placeholder="Only Characters"  
+										options='{"no_open": True, "no_create": True}' style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+									<field name="plate_no_tail" nolabel="1"
+										placeholder="Only Numbers" style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								</div>
+								<label for="staff_id_head" string="Staff ID" />
+								<div class="address_format">
+									<field name="staff_id_head" nolabel="1" placeholder="First Two Numbers"  
+										options='{"no_open": True, "no_create": True}' style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+									<field name="staff_id_tail" nolabel="1"
+										placeholder="Last Four Numbers" style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								</div>
 							</group>
 							<group>
 								<field name="ewallet_account"  attrs="{'readonly':[('state', '=', 'closed')]}"/>
-								<field name="plate_type" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								<label for="plate_type" string="Plate Type" />
+								<div class="address_format">
+									<field name="plate_type" nolabel="1"  
+										options='{"no_open": True, "no_create": True}' style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+									<field name="other_plate_type" nolabel="1"
+										placeholder="Other Plate Type Name" style="width: 50%%" attrs="{'readonly':[('state', '=', 'closed')]}"/>
+								</div>
 								<field name="staff_name" attrs="{'readonly':[('state', '=', 'closed')]}"/>
 							</group>
 						</group>
