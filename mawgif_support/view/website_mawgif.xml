@@ -224,11 +224,11 @@
 							            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
 							                <label class="col-xs-3 control-label" for="Plate Number Head">Plate Number</label>
 							                <div class="col-xs-3">
-							                    <input type="text" class="form-control" name="plate_no_head" placeholder="Plate Num:KGH - رقم المركبة : ك ج ح" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_head or ''}" onkeypress="if ( !isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+							                    <input type="text" class="form-control" name="plate_no_head" placeholder="Only Letters - حروف فقط" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_head or ''}" onkeypress="if ( !isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
 							                </div>
 							                <!-- <div class="col-xs-1">&amp;nbsp;</div> -->
 							                <div class="col-xs-4">
-							                    <input type="text" class="form-control" name="plate_no_tail" placeholder="Plate Num:1234 - رقم المركبة : ١ ٢ ٣ ٤" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_tail or ''}" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+							                    <input type="text" class="form-control" name="plate_no_tail" placeholder="Only Numbers - أرقام فقط" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{plate_no_tail or ''}" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
 							                </div>
 							                <label class="col-xs-2 control-label ar_label" for="Plate Number Head">رقم المركبة</label>
 							            </div>
@@ -251,10 +251,10 @@
 							            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
 							                <label class="col-xs-3 control-label" for="Staff ID Head">Staff ID</label>
 							                <div class="col-xs-3">
-							                    <input type="text" class="form-control staff-head staff" name="staff_id_head" placeholder="First two digits: 19 - رقم الموظف : ١٩" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_head or ''}" maxlength="2" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+							                    <input type="text" class="form-control staff-head staff" name="staff_id_head" placeholder="First two digits - أول رقمين" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_head or ''}" maxlength="2" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
 							                </div>
 							                <div class="col-xs-4">
-							                    <input type="text" class="form-control staff-tail staff" name="staff_id_tail" placeholder="Last four digits: 0011 - رقم الموظف : ٠٠١١" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_tail or ''}" maxlength="4" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
+							                    <input type="text" class="form-control staff-tail staff" name="staff_id_tail" placeholder="Last four digits - آخر أربع أرقام" title="من فضلك لا يمكن ترك هذا الحقل فارغا" t-attf-value="#{staff_id_tail or ''}" maxlength="4" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"/>
 							                </div>
 							                <label class="col-xs-2 control-label ar_label" for="Staff ID Head">رقم الموظف</label>
 							            </div>

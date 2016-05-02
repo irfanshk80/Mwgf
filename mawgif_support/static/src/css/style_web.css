@@ -22,7 +22,7 @@ span.filesizelbl {
 	color: red;
 }
 
-.form-control {
+.panel-body div .form-control {
 	height: 28px;
 	font-size: 10px;
 }
